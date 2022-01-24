@@ -1,0 +1,142 @@
+$penPanelIconsColor: map-get(map-get(map-get(map-get($Reader, DayMode), Pentool), toolbar), icons-color);
+
+#penPanel {
+    width: 57px;
+    overflow: hidden;
+    height: auto;
+    // height: 100%;
+    background-color: map-get(map-get(map-get(map-get($Reader, DayMode), Pentool), toolbar), background);
+    border: 1px solid #595959;
+
+    .topContainer {
+        .md-button {
+            margin: 0%;
+        }
+    }
+
+    .penButton {
+        padding: 0px;
+        text-transform: none;
+        border-radius: unset;
+
+        .penButtonIcon {
+            color: $penPanelIconsColor;
+            line-height: 24px;
+        }
+    }
+
+    .activePenColorRadius {
+        border: 1px solid map-get(map-get(map-get(map-get($Reader, DayMode), Pentool), Pen), selected_border_color);
+        border-radius: 50%;
+        min-height: unset;
+        height: 30px;
+        width: 30px;
+        padding: 2px 2px 2px 2.5px;
+    }
+
+    .selectedColor {
+        border-top: 5px solid;
+        width: 26px;
+        height: 4px;
+        margin: auto;
+    }
+
+    .pick-colors {
+        line-height: 24px;
+    }
+
+    .separator {
+        width: 100%;
+        border-top-color: #c4c4c4;
+    }
+
+    .pen-thickness {
+        height: 75%;
+
+        .rzslider {
+            height: 90%;
+            top: 5%;
+            margin: 0 26px;
+
+            .rz-pointer {
+                background-color: map-get(map-get(map-get(map-get($Reader, DayMode), Pentool), Thickness), slider-filled-color);
+                width: 20px;
+                height: 20px;
+                left: -8px !important;
+
+                &::after {
+                    display: none;
+                }
+            }
+
+            .rz-bubble {
+                display: none;
+            }
+
+            .rz-selection {
+                background: map-get(map-get(map-get(map-get($Reader, DayMode), Pentool), Thickness), slider-filled-color);
+            }
+
+            .rz-tick.rz-selected {
+                background: map-get(map-get(map-get(map-get($Reader, DayMode), Pentool), Thickness), slider-filled-color);
+            }
+        }
+    }
+
+    .saveButton {
+        color: $penPanelIconsColor;
+        width: 100%;
+    }
+}
+
+
+.Mobile-pick-color {
+    width: auto;
+    height: $barHeight;
+    background: #f2f2f2;
+    box-shadow: 1px 5px 15px 0 rgba(50, 50, 50, 0.75);
+    border-radius: 3px;
+    text-align: center;
+    position: fixed;
+    top: $barHeight;
+    left: 16%;
+    display: none;
+    z-index: 9;
+}
+
+.Mobile-pick-slider {
+    display: none;
+    width: 200px;
+    height: $barHeight;
+    background: #fafafa;
+    box-shadow: 1px 5px 15px 0 rgba(50, 50, 50, 0.75);
+    border-radius: 3px;
+    text-align: center;
+    position: fixed;
+    top: $barHeight;
+    left: 31%;
+    z-index: 9;
+
+    .pen-thickness {
+        height: 100%;
+        width: 80%;
+        left: 7%;
+        position: relative;
+
+        md-slider {
+
+            .md-track {
+                height: 3px;
+            }
+
+            .md-thumb:after {
+                border-color: map-get(map-get(map-get(map-get($Reader, DayMode), Pentool), Thickness), slider-filled-color);
+                background-color: map-get(map-get(map-get(map-get($Reader, DayMode), Pentool), Thickness), slider-filled-color);
+            }
+
+            .md-track.md-track-fill {
+                background-color: map-get(map-get(map-get(map-get($Reader, DayMode), Pentool), Thickness), slider-filled-color);
+            }
+        }
+    }
+}

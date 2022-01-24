@@ -1,0 +1,1360 @@
+@import './styles/variables';
+@import './styles/mixins';
+@import './styles/readers-ui';
+$white: #fff;
+html, body {
+  background: $white;
+}
+* {
+  line-height: normal;
+}
+
+@font-face {
+  font-family: 'Kitaboo_6_0';
+  src:  url('assets/shell/fonts/bookshelf/Kitaboo_6_0.eot?3fcwag');
+  src:  url('assets/shell/fonts/bookshelf/Kitaboo_6_0.eot?3fcwag#iefix') format('embedded-opentype'),
+    url('assets/shell/fonts/bookshelf/Kitaboo_6_0.woff2?3fcwag') format('woff2'),
+    url('assets/shell/fonts/bookshelf/Kitaboo_6_0.ttf?3fcwag') format('truetype'),
+    url('assets/shell/fonts/bookshelf/Kitaboo_6_0.woff?3fcwag') format('woff'),
+    url('assets/shell/fonts/bookshelf/Kitaboo_6_0.svg?3fcwag#Kitaboo_6_0') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="bicon-"], [class*=" bicon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'Kitaboo_6_0' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  src:  url('assets/shell/fonts/reader/opensans/OpenSans-Regular.ttf') format('truetype'),
+        url('assets/shell/fonts/reader/opensans/OpenSans-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Fira Sans';
+  src:  url('assets/shell/fonts/bookshelf/firasans/FiraSans-Regular.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Fira Sans';
+  src:  url('assets/shell/fonts/bookshelf/firasans/FiraSans-Medium.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Fira Sans';
+  src:  url('assets/shell/fonts/bookshelf/firasans/FiraSans-Bold.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Fira Sans';
+  src:  url('assets/shell/fonts/bookshelf/firasans/FiraSans-Italic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: italic;
+}
+
+/* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+html,
+body {
+  height: 100%;
+  position: relative
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+//Bookshelf Icons
+.bicon-Preview:before {
+  content: "©";
+}
+.bicon-Preview-off:before {
+  content: "Â";
+}
+.bicon-Analytics::before {
+  content: "Ɇ";
+}
+.bicon-Filter:before {
+  content: "Ḟ";
+}
+
+.bicon-Hamburger:before {
+  content: "Ɓ";
+}
+.icon-tickmark::before {
+  content: "Ɉ";
+}
+.bicon-Class::before {
+  content: "Ƕ";
+}
+.bicon-Audio:before {
+  content: "i";
+}
+.bicon-Video:before {
+  content: "j";
+}
+.bicon-download_nonselect::before {
+  content: "Ɗ";
+}
+
+.bicon-download_select::before {
+  content: "ƌ";
+}
+
+.bicon-Line-spacing-3:before {
+  content: "Ф";
+}
+
+.icon-profile:before {
+  content: "ð";
+}
+
+.bicon-Language-selection:before {
+  content: "Ü";
+}
+
+.bicon-active-status::before {
+  content: "ɸ";
+}
+
+.bicon-Search:before {
+  content: "d";
+}
+
+
+.bicon-Notification:before {
+  content: "ş";
+}
+
+.bicon-TOC:before {
+  content: "b";
+}
+
+.bicon-Favourits-fil:before {
+  content: "ʖ";
+}
+
+.bicon-Setting:before {
+  content: "B";
+}
+
+.bicon-User:before {
+  content: "Ƥ";
+}
+
+.bicon-Profile-select:before {
+  content: "Ɠ";
+}
+
+.bicon-Favourits:before {
+  content: "Է";
+}
+
+.bicon-Recent:before {
+  content: "Ў";
+}
+
+.bicon-Download:before {
+  content: "s";
+}
+
+.bicon-Home:before {
+  content: "a";
+}
+
+.bicon-Dark-mode:before {
+  content:"Ŝ";
+}
+
+.bicon-Info:before {
+  content: "ñ";
+}
+.bicon-Home-select:before {
+  content: "Ħ";
+}
+.bicon-Favourite:before {
+  content: "Է";
+}
+.bicon-Sleep-mode::before {
+  content: "ד";
+}
+
+.bicon-Lock::before {
+  content: "¶";
+}
+
+.bicon-Language-selection::before {
+  content: "Ü";
+}
+
+.bicon-Camera::before {
+  content: "œ";
+}
+
+.bicon-Sign_out::before {
+  content: "Ꞷ";
+}
+.bicon-Close::before {
+  content: "2";
+}
+.bicon-Share::before {
+  content: "ƽ";
+}
+.bicon-More-vertical::before {
+  content: "ľ";
+}
+.bicon-Privacy-policy::before {
+  content: "Ŵ";
+}
+.bicon-Read-font::before {
+  content: "Ƣ";
+}
+.bicon-Terms-and-Conditions::before {
+  content: "Ž";
+}
+.bicon-kitaboo-logo-icon::before {
+  content: "Ø";
+}
+.bicon-Update-Password::before {
+  content: "ƺ";
+}
+.bicon-access-code::before {
+  content: "Λ";
+}
+.bicon-Back-arrow::before {
+  content: "˂";
+}
+
+.bicon-video-play::before {
+  content: "ặ";
+}
+
+//Reader Fonts
+@font-face {
+  font-family: 'kitabooread';
+  src:  url('assets/shell/fonts/reader/kitabooread.eot?enndda');
+  src:  url('assets/shell/fonts/reader/kitabooread.eot?enndda#iefix') format('embedded-opentype'),
+    url('assets/shell/fonts/reader/kitabooread.woff2?enndda') format('woff2'),
+    url('assets/shell/fonts/reader/kitabooread.ttf?enndda') format('truetype'),
+    url('assets/shell/fonts/reader/kitabooread.woff?enndda') format('woff'),
+    url('assets/shell/fonts/reader/kitabooread.svg?enndda#kitabooread') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class$='-icon'], [class*=icon], [class^=icon-] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "kitabooread";
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active{
+  background: $white;
+  background-color: $white;
+    -webkit-box-shadow: 0 0 0 30px $white inset !important;
+}
+.icon-Institute:before {
+  content: "ʕ";
+}
+.icon-instant-feedback:before {
+  content: "ӝ";
+}
+.icon-sleeping-mode:before {
+  content: "ד";
+}
+.icon-active-status:before {
+  content: "ɸ";
+}
+.icon-active-status-p:before {
+  font-family: 'kitabooread';
+  content: "ɸ";
+}
+.icon-Students-cap:before {
+  content: "Ɂ";
+}
+.icon-Select-Arrow:before {
+  content: "Ș";
+}
+.icon-Multi-select:before {
+  content: "∂";
+}
+.icon-Select-Class:before {
+  content: "Ҭ";
+}
+.icon-Teacher-comment:before {
+  content: "Ở";
+}
+.icon-copy:before {
+  content: "Ȣ";
+}
+.icon-colour-more-corner_1:before {
+  content: "Ä";
+}
+.icon-Previous-video:before {
+  content: "Ѧ";
+}
+.icon-Next-video:before {
+  content: "Ѩ";
+}
+.icon-Video_subtitle-fill:before {
+  content: "Ѫ";
+}
+.icon-Quality:before {
+  content: "Ƀ";
+}
+.icon-colour-more-corner-icon:before {
+  content: "«";
+}
+.icon-Corner-more-icon:before {
+  content: "»";
+}
+.icon-Generate-report-number-2:before {
+  content: "∑";
+}
+.icon-Generate-report-number-1:before {
+  content: "∫";
+}
+.full-screen-icon:before {
+  content: "ɿ";
+}
+.normal-screen-icon:before {
+  content: "ﬧ";
+}
+.icon-Academic_icon-01:before {
+  content: "ք";
+}
+.icon-sleep-mode:before {
+  content: "Ŝ";
+}
+.icon-listen:before {
+  content: "Ω";
+}
+.icon-ball:before {
+  content: "Ƈ";
+}
+.icon-create:before {
+  content: "ą";
+}
+.icon-home-nonselect:before {
+  content: "Ю";
+}
+.icon-Recent:before {
+  content: "Ў";
+}
+.icon-Next-arrow:before {
+  content: "ϗ";
+}
+.icon-Download-for-bytes:before {
+  content: "ƥ";
+}
+.icon-Read:before {
+  content: "Ƣ";
+}
+.icon-Earth_grid_select_language:before {
+  content: "Ɑ";
+}
+.icon-pause_circle_outline:before {
+  content: "ƕ";
+}
+.icon-play_circle_outline:before {
+  content: "ρ";
+}
+.icon-Microsoft_Immersive_Reader:before {
+  content: "Ầ";
+}
+.icon-language-selection:before {
+  content: "Ü";
+}
+.icon-Delete_New:before {
+  content: "š";
+}
+.icon-bookmark-audio-video-new:before {
+  content: "Ҽ";
+}
+.icon-bookmark-audio-video-Selected-new:before {
+  content: "Ə";
+}
+.icon-replay_15:before {
+  content: "Ҵ";
+}
+.icon-forward_15:before {
+  content: "Ҹ";
+}
+.icon-replay_30:before {
+  content: "ҹ";
+}
+.icon-forward_30:before {
+  content: "Դ";
+}
+.icon-audio_1:before {
+  content: "ѵ";
+}
+.icon-Speech-tool:before {
+  content: "Ѷ";
+}
+.icon-Video-time-backward1:before {
+  content: "Փ";
+}
+.icon-Video-time-backward:before {
+  content: "Ք";
+}
+.icon-profile-msv:before {
+  content: "ð";
+}
+.icon-ACEP-Logo:before {
+  content: "Į";
+}
+.icon-Margin-1:before {
+  content: "Խ";
+}
+.icon-Margin-2:before {
+  content: "Ծ";
+}
+.icon-Margin-3:before {
+  content: "Կ";
+}
+.icon-Reflowable_layout:before {
+  content: "ϔ";
+}
+.icon-Fixed_layout:before {
+  content: "ϕ";
+}
+.icon-Radio-unselected-button-01:before {
+  content: "ŷ";
+}
+.icon-Radio-on-button-01:before {
+  content: "Ź";
+}
+.icon-Line-Spacing_1:before {
+  content: "Т";
+}
+.icon-Line-Spacing_2:before {
+  content: "У";
+}
+.icon-Line-Spacing_3:before {
+  content: "Ф";
+}
+.icon-Foss_icon-01:before {
+  content: "á";
+}
+.icon-Category-Sort-by:before {
+  content: "Ƿ";
+}
+.icon-Sort_by:before {
+  content: "Ⱬ";
+}
+.icon-Read_aloud:before {
+  content: "ʠ";
+}
+.icon-Web_search:before {
+  content: "ʡ";
+}
+.icon-facebook-icon:before {
+  content: "₣";
+}
+.icon-BackArrow:before {
+  content: "˂";
+}
+.icon-Chapter:before {
+  content: "Ϲ";
+}
+.icon-Favourite:before {
+  content: "Է";
+}
+.icon-Information:before {
+  content: "Ѳ";
+}
+.icon-OfflineContent:before {
+  content: "Ϸ";
+}
+.icon-Profile:before {
+  content: "Ξ";
+  font-family: 'kitabooread';
+}
+.icon-Search:before {
+  content: "Ӭ";
+}
+.icon-lock-p:before {
+  font-family: 'kitabooread';
+  content: '¶';
+}
+
+.icon-Data_not_generated:before {
+  content: "?";
+}
+.icon-Students_clear_data-01:before {
+  content: "4";
+}
+.icon-Data-syncing:before {
+  content: "Ổ";
+}
+.icon-K12_Favorite_selection:before {
+  content: "ʖ";
+}
+.icon-K12_Favorite:before {
+  content: "ʔ";
+}
+.icon-chapter-thumbnail-hide:before {
+  content: "Ð";
+}
+.icon-chapter-thumbnail-show:before {
+  content: "Ñ";
+}
+.icon-chapter-thumbnail:before {
+  content: "ذ";
+}
+.icon-All_Students-01:before {
+  content: "Φ";
+}
+.icon-Text_color-01:before {
+  content: "Ɣ";
+}
+.icon-toc_infobase:before {
+  content: "Î";
+}
+.icon-asterisk_password:before {
+  content: "٭";
+}
+.icon-Average-Pages-Read_Session:before {
+  content: "Ą";
+}
+.icon-Caret-up:before {
+  content: "Ӛ";
+}
+.icon-Caret_down:before {
+  content: "ӛ";
+}
+.icon-favorites-with-selection:before {
+  content: "к";
+}
+.icon-favorites-without-selection:before {
+  content: "л";
+}
+.icon-Google-translate:before {
+  content: "м";
+}
+.icon-Fast_forward_Audio:before {
+  content: "¬";
+}
+.icon-Rewind_Audio:before {
+  content: "¯";
+}
+.icon-Sign_out:before {
+  content: "Ꞷ";
+}
+.icon-Keyboard_up:before {
+  content: "Ʀ";
+}
+.icon-Keyboard_down:before {
+  content: "ƻ";
+}
+.icon-Background_color_change:before {
+  content: "ƺ";
+}
+.icon-Text_annotation_Add:before {
+  content: "Ƹ";
+}
+.icon-Text_annotation:before {
+  content: "ʧ";
+}
+.icon-panel_close_arrow:before {
+  content: "÷";
+}
+.icon-alert-icon:before {
+  content: "!";
+}
+.icon-Video_subtitle:before {
+  content: "ꬼ";
+}
+.icon-Video_Zoom_out:before {
+  content: "בּ";
+}
+.icon-Voice_Recorder:before {
+  content: "ꟽ";
+}
+.icon-Toggle_Off:before {
+  content: "˦";
+}
+.icon-Toggle_On:before {
+  content: "˧";
+}
+.icon-font_settings:before {
+  content: "Հ";
+}
+.icon-icon-:before {
+  content: "ᴝ";
+}
+.icon-more_info:before {
+  content: "ñ";
+}
+.icon-search_sort_down:before {
+  content: "ŗ";
+}
+.icon-search_sort_up:before {
+  content: "ŕ";
+}
+.icon-Document-preview:before {
+  content: "תּ";
+}
+.icon-Brightness:before {
+  content: "ꭓ";
+}
+.icon-fully-Justified:before {
+  content: "ꭔ";
+}
+.icon-Highilight_new-01:before {
+  content: "ﬨ";
+}
+.icon-Collapse_new-01:before {
+  content: "ﬧ";
+}
+.icon-Scroll-up-01:before {
+  content: "ﬦ";
+}
+.icon-Username-01:before {
+  content: "ă";
+}
+.icon-Audio_sync-01:before {
+  content: "ᾅ";
+}
+.icon-eBook-01:before {
+  content: "Ἕ";
+}
+.icon-Color_palette-01:before {
+  content: "Ṕ";
+}
+.icon-Confirm_Password-01:before {
+  content: "Ẋ";
+}
+.icon-Document:before {
+  content: "ằ";
+}
+.icon-Drag_new-01:before {
+  content: "ẹ";
+}
+.icon-Drop_down-01:before {
+  content: "ở";
+}
+.icon-Drow-pencil-01:before {
+  content: "ṗ";
+}
+.icon-ePub-01:before {
+  content: "ẽ";
+}
+.icon-filter-01:before {
+  content: "Ḟ";
+}
+.icon-Highilights_shared-01:before {
+  content: "Ḫ";
+}
+.icon-HTML_Interactivity-01:before {
+  content: "Ḯ";
+}
+.icon-HTML-01:before {
+  content: "Ḧ";
+}
+.icon-More_horizontal-01:before {
+  content: "Ḡ";
+}
+.icon-No-result-found-01:before {
+  content: "ṝ";
+}
+.icon-Note_shared-01:before {
+  content: "ṋ";
+}
+.icon-Password-01:before {
+  content: "Ẃ";
+}
+.icon-Pen_thickness-01:before {
+  content: "ỉ";
+}
+.icon-Pinch-01:before {
+  content: "ừ";
+}
+.icon-Post-01:before {
+  content: "ẟ";
+}
+.icon-Resources_viewed-01:before {
+  content: "ả";
+}
+.icon-Single_Tap-01:before {
+  content: "ẗ";
+}
+.icon-Swipe_Left-01:before {
+  content: "Ỽ";
+}
+.icon-Text_input-01:before {
+  content: "ἑ";
+}
+.icon-Windows_back-01:before {
+  content: "Ọ";
+}
+.icon-list:before {
+  content: "ɺ";
+}
+.icon-Play:before {
+  content: "ɼ";
+}
+.icon-Full_screen:before {
+  content: "ɿ";
+}
+.icon-Check:before {
+  content: "ͽ";
+}
+.icon-Uncheck:before {
+  content: "ͻ";
+}
+.icon-Direction-arrow:before {
+  content: "Ć";
+}
+.icon-AR_icon:before {
+  content: "ⱱ";
+}
+.icon-AR_audio-mute:before {
+  content: "Ậ";
+}
+.icon-AR_flash_filled:before {
+  content: "ỹ";
+}
+.icon-AR_flash:before {
+  content: "Œ";
+}
+.icon-AR_Image:before {
+  content: "ũ";
+}
+.icon-AR_expand:before {
+  content: "Õ";
+}
+.icon-AR_audio-volume:before {
+  content: "◊";
+}
+.icon-AR_back:before {
+  content: "≈";
+}
+.icon-AR_close:before {
+  content: "∞";
+}
+.icon-AR_download:before {
+  content: "ℓ";
+}
+.icon-AR_info:before {
+  content: "₤";
+}
+.icon-AR_read_offline:before {
+  content: "Ὅ";
+}
+.icon-AR_read-online:before {
+  content: "Ỹ";
+}
+.icon-AR_swipe-down:before {
+  content: "Ỷ";
+}
+.icon-AR_swipe-next:before {
+  content: "Ự";
+}
+.icon-AR_swipe-prev:before {
+  content: "ỡ";
+}
+.icon-AR_swipe-up:before {
+  content: "ỗ";
+}
+.icon-AR_thumbnail:before {
+  content: "ị";
+}
+.icon-AR_video2:before {
+  content: "Ễ";
+}
+.icon-AR_Video-fullscreen:before {
+  content: "ẫ";
+}
+.icon-AR_video-play:before {
+  content: "ặ";
+}
+.icon-Expression_Editor:before {
+  content: "ệ";
+}
+.icon-protractor:before {
+  content: "ọ";
+}
+.icon-Hurix_digital_logo:before {
+  content: "Ч";
+}
+.icon-collection:before {
+  content: "ϵ";
+}
+.icon-Audio_Sequencing:before {
+  content: "Ƽ";
+}
+.icon-imagezoom:before {
+  content: "Ĝ";
+}
+.icon-Windows_Notification:before {
+  content: "ş";
+}
+.icon-Windows_Share_note:before {
+  content: "ř";
+}
+.icon-Time_Spent:before {
+  content: "Ț";
+}
+.icon-Video_Launched:before {
+  content: "Ȕ";
+}
+.icon-poweredby_english:before {
+  content: "ʅ";
+}
+.icon-read_aloud_open_book:before {
+  content: "Ş";
+}
+.icon-read_aloud_without_audio:before {
+  content: "ǝ";
+}
+.icon-Share_icon:before {
+  content: "ƽ";
+}
+.icon-mail_icon:before {
+  content: "ɯ";
+}
+.icon-minimize_icon:before {
+  content: "Ʃ";
+}
+.icon-Default_profile_pic_icon:before {
+  content: "Ƥ";
+}
+.icon-camera:before {
+  content: "ƈ";
+}
+.icon-Profile_Edit:before {
+  content: "ɞ";
+}
+.icon-Clear_icon:before {
+  content: "č";
+}
+.icon-Glossary_new:before {
+  content: "¿";
+}
+.icon-link:before {
+  content: "ΰ";
+}
+.icon-Centre_align:before {
+  content: "Ш";
+}
+.icon-Left_align:before {
+  content: "Ц";
+}
+.icon-Right_align:before {
+  content: "Щ";
+}
+.icon-Arrow_Undo:before {
+  content: "<";
+}
+.icon-Arrow_Redo:before {
+  content: ">";
+}
+.icon-drag_icons:before {
+  content: "ď";
+}
+.icon-ModalFeedback2:before {
+  content: "Ý";
+}
+.icon-Hint:before {
+  content: "Þ";
+}
+.icon-new_help:before {
+  content: "Ņ";
+}
+.icon-survey:before {
+  content: "ǿ";
+}
+.icon-Booklink:before {
+  content: "ə";
+}
+.icon-Video_subtitle1:before {
+  content: "ł";
+}
+.icon-y_note:before {
+  content: "ŀ";
+}
+.icon-fittoheight:before {
+  content: "¢";
+}
+.icon-fittowidth:before {
+  content: "Ç";
+}
+.icon-lock:before {
+  content: "¶";
+}
+.icon-unlock:before {
+  content: "µ";
+}
+.icon-sticky-note:before {
+  content: "¸";
+}
+.icon-cloud_update:before {
+  content: "Ķ";
+}
+.icon-alert:before {
+  content: "Ř";
+}
+.icon-a_bookshelf:before {
+  content: "a";
+}
+.icon-toc:before {
+  content: "b";
+}
+.icon-d_search:before {
+  content: "d";
+}
+.icon-highlighterforK12:before {
+  content: "e";
+}
+.icon-h_thumbnail:before {
+  content: "g";
+}
+.icon-h_assessment:before {
+  content: "h";
+}
+.icon-i_audio:before {
+  content: "i";
+}
+.icon-j_video:before {
+  content: "j";
+}
+.icon-k_image:before {
+  content: "k";
+}
+.icon-l_activity:before {
+  content: "l";
+}
+.icon-m_animation:before {
+  content: "m";
+}
+.icon-n_weblink:before {
+  content: "n";
+}
+.icon-o_jumptoscreen:before {
+  content: "o";
+}
+.actualScreen::before {
+  content: "ﬧ";
+}
+.icon-toc_bookmark_normal_icon:before {
+  content: "p";
+}
+.icon-q_bookmarkselected:before {
+  content: "q";
+}
+.icon-r_editcategory:before {
+  content: "r";
+}
+.icon-s_download:before {
+  content: "s";
+}
+.icon-t_pentool:before {
+  content: "t";
+}
+.icon-contextual-note:before {
+  content: "u";
+}
+.icon-x_zoomin:before {
+  content: "x";
+}
+.icon-y_zoomout:before {
+  content: "y";
+}
+.icon-A_print:before {
+  content: "A";
+}
+.icon-B_settings:before {
+  content: "B";
+}
+.icon-C_notesdelete:before {
+  content: "C";
+}
+.icon-D_important_non-selected:before {
+  content: "D";
+}
+.icon-F_check:before {
+  content: "E";
+}
+.icon-prev_page_icon:before {
+  content: "G";
+}
+.icon-H_next:before {
+  content: "H";
+}
+.icon-J_historyprev:before {
+  content: "I";
+}
+.icon-I_historynext:before {
+  content: "J";
+}
+.icon-media_pause:before {
+  content: "K";
+}
+.icon-media_play:before {
+  content: "L";
+}
+.icon-media_stop:before {
+  content: "M";
+}
+.icon-cmenu_end_tag:before {
+  content: "N";
+}
+.icon-cmenu_start_tag:before {
+  content: "O";
+}
+.icon-G_back:before {
+  content: "P";
+}
+.icon-next_icon:before {
+  content: "Q";
+}
+.icon-single_page_view:before {
+  content: "R";
+}
+.icon-twopageview:before {
+  content: "S";
+}
+.icon-note_icon_text_icon:before {
+  content: "V";
+}
+.icon-delete_book_icon:before {
+  content: "X";
+}
+.icon-analytics_statistics_icon:before {
+  content: "Z";
+}
+.icon-my_data_icon01:before {
+  content: "0";
+}
+.icon-fit_to_actual:before {
+  content: "1";
+}
+.icon-video_player_close:before {
+  content: "2";
+}
+.icon-video_player_drag_handle:before {
+  content: "3";
+}
+.icon-add_icon:before {
+  content: "5";
+}
+.icon-move_shelf_up:before {
+  content: "6";
+}
+.icon-move_shelf_down:before {
+  content: "7";
+}
+.icon-brush_icon:before {
+  content: '"';
+}
+.icon-eraser_icon:before {
+  content: "$";
+}
+.icon-expand_icon:before {
+  content: "(";
+}
+.icon-collapse_icon:before {
+  content: ")";
+}
+.icon-teacher_annotation_icon:before {
+  content: "/";
+}
+.icon-cloud_upload_icon:before {
+  content: ":";
+}
+.icon-multi_file_icon:before {
+  content: "@";
+}
+.icon-html_wrap:before {
+  content: "]";
+}
+.icon-book_cover_icon:before {
+  content: "`";
+}
+.icon-left_arrow_mark:before {
+  content: "{";
+}
+.icon-down_arrow_icon:before {
+  content: "}";
+}
+.icon-info:before {
+  content: "ā";
+}
+.icon-access_code_icon:before {
+  content: "*";
+}
+.icon-slideshow:before {
+  content: "Ã";
+}
+.icon-textsettings:before {
+  content: "£";
+}
+.icon-D_important_selected:before {
+  content: "œ";
+}
+.icon-archive:before {
+  content: "§";
+}
+.icon-student_teacher:before {
+  content: "¥";
+}
+.icon-preview:before {
+  content: "©";
+}
+.icon-sendarrow:before {
+  content: "¤";
+}
+.icon-page-reading-session:before {
+  content: "ª";
+}
+.icon-totalreadingsession:before {
+  content: "¦";
+}
+.icon-readingtime:before {
+  content: "¨";
+}
+.icon-preview_hide:before {
+  content: "Â";
+}
+.icon-comment:before {
+  content: "É";
+}
+.icon-page_curl:before {
+  content: "Ê";
+}
+.icon-page_transition:before {
+  content: "Ë";
+}
+.icon-overflow_more_vertical:before {
+  content: "ľ";
+}
+.icon-gallery2:before {
+  content: "ļ";
+}
+.icon-kitabootextlogo:before {
+  content: "Ù";
+}
+.icon-kitaboo_logo_icon:before {
+  content: "Ø";
+}
+.icon-Test-Generator_1:before {
+  content: "ç";
+}
+.icon-Worksheet:before {
+  content: "è";
+}
+.icon-Web-link:before {
+  content: "é";
+}
+.icon-Video_markup:before {
+  content: "ê";
+}
+.icon-Tool:before {
+  content: "ë";
+}
+.icon-Test-Paper:before {
+  content: "ì";
+}
+.icon-Test-Generator:before {
+  content: "í";
+}
+.icon-Summary-Lesson-Plan:before {
+  content: "î";
+}
+.icon-Student-Worksheet:before {
+  content: "ï";
+}
+.icon-Student-Answer-Keys:before {
+  content: "ò";
+}
+.icon-Slideshow:before {
+  content: "ó";
+}
+.icon-Prose-Audio:before {
+  content: "ô";
+}
+.icon-Pronunciation:before {
+  content: "õ";
+}
+.icon-Poem-Audio:before {
+  content: "ö";
+}
+.icon-PDF:before {
+  content: "ø";
+}
+.icon-Lesson-Plan:before {
+  content: "ù";
+}
+.icon-Learning-Nuggets:before {
+  content: "ú";
+}
+.icon-Interactivity:before {
+  content: "ĉ";
+}
+.icon-Glossary:before {
+  content: "ċ";
+}
+.icon-Geometry-Box:before {
+  content: "û";
+}
+.icon-Geome-Tool:before {
+  content: "ü";
+}
+.icon-Game:before {
+  content: "ý";
+}
+.icon-Exercise:before {
+  content: "þ";
+}
+.icon-LayoutFour:before {
+  content: "Ă";
+}
+.icon-LayoutOne:before {
+  content: "ÿ";
+}
+.icon-LayoutThree:before {
+  content: "Ā";
+}
+.icon-LayoutTwo:before {
+  content: "Ĉ";
+}
+.icon-Embedded-Interactivity:before {
+  content: "ć";
+}
+.icon-Comprehensive-Lesson-Plan:before {
+  content: "Đ";
+}
+.icon-Audio_markup:before {
+  content: "Ĕ";
+}
+.icon-Appendices:before {
+  content: "ē";
+}
+.icon-Answer-Keys:before {
+  content: "Ē";
+}
+.icon-Animation:before {
+  content: "Č";
+}
+.icon-Additional-Rhymes:before {
+  content: "Ċ";
+}
+.icon-Additional-Resources:before {
+  content: "Ď";
+}
+.icon-Abacus:before {
+  content: "Ė";
+}
+
+.mat-ripple-element{
+  display: none ;
+}
+
+
+.markup-audio-container .mat-dialog-container {
+  position: absolute;
+  left: 60px;
+  top: 80%;
+  /* width: auto; */
+  height: auto;
+  z-index: 999;
+  max-width: 500px;
+  }
+
+
+  //Loader Global
+  .loading-main {
+    position: fixed;
+    z-index: 99999;
+    margin: auto;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    &.fullloader {
+      &:before {
+        content: '';
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: -1;
+        height: 100%;
+        background:#eeeeeebb;
+      }
+    }
+
+    .loading-img {
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      position: fixed;
+      img {
+        height: 100px;
+      }
+    }
+}
+
+.contextual-notes-icon {
+  text-align: center;
+  display: inline-block !important;
+  font-size: 30px !important;
+  line-height: 40px !important;
+}
+
+.sticky-note-icon {
+  text-align: center;
+  display: inline-block !important;
+  font-size: 30px !important;
+  line-height: 45px !important;
+}
+
+.contextual-notes-icon::before {
+  content: "V"
+}
+
+.multiple-sticky-notes-popup {
+  .contextual-notes-icon {
+    font-size: 18px !important;
+  }
+}
+
+.audio-sync-icon:before{
+  content: "\1f85";
+}

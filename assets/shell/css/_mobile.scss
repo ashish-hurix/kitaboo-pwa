@@ -1,0 +1,756 @@
+$iconInsideMobilePanel: #065c87;
+$textImportantColor: map-get(map-get(map-get($Reader, DayMode), tableofcontents), selected_tab_border);
+
+.MobiletopSection {
+    width: 100%;
+
+    .teacherReviewNavigationPage{
+        margin-left: 15%;
+    }
+    .navigationPage {
+        padding: 0;
+        margin: 0;
+        font-size: 14px;
+        @include opensansRegular;
+        cursor: pointer;
+        text-transform: capitalize;
+        color: map-get(map-get(map-get($Reader, DayMode), Teacher_Settings), main_icon-color);
+
+        .md-button.md-default-theme[disabled],
+        .md-button[disabled] {
+            background-color: transparent;
+            opacity: 0.38;
+        }
+    }
+
+    .studentProfile {
+        border-radius: 50%;
+        display:none;
+        box-sizing: content-box;
+        flex: none;
+        width: 38px;
+        height: 38px;
+    }
+
+    .prevIcon {
+        color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), side_bottom), icons-color) !important;
+    }
+
+    .StudentName {
+        color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), top), Title_text_color);
+        font-size: 0.8em!important;
+        text-overflow: ellipsis;
+        width: 100px;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+}
+
+.middleSection {
+    width: 100%;
+
+    .teacherpenColor {
+        min-width: auto;
+        padding: 4px;
+        margin: 0;
+
+        .pickFeedbackcolors {
+            line-height: 24px;
+        }
+
+        .activeColorRadiusFeedback {
+            border: 1px solid map-get(map-get(map-get($Reader, DayMode), Teacher_Settings), selected_icon_bg);
+            border-radius: 50%;
+            min-height: unset;
+            height: 30px;
+            width: 30px;
+            padding: 2px 2px 2px 2px;
+        }
+
+        .selectedFeedbackColor {
+            border-top: 5px solid;
+            width: 26px;
+            height: 4px;
+        }
+    }
+
+    .teacherButton {
+        height: 40px;
+        width: 40px;
+    }
+
+    .teacherIcon {
+        color: map-get(map-get(map-get($Reader, DayMode), Teacher_Settings), main_icon-color) !important;
+        line-height: 24px;
+        text-transform: none;
+    }
+}
+
+.menuIconList {
+
+    .materialIcon {
+        margin: 0;
+        padding: 0;
+        min-height: 0;
+        min-width: 0;
+        text-transform: none;
+    }
+
+    .page-iconMobile {
+        color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), side_bottom), icons-color);
+        width: $pageIconWidth;
+        height: $pageIconHeight;
+        text-align: center;
+        vertical-align: middle;
+        margin: 0 !important;
+        &.full{
+            width: 58px;
+        }
+    }
+
+    .teacherButton {
+        height: 40px;
+        width: 40px;
+    }
+
+    .teacherIcon {
+        color: map-get(map-get(map-get($Reader, DayMode), Teacher_Settings), main_icon-color);
+        line-height: 24px;
+        text-transform: none;
+    }
+
+    .DoneButton {
+        text-align: center;
+        color: #095e8e;
+        width: 100%;
+    }
+
+    .md-button[disabled] md-icon {
+        opacity: 0.26;
+        cursor: default;
+    }
+}
+
+@media screen and (min-device-width: 319px) and (max-device-width: 590px) {
+    
+    #tooltip-thumbnailSlider {
+        display: none;
+        position: absolute;
+        bottom: 17%;
+        background: white;
+        border: 1px solid rgb(9, 94, 142);
+        color: rgb(9, 94, 142);
+        border-radius: 5px;
+        padding: 2px;
+        z-index: 999999;
+        text-align: center;
+    }
+
+    #illustrationPopup {
+        height: 100%;
+        max-height: 100%;
+        max-width: 100%;
+    }
+
+    .epub-viewer {
+        margin: 0 !important;
+        left: 0 !important;
+        width: 100% !important;
+        height: calc(100% - (#{$barHeight} + #{$barHeight})) !important;
+        box-shadow: none !important;
+    }
+
+    .epub-viewerMobile {
+        height: 100% !important;
+        top: 0px !important;
+        border: 10px solid white;
+        border-left: 0px;
+        box-shadow: inset 0px 0px 0px 10px white;
+        box-sizing: border-box;
+    }
+
+    .scrollView {
+        height: 90% !important;
+    }
+
+    .flex-container {
+        top: 10px !important;
+    }
+
+    #bookmark_container {
+        margin-top: 0% !important;
+    }
+
+    /* Thumbnail */
+    .thumbnail-panel-container {
+        left: 0;
+        top: 0;
+        max-width: 100%;
+        z-index: 99;
+        height: 100%;
+
+        #thumbnailHeader {
+            background-color: $thumbnailBackgroundColor;
+            width: 100%;
+            height: $barHeight;
+            padding-left: 15%;
+            padding-top: 1%;
+            z-index: 1050;
+            overflow: hidden;
+            display: flex;
+            flex-flow: column nowrap;
+            color: $iconInsideMobilePanel;
+
+            .icon-prev_page_icon {
+                position: absolute;
+                line-height: 40px;
+                left: 10px;
+            }
+
+            .labelName {
+                position: relative;
+                top: 18%;
+                float: left;
+                width: 30%;
+                right: 5%;
+            }
+        }
+
+        .thumbnail-panel {
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+        }
+
+        .pages {
+            width: 100%;
+            height: 86%;
+            max-height: 84%;
+            z-index: 99;
+            background-color: $thumbnailBackgroundColor;
+            overflow: hidden auto;
+        }
+
+        .bookpage {
+            height: auto;
+            width: 33%;
+            display: inline-block;
+
+            .chapterTitle {
+                width: 100%;
+                height: 13%;
+
+                .titleMobile {
+                    color: $textImportantColor !important;
+                    margin: 0 !important;
+                    font-family: 'Open Sans';
+                    font-size: 14px;
+                    display: inline-block;
+                    padding-left: 10%;
+                    width: 100%;
+                    top: 5px;
+                    position: relative;
+                }
+            }
+        }
+
+        .chapterImage {
+            margin-left: 10%;
+            margin-top: 3%;
+            width: 80%;
+            border: 1px solid #d3d3d3;
+        }
+
+        .activePage {
+            border: 1px solid #065c87;
+        }
+
+        .thumbnail_container .thumbnail-text-row .img-display-num-container label {
+            z-index: 9;
+            margin-right: 63%;
+            width: 26px;
+            height: 26px;
+            text-align: center;
+            background: #595959;
+            border: 1px solid #595959;
+            margin-bottom: -20% !important;
+        }
+
+        .thumbnail_footer {
+            border-top: 2px solid #ccc;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 100;
+            background-color: #fff;
+            height: $barHeight;
+            @if map-get($Reader, clientName)=='Bytes' {
+                height:50px;
+            }
+
+        }
+
+        .thumbnail_container {
+            -webkit-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+            display: -webkit-box;
+            display: flex;
+            padding-top: 6px;
+            width: 90% !important;
+            height: 84%;
+            display: none;
+            overflow-y: scroll !important;
+        }
+
+        .thumbnail-panel .history-next {
+            left: 17% !important;
+        }
+
+        .input_field {
+            left: 35%;
+            bottom: 4px !important;
+            width: 20% !important;
+        }
+    }
+
+    #thumbnailContainerEpub {
+        max-width: 100%;
+        z-index: 99;
+        height: 93%;
+        box-shadow: none;
+        position:fixed;
+        display: flex;
+
+        .thumbnailSlider {
+            width: 88%;
+
+            .rzslider {
+                .rz-bubble.rz-model-value {
+                    display: none;
+                    margin-bottom: 4.5%;
+                    color: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), text-color);
+                    font-size: 12px;
+                    border: 1px solid map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), text-color);
+                    ;
+                }
+            }
+
+        }
+
+        .thumbnailSlider.thumbnailFixedSlider {
+            width: 89%;
+            bottom: 14%;
+            position: absolute;
+            left: 2%;
+        }
+
+        #thumbnailContainerDiv {
+            box-shadow: 0px 2px 11.9px 2.1px rgba(0, 0, 0, 0.3);
+            background-color: white;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            height: 10%;
+
+            .thumbnail_footer_epub {
+                display: flex;
+                flex-flow: row;
+                bottom: 0;
+                width: 100%;
+                z-index: 100;
+                background-color: #fff;
+                align-items: center;
+
+                #mySlider {
+                    top: -6px;
+                }
+
+                .epub_items {
+                    align-items: center;
+                    height: 40%;
+                    display: flex;
+                    flex-flow: row;
+                    width: 100%;
+                    margin-left: 30%;
+                    margin-top: 10%;
+
+                    #input_value_reflow {
+                        color: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), text-color);
+                        text-align: center;
+                        font-size: 12px;
+                        border: transparent;
+                        justify-content: center;
+                        font-weight: 700;
+                        left: 44%;
+                        bottom: 12px !important;
+                        width: 30% !important;
+                        height: 57%;
+                    }
+
+                    #input_value_reflow:focus {
+                        outline: none;
+                    }
+                }
+
+            }
+        }
+
+
+    }
+
+    .pick-colors {
+        width: 30px;
+        height: 30px;
+        display: inline-flex !important;
+        align-items: center;
+        position: relative;
+        float: left;
+        right: 3px;
+        margin-left: 10px;
+    }
+
+    .checkSetting {
+        position: relative;
+        height: 8%;
+
+        .share {
+            width: 11%;
+            float: left;
+            margin-left: 40%;
+            top: 28%;
+            position: relative;
+        }
+
+        #rightch {
+            width: 14%;
+            float: left;
+            margin-left: 0%;
+        }
+
+        .receive {
+            width: 15%;
+            float: left;
+            top: 38%;
+            margin-top: -1%;
+            position: relative;
+        }
+
+        #receivecheck {
+            width: 14%;
+        }
+    }
+
+    .audioPanel {
+        left: 0;
+        width: 100%;
+
+        .progressBar {
+            width: 85px;
+        }
+
+        .currentTime {
+            font-size: 11px;
+        }
+    }
+}
+
+@media screen and (orientation:landscape) and (min-device-width: 320px) and (max-device-width: 740px) {
+
+    #illustrationPopup {
+        height: 100%;
+        max-height: 100%;
+        max-width: 100%;
+    }
+
+    #tooltip-thumbnailSlider {
+        display: none;
+        position: absolute;
+        bottom: 35%;
+        background: white;
+        border: 1px solid rgb(9, 94, 142);
+        color: rgb(9, 94, 142);
+        border-radius: 5px;
+        padding: 2px;
+        z-index: 999999;
+        text-align: center;
+    }
+
+    .epub-viewer {
+        left: 0 !important;
+        width: 100% !important;
+        height: calc(100% - (#{$barWidth} + #{$barHeight})) !important;
+    }
+
+    .scrollView {
+        height: 75%;
+    }
+
+    .pick-colors {
+        width: 30px;
+        height: 30px;
+        display: inline-flex !important;
+        align-items: center;
+        position: relative;
+        float: left;
+        top: 4px;
+        margin: 7px;
+    }
+
+    /* Thumbnail */
+    .thumbnail-panel-container {
+        left: 0;
+        top: 0;
+        max-width: 100%;
+        z-index: 99;
+        height: 100%;
+
+        #thumbnailHeader {
+            background-color: $thumbnailBackgroundColor;
+            width: 100%;
+            height: $barHeight;
+            padding-left: 15%;
+            padding-top: 1%;
+            overflow: hidden;
+            display: flex;
+            flex-flow: column nowrap;
+            color: $iconInsideMobilePanel;
+
+            .icon-prev_page_icon {
+                position: absolute;
+                line-height: 40px;
+                left: 10px;
+            }
+
+            .labelName {
+                position: relative;
+                top: 18%;
+                float: left;
+                width: 30%;
+                right: 5%;
+            }
+        }
+
+        .thumbnail-panel {
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+        }
+
+        .pages {
+            width: 100%;
+            height: 90%;
+            background-color: $thumbnailBackgroundColor;
+            overflow: hidden auto;
+        }
+
+        .bookpage {
+            height: auto;
+            width: 33%;
+            display: inline-block;
+        }
+
+        .chapterTitle {
+            width: 100%;
+            height: 13%;
+
+            .titleMobile {
+                color: $textImportantColor !important;
+                margin: 0 !important;
+                font-family: 'Open Sans';
+                font-size: 14px;
+                display: inline-block;
+                padding-left: 10%;
+                top: 5px;
+                position: relative;
+            }
+        }
+
+        .chapterImage {
+            margin-left: 10%;
+            margin-top: 3%;
+            width: 80%;
+            border: 1px solid #d3d3d3;
+        }
+
+        .activePage {
+            border: 1px solid #065c87;
+        }
+
+        .thumbnail_container .thumbnail-text-row .img-display-num-container label {
+            z-index: 9;
+            margin-right: 63%;
+            width: 26px;
+            height: 26px;
+            text-align: center;
+            background: #595959;
+            border: 1px solid #595959;
+            margin-bottom: -20% !important;
+        }
+
+        .thumbnail_footer {
+            border-top: 2px solid #ccc;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            z-index: 100;
+            background-color: #fff;
+            height: $barHeight;
+            @if map-get($Reader, clientName)=='Bytes' {
+            height: 50px;
+            }
+        }
+
+        .thumbnail_container {
+            -webkit-flex-flow: row nowrap;
+            flex-flow: row nowrap;
+            display: -webkit-box;
+            display: flex;
+            padding-top: 6px;
+            width: 90% !important;
+            height: 84%;
+            display: none;
+            overflow-y: scroll !important;
+        }
+
+        .thumbnail-panel .history-next {
+            left: 12% !important;
+        }
+
+        .input_field {
+            left: 35%;
+            bottom: 4px !important;
+            width: 20% !important;
+        }
+    }
+
+    #thumbnailContainerEpub {
+        max-width: 100%;
+        z-index: 99;
+        height: 90%;
+        box-shadow:none;
+        position:fixed;
+        display: flex;
+
+        .thumbnailSlider {
+            width: 90%;
+            position: absolute;
+            bottom: 0;
+            left: 2%;
+        }
+
+        #thumbnailContainerDiv {
+            box-shadow: 0px 2px 11.9px 2.1px rgba(0, 0, 0, 0.3);
+            background-color: white;
+            position: absolute;
+            width: 100%;
+            bottom: 2%;
+            height: 10%;
+
+            .thumbnail_footer_epub {
+                border-top: 2px solid #ccc;
+                display: flex;
+                flex-flow: row;
+                bottom: 0;
+                width: 100%;
+                z-index: 100;
+                background-color: #fff;
+                align-items: center;
+
+                #mySlider {
+                    top: -6px;
+                }
+
+                .epub_items {
+                    align-items: center;
+                    height: 40%;
+                    display: flex;
+                    flex-flow: row;
+                    width: 100%;
+                    margin-left: 30%;
+                    margin-top: 3%;
+
+                    #input_value_reflow {
+                        color: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), text-color);
+                        text-align: center;
+                        font-size: 12px;
+                        border: transparent;
+                        justify-content: center;
+                        font-weight: 700;
+                        left: 44%;
+                        bottom: 12px !important;
+                        width: 30% !important;
+                    }
+
+                    #input_value_reflow:focus {
+                        outline: none;
+                    }
+                }
+
+            }
+        }
+
+        #mySlider {
+            top: -6px;
+        }
+
+    }
+}
+
+@media screen and (min-device-width: 319px) and (max-device-width: 590px) and (orientation: landscape) {
+
+    .audioPanel {
+        width: 429px;
+    }
+
+    #tooltip-thumbnailSlider {
+        display: none;
+        position: absolute;
+        bottom: 35%;
+        background: white;
+        border: 1px solid rgb(9, 94, 142);
+        color: rgb(9, 94, 142);
+        border-radius: 5px;
+        padding: 2px;
+        z-index: 999999;
+        text-align: center;
+    }
+
+    #thumbnailContainerEpub {
+        max-width: 100%;
+        z-index: 99;
+        height: 15%;
+        position:fixed;
+        display: flex;
+
+        .thumbnailSlider {
+            width: 90%;
+        }
+
+        #thumbnailContainerDiv {
+            box-shadow: 0px 2px 11.9px 2.1px rgba(0, 0, 0, 0.3);
+            background-color: white;
+            position: absolute;
+            width: 100%;
+            bottom: 2%;
+            height: 10%;
+        }
+
+        #input_value_reflow {
+            color: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), text-color);
+            border: 1px solid map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), text-color);
+            text-align: center;
+            font-size: 12px;
+            width: 8%;
+            margin-bottom: 1%;
+            height: 25%;
+        }
+
+        #input_value_reflow:focus {
+            outline: none;
+        }
+
+        #mySlider {
+            top: -6px;
+        }
+    }
+}

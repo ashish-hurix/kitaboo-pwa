@@ -1,0 +1,73 @@
+.leftNavigationInfobase {
+    height: 70%;
+    position: absolute;
+    top: 16%;
+    left: 50px;
+    background-color: transparent;
+    font-size: 1.5em;
+    font-family: $fontFamily !important;
+    display: table-cell;
+    vertical-align: middle;
+    border: none;
+    color: black;
+    opacity: 1;
+    z-index: 1;
+    outline: none !important;
+}
+
+.rightNavigationInfobase {
+    height: 70%;
+    position: absolute;
+    top: 16%;
+    right: 0;
+    background-color: transparent;
+    font-size: 1.5em;
+    font-family: $fontFamily !important;
+    display: table-cell;
+    vertical-align: middle;
+    border: none;
+    color: black;
+    opacity: 1;
+    z-index: 9;
+    outline: none !important;
+}
+
+#default_prev_bttn {
+    // height: 60%;
+    position: absolute;
+    top: 50%;
+    left: 50px;
+    background-color: transparent;
+    font-size: 1.5em;
+    display: table-cell;
+    vertical-align: middle;
+    z-index: 1;
+    margin: 0;
+    min-width: 50px;
+
+    .prev_bttn {
+        color: map-get(map-get(map-get($Reader, DayMode), main), navigation_arrows);
+        line-height: 24px;
+        font-size: 35px;
+    }
+}
+
+#default_next_bttn {
+    // height: 60%;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    background-color: transparent;
+    font-size: 1.5em;
+    display: table-cell;
+    vertical-align: middle;
+    z-index: 8;
+    margin: 0;
+    min-width: 50px;
+
+    .next_bttn {
+        color: map-get(map-get(map-get($Reader, DayMode), main), navigation_arrows);
+        line-height: 24px;
+        font-size: 35px;
+    }
+}

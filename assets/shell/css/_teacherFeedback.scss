@@ -1,0 +1,133 @@
+#teacherfeedbackitems {
+    width: 57px;
+    overflow: hidden;
+    height: 94%;
+    top: 3%;
+    background: map-get(map-get(map-get($Reader, DayMode), Teacher_Settings), popup_background);
+    border: 1px solid map-get(map-get(map-get($Reader, DayMode), Teacher_Settings), popup_border);
+
+    .mainFeedbackContainer {
+        width: 57px;
+        height: 100%;
+
+        .topSection {
+            height: 20%;
+        }
+
+        .navigationPage {
+            padding: 0;
+            margin: 0;
+            font-size: 14px;
+            @include opensansRegular;
+            cursor: pointer;
+            text-transform: capitalize;
+            color: map-get(map-get(map-get($Reader, DayMode), Teacher_Settings), main_icon-color);
+
+            .md-button.md-default-theme[disabled],
+            .md-button[disabled] {
+                background-color: transparent;
+                opacity: 0.38;
+            }
+            
+ 
+        }
+        .md-button.md-default-theme[disabled], .md-button[disabled] {
+            background-color: transparent;
+            opacity: 0.5;
+            cursor: auto;
+        }
+
+        .studentProfile {
+            border-radius: 50%;
+            box-sizing: content-box;
+            flex: none;
+            width: 38px;
+            height: 38px;
+        }
+
+        .divider {
+            width: 34px;
+            border-top-color: map-get(map-get(map-get($Reader, DayMode), Teacher_Settings), selected_icon_bg);
+        }
+
+        .middleSection {
+            height: 70%;
+
+            .teacherpenColor {
+                min-width: auto;
+                padding: 14px;
+                width: 57px;
+                margin: 0;
+
+                .pickFeedbackcolors {
+                    line-height: 24px;
+                }
+
+                .activeColorRadiusFeedback {
+                    border: 1px solid map-get(map-get(map-get($Reader, DayMode), Teacher_Settings), selected_icon_bg);
+                    border-radius: 50%;
+                    min-height: unset;
+                    height: 30px;
+                    width: 30px;
+                    padding: 2px 2px 2px 2px;
+                }
+
+                .selectedFeedbackColor {
+                    border-top: 5px solid;
+                    width: 26px;
+                    height: 4px;
+                }
+            }
+
+            .teacherButton {
+                height: 40px;
+                width: 40px;
+            }
+            .teacherButtonActive {
+                height: 40px;
+                width: 40px;
+                border: 1px solid map-get(map-get(map-get($Reader, DayMode), Teacher_Settings), popup_border);
+                border-radius: 50%;
+            }
+
+            .teacherIcon {
+                color: map-get(map-get(map-get($Reader, DayMode), Teacher_Settings), main_icon-color);
+                line-height: 24px;
+                text-transform: none;
+            }
+        }
+
+        .DoneButton {
+            color: map-get(map-get(map-get($Reader, DayMode), Teacher_Settings), main_icon-color);
+            width: 100%;
+        }
+    }
+}
+
+#clearMessageDialogue {
+     padding: 24px;
+     background: map-get(map-get(map-get($Reader, DayMode), Teacher_Settings), popup_background);
+    .alertLabel {
+        @include opensansRegular;
+        font-size: 18px;
+        color: map-get(map-get(map-get($Reader, DayMode), Teacher_Settings), title-color);
+    }
+
+    .clearMessage {
+        @include opensansRegular;
+        font-size: 15px;
+        color: map-get(map-get(map-get($Reader, DayMode), Teacher_Settings), title-color);
+    }
+
+    .noButton {
+        @include opensansRegular;
+        color: map-get(map-get(map-get($Reader, DayMode), Teacher_Settings), title-color);
+    }
+
+    .yesButton {
+        border-radius: 2px;
+        border: solid 1px map-get(map-get(map-get($Reader, DayMode), Teacher_Settings), selected_icon_bg);
+        background-color: map-get(map-get(map-get($Reader, DayMode), Teacher_Settings), selected_icon_bg);
+        color:map-get(map-get(map-get($Reader, DayMode), Teacher_Settings), selected_icon-color);
+    }
+}

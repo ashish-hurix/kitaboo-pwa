@@ -1,0 +1,46 @@
+.bottomCookie {
+    position: absolute;
+    bottom: 0px;
+    height: auto;
+    width: 60%;
+    z-index: 9;
+    color: #ffffff;
+    background-color: transparent;
+    text-align: center;
+    left: 50%;
+    transform: translateX(-50%);
+
+    .cookiebar {
+        width: auto;
+        max-width: 80%;
+        padding: 0px 10px 0px 15px;
+        border-radius: 8px 8px 0px 0px;
+        font-size: 14px;
+        color: #ffffff;
+        box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.3);
+        background-color: #535556;
+        @include opensansRegular;
+
+        .cookiePolicy {
+            color: #37b7ff;
+        }
+
+        a:hover {
+            color: #37b7ff;
+        }
+
+    }
+
+    .gotIt {
+        height: 24px;
+        min-width: 0px;
+        min-height: 0px;
+        line-height: 24px;
+        font-size: 14px;
+        border-radius: 4px;
+        color: #333333;
+        background-color: #2ba0e2;
+        text-transform: capitalize;
+        @include opensansRegular;
+    }
+}

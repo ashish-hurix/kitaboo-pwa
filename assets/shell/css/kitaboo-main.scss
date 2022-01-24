@@ -1,0 +1,1360 @@
+@import "../themes/theme.json";
+
+$barWidth: 50px;
+$barHeight: 50px;
+$pageIconWidth: 50px;
+$pageIconHeight: 50px;
+$navbarColor: #fdfdfd;
+$fontFamily: 'kitabooread';
+
+@if map-get($Reader, clientName)=='Zanichelii' {
+  $pageIconWidth: 40px;
+  $pageIconHeight: 40px;
+}
+
+@if map-get($Reader, clientName)=='Gyldendal_Smartbok' {
+  $pageIconWidth: 40px;
+  $pageIconHeight: 40px;
+}
+
+@if map-get($Reader, clientName)=='Bytes' {
+  $barHeight: 0px;
+}
+
+@import "../../../node_modules/open-sans-fontface/open-sans.scss";
+@import "mixin";
+@import "thumbnail";
+@import "navigation";
+@import "slider";
+@import "mydata";
+@import "pen";
+@import "fontSetting";
+@import "search";
+@import "toc";
+@import "bookmark";
+@import "audio";
+@import "video";
+@import "imageSlideShow";
+@import "image";
+@import "instruction";
+@import "note";
+@import "mobile";
+@import "tablet";
+@import "firstsearch";
+@import "htmlwrap";
+@import "settings.scss";
+@import "journal_illustration";
+@import "cookie";
+@import "equationEditor";
+@import "teacherReview";
+@import "teacherFeedback";
+@import "readAloud";
+@import "glossary";
+@import "helpScreen";
+@import "highlightSpeech";
+@import "profileView";
+@import "aboutUs";
+@import "arabic";
+@import "groupSearch";
+@if map-has-key($AboutUs , primaryFont ) {
+  $primaryFont:map-get($AboutUs , primaryFont);
+      @font-face {
+          font-family: 'Open Sans';
+          src: url('fonts/'+ $primaryFont+'.ttf');
+        }
+    }
+html {
+  color: #222;
+  font-size: 1em;
+  line-height: 1.5;
+  font-family: 'Open Sans' !important;
+  overflow: hidden;
+
+  #spirooBarContainer {
+    #spirooBar {
+      height: 50px !important;
+      z-index: 1 !important;
+      
+    }
+  }
+
+  #spirooBarContainer #spirooBar {
+    z-index: 1 !important;
+    border-bottom: 1px solid black;
+    background-color: #e9edf0;
+}
+
+
+  body {
+    font-family: 'Open Sans' !important;
+    color: #333333;
+    width: 100%;
+    overflow: hidden;
+
+    .md-button.md-default-theme:not([disabled]).md-focused,
+    .md-button:not([disabled]).md-focused,
+    .md-button.md-default-theme:not([disabled]):hover,
+    .md-button:not([disabled]):hover {
+      background-color: rgba(158, 158, 158, 0.28); // default value
+    }
+
+    .md-tooltip {
+      color: rgba(255, 255, 255, 0.87);
+      background-color: rgb(97, 97, 97);
+    }
+
+    .md-toast-content {
+      text-align: center;
+    }
+
+    .bottomSheet {
+      padding: 0;
+      bottom: 80px;
+
+      .materialIcon {
+        margin: 0;
+        min-height: 0;
+        text-transform: none;
+
+        md-icon {
+          fill: none;
+          color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), side_bottom), icons-color);
+        }
+      }
+    }
+
+    .md-sidenav-left {
+      left: $barWidth;
+      z-index: 9;
+      @if map-get($Reader, clientName)=='wolters' {
+         box-shadow: none;
+      } else{
+         box-shadow: 5px 5px 8.1px 0.9px rgba(38, 37, 37, 0.3);
+      }
+    }
+
+    .container-area {
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      outline: none;
+
+      .main-container {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+        background-color: map-get(map-get(map-get($Reader, DayMode), main), canvas_background);
+        position: absolute;
+        height: 100%;
+
+        .closeTeacherReviewPanel {
+          padding-left: 10px!important;
+        }
+        
+        .page-header {
+          height: $barHeight;
+          min-height: $barHeight;
+          background-color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), top), background);
+          box-shadow: 7.2px 5.4px 5.4px 0.6px map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), top), shadow);
+          z-index: 9;
+          width: 100%;
+
+          .kitaboo-logo {
+            padding-left: 7px;
+            margin: 0;
+            box-shadow: none;
+            background-color: inherit;
+          }
+
+          .kitaboo-logo-hide {
+            padding-left: 7px;
+            margin: 0;
+            box-shadow: none;
+            background-color: inherit;
+            visibility: hidden
+          }
+
+          .chapterNavigation {
+
+            .chapterName {
+              width: 60%;
+              text-align: center;
+              font-size: 14px;
+              color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), top), Title_text_color);
+              cursor: default;
+              @include opensansRegular;
+            }
+
+            .chapterNameoup{
+              width: 100%;
+              text-align: center;
+              font-size: 14px;
+              color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), top), Title_text_color);
+              cursor: default;
+              @include opensansRegular;
+            }
+
+            md-icon {
+              color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), top), navigation_arrow_color);
+            }
+
+            button[disabled] md-icon {
+              color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), top), navigation_arrow_color);
+              opacity: 0.38;
+              cursor: default;
+            }
+          }
+
+          .chapterNavigationForBigLogo {
+            width: 25%;
+            left: 39%;
+            position: absolute;
+
+            .chapterName {
+              width: 60%;
+              text-align: center;
+              font-size: 14px;
+              color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), top), Title_text_color);
+              cursor: default;
+              @include opensansRegular;
+            }
+
+            md-icon {
+              color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), top), navigation_arrow_color);
+            }
+
+            button[disabled] md-icon {
+              color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), top), navigation_arrow_color);
+              opacity: 0.38;
+              cursor: default;
+            }
+          }
+
+          .profileMenu {
+            margin-right: 8px;
+
+            #profileIcon {
+              bottom: 2px;
+              margin: 0;
+              padding: 0;
+              min-width: 36px;
+              border-radius: 50%;
+
+              .profiePictureIcon {
+                width: 27px;
+                height: 27px;
+                border-radius: 50%;
+                border: solid 1px map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), top), profile_border);
+                background: #d0d0d0;
+              }
+            }
+          }
+        }
+
+        .animate-show,
+        .animate-hide {
+          -webkit-transition: all linear 1s;
+          -moz-transition: all linear 1s;
+          -ms-transition: all linear 1s;
+          -o-transition: all linear 1s;
+          transition: all linear 1s;
+        }
+
+        .animate-show.ng-hide-remove,
+        .animate-hide.ng-hide-add.ng-hide-add-active {
+          opacity: 0;
+          // display: block !important;
+        }
+
+        .animate-hide.ng-hide-add,
+        .animate-show.ng-hide-remove.ng-hide-remove-active {
+          opacity: 1;
+          // display: block !important;
+        }
+
+        .protractor-toolbar {
+          height: 50px;
+          min-height: 50px;
+          background-color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), top), background);
+          box-shadow: 7.2px 5.4px 5.4px 0.6px rgba(142, 142, 142, 0.5);
+          z-index: 9;
+          width: 100%;
+          position: absolute;
+          left: 0;
+        }
+
+        .page-left {
+          display: flex;
+          flex: 0 0 auto;
+          align-items: center;
+          background-color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), side_bottom), background);
+          width: $barWidth;
+          box-shadow: 2px 5px 6px map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), side_bottom), shadow);
+          z-index: 10;
+          position: fixed;
+          top: $barHeight;
+          height: calc(100% - #{$barHeight});
+          left: 0;
+
+          .page-icon {
+            height: 40px;
+            width: 40px;
+            line-height: 40px;
+          }
+        }
+
+        .page-bottom {
+          position: fixed;
+          bottom: 0;
+          width: 100%;
+          min-height: $barHeight;
+          height: $barHeight;
+          box-shadow: 0.6px 5.4px 5.4px 7.2px map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), side_bottom), shadow);
+          z-index: 10;
+          background-color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), side_bottom), background);
+        }
+
+        .materialIcon {
+          margin: 0;
+          padding: 0;
+          min-height: 0;
+          min-width: 0;
+          text-transform: none;
+          border-radius:map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), side_bottom), border-radius);
+
+          md-icon {
+            fill: none;
+            color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), side_bottom), icons-color);
+          }
+        }
+
+        .md-button[disabled] md-icon {
+          opacity: 0.26;
+          cursor: default;
+        }
+
+        .skipContent {
+          position: absolute;
+          left: $barWidth;
+          top: 0;
+          color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), top), Title_text_color);
+          padding: 5px;
+          min-height: 0;
+          text-transform: none;
+          @include opensansRegular;
+          min-width: 110px;
+          box-shadow: 0px 4px 10px 0 rgba(3, 3, 3, 0.5);
+          background-color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), top), background);
+        }
+
+        .markup {
+          display: none;
+          position: absolute;
+          left: 60px;
+          // bottom: 60px;
+          top: 80%;
+          width: auto;
+          z-index: 999;
+          max-width: 500px;
+
+          .maincontainer {
+            display: flex;
+
+            .colorPickerSelect{
+              height: 52px;
+              width: 52px;
+
+              md-select-value{
+                min-width: 50px;
+                width: 50px;
+                border:none;
+
+                .md-select-icon {
+                  display: flex;
+                  justify-content: flex-start;
+                  vertical-align: bottom;
+                  align-items: normal;
+                }
+              }
+            }
+
+
+
+            .audio-player {
+              display: flex;
+              align-items: center;
+              background-color: #f1f3f4;
+              width: auto;
+              justify-content: space-evenly;
+              border-radius: 5px 0px 0px 5px;
+              padding: 0 5px 0 5px;
+
+              .audio-button {
+                background: transparent;
+                border: 0px;
+                color: black;
+                user-select: none;
+                outline: none;
+                font-size: 1rem;
+              }
+
+              .audio-time {
+                width: auto;
+                font-size: 12px;
+                text-align: center;
+                // max-width: 120px;
+                padding-right: 8px;
+              }
+            }
+
+            .close-icon {
+              background-color: #3D3D3D;
+              color: #ffffff;
+              width: 40px;
+              border: none;
+              align-items: center;
+              text-align: center;
+              font-size: 1rem;
+              display: inherit;
+              padding: 0;
+            }
+
+            .drag-handler-icon {
+              background-color: #3D3D3D;
+              border-left: 2px solid #1C1C1C;
+              -webkit-border-radius: 0 5px 5px 0;
+              -moz-border-radius: 0 5px 5px 0;
+              border-radius: 0 5px 5px 0;
+              color: #ffffff;
+              width: 40px;
+              align-items: center;
+              text-align: center;
+              font-size: 1rem;
+              display: inherit;
+            }
+          }
+        }
+      }
+    }
+
+    .highlightFilterList {
+      border: 1px solid $mydataFilterBorderColor;
+      border-radius: 5px;
+      background-color: $mydataFilterBackground;
+      height: auto;
+      box-shadow: 0px 4px 10px 0 rgba(3, 3, 3, 0.5);
+
+      .materialIcon {
+        margin: 0;
+        padding: 0;
+        min-height: 0;
+        min-width: 50px;
+        text-transform: none;
+
+        md-icon {
+          fill: none;
+          line-height: 24px;
+          color: map-get(map-get(map-get(map-get($Reader, DayMode), MyData), filter_popup), arrow_color);
+          border-color: map-get(map-get(map-get(map-get($Reader, DayMode), MyData), filter_popup), all_box_border-color);
+        }
+      }
+
+      .checkbox {
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-right: 10px;
+        color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), side_bottom), icons-color);
+        border-color: map-get(map-get(map-get(map-get($Reader, DayMode), MyData), filter_popup), all_box_border-color);
+      }
+
+      .shareNoteFilterColor {
+        color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), side_bottom), icons-color);
+      }
+
+      .noteList {
+        padding-bottom: 0;
+
+        .md-no-style {
+          padding-right: 0;
+        }
+      }
+
+      md-checkbox.md-checked .md-icon {
+        background-color: map-get(map-get(map-get(map-get($Reader, DayMode), MyData), selected_button), background);
+      }
+
+      md-checkbox.md-checked .md-ink-ripple {
+        color: rgba(30, 112, 159, 0.87);
+      }
+
+      md-checkbox.md-checked.md-focused .md-container:before {
+        background-color: rgba(30, 112, 159, 0.26);
+      }
+
+      .selectAll {
+        color: map-get(map-get(map-get(map-get($Reader, DayMode), MyData), filter_popup), text-color);
+        font-size: 14px;
+        @include opensansRegular;
+      }
+
+      .colorIcon {
+        line-height: 24px;
+        margin: 0;
+      }
+    }
+
+    .profileMenuContent {
+      border: 1px solid map-get(map-get(map-get($Reader, DayMode), Profile), profile_border);
+    }
+
+    .extraMenu {
+      margin: 0;
+    }
+
+    .extraMenuTeacher {
+      margin: 0;
+    }
+
+    .menuIconList {
+      border: 1px solid map-get(map-get(map-get($Reader, DayMode), Profile), profile_border);
+      bottom: 4px;
+      right: 6px;
+      position: fixed;
+      min-width: 60px;
+    }
+
+    .menuItems {
+      border: 1px solid map-get(map-get(map-get($Reader, DayMode), Profile), profile_border);
+      min-width: 60px;
+
+      .menuButton {
+        padding: 0;
+        min-width: 50px;
+
+        md-icon {
+          margin: auto;
+        }
+      }
+    }
+
+    .dummy-md-menu{
+      background-color: map-get(map-get(map-get($Reader, DayMode), Profile), popup_background);
+    }
+
+    .md-open-menu-container {
+      md-menu-content{
+        background-color: map-get(map-get(map-get($Reader, DayMode), Profile), popup_background);
+
+        .profileName {
+          color: map-get(map-get(map-get($Reader, DayMode), Profile), text-color) !important;
+          font-size: 16px;
+          @include opensansRegular;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          width: 256px;
+        }
+
+        .signOut {
+          background-color: map-get(map-get(map-get(map-get($Reader, DayMode), Profile), signout), background) !important;
+          color: map-get(map-get(map-get(map-get($Reader, DayMode), Profile), signout), text_color);
+          font-size: 14px;
+          margin-left: 16px;
+          margin-right: 16px;
+          padding: 0;
+          text-align: center;
+          text-transform: none;
+          @include opensansRegular;
+
+          &:focus {
+            outline: 1px dotted;
+            outline: 5px auto -webkit-focus-ring-color;
+          }
+        }
+
+        .signOutButtonMnB {
+          background-color: #ED145B !important;
+          border-radius: 20px;
+          color: #fff;
+          text-transform: uppercase;
+
+          &:focus {
+            outline: none !important;
+          }
+        }
+
+        .signOutButtonWb {
+          padding: 0px 15px 0px 15px;
+
+          .signOutLabel {
+            height: 40px;
+            font-size: 14px;
+            margin: 0;
+            border: 2px solid #407db4;
+            background-color: #ffffff;
+            color: #407db4;
+            text-transform: none;
+          }
+
+
+          .md-button.md-raised:not([disabled]):hover {
+            background-color: #407db4;
+            color: #ffffff;
+          }
+        }
+
+        .signoutLti {
+          background-color: #35abe2 !important;
+          color: map-get(map-get(map-get(map-get($Reader, DayMode), Profile), signout), text_color);
+          font-size: 14px;
+          margin-left: 16px;
+          margin-right: 16px;
+          padding: 0;
+          text-align: center;
+          text-transform: none;
+          @include opensansRegular;
+        }
+
+        .version {
+          font-size: 14px;
+          color: map-get(map-get(map-get($Reader, DayMode), Profile), text-color) !important;
+          @include opensansRegular;
+        }
+      }
+    }
+
+    #deepLinkPopup {
+      width: auto;
+
+      .icon-n_weblink {
+        margin: 0;
+        height: 36px;
+        width: 36px;
+        line-height: 36px;
+        border-radius: 50%;
+        padding: 0;
+        text-align: center;
+        border: 0px solid black;
+        background-color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), side_bottom), icons-color);
+        color: white;
+      }
+
+      .copyContent {
+        .copyLinkInput {
+          width: 400px;
+
+          input {
+            width: inherit;
+            background-color: #f1f3f4;
+            color: map-get(map-get(map-get(map-get($Reader, DayMode), Share), share_settings), text-color);
+            border: none;
+            height: 36px;
+            border-radius: 4px;
+            @include opensansRegular;
+          }
+        }
+
+        .copyLinkButton {
+          color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), side_bottom), icons-color);
+          text-transform: none;
+          @include opensansRegular;
+        }
+
+        .md-button.md-default-theme:not([disabled]).md-focused,
+        .md-button:not([disabled]).md-focused,
+        .md-button.md-default-theme:not([disabled]):hover,
+        .md-button:not([disabled]):hover {
+          background-color: rgba(66, 133, 244, 0.2);
+        }
+      }
+
+      .doneButton {
+        margin: 0;
+        padding: 0;
+        color: white;
+        background-color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), side_bottom), icons-color);
+        border-radius: 4px;
+        text-transform: none;
+        @include opensansRegular;
+      }
+    }
+
+    md-dialog {
+      overflow: hidden !important;
+      border-radius: 4px;
+      background-color: rgb(255, 255, 255);
+      color: rgba(0, 0, 0, 0.87);
+    }
+
+    .furthest-confirm-model {
+      width: 35.5% !important;
+      padding: 25px 25px 10px 25px !important;
+      border-radius: 0px !important;
+        md-dialog-content{
+          .furthest-header-panel{
+            display: block;
+            margin: 0 125px 17.9px 0;
+            font-weight: bold;
+            font-size: 18px;
+            font-family: 'OpenSans' !important;
+          }
+          .furthest-content-panel{
+            margin:17.9px 68px 29.1px 0;
+            font-size: 15px;
+            font-family: 'OpenSans' !important;
+          }
+        }
+        md-dialog-actions {
+          padding-top: 10px;
+          .md-button{
+            width: 120px;
+            height: 40px;
+          }
+          .confirm-btn{
+            color: #ffffff;
+            background-color: #095e8e !important;
+            background: #095e8e !important;
+          }
+          .confirm-btn:hover{
+            color: #ffffff;
+            background-color: #095e8e !important;
+            background: #095e8e !important;
+          }
+        } 
+    }
+
+    md-toast.md-center {
+      left: 50%;
+      transform: translate3d(-50%, 0, 0);
+
+      .md-toast-text {
+        text-align: center;
+        @include opensansRegular;
+      }
+    }
+
+    md-toast .md-toast-content {
+      background-color: #323232;
+      color: rgb(250, 250, 250);
+    }
+
+    md-checkbox.md-checked .md-icon:after {
+      border-color: rgba(255, 255, 255, 0.87);
+    }
+
+    md-backdrop.md-opaque {
+      background-color: rgba(33, 33, 33, 1.0);
+    }
+
+    md-switch .md-bar {
+      background-color: rgb(158, 158, 158);
+    }
+
+    md-switch .md-thumb {
+      background-color: rgb(250, 250, 250);
+    }
+
+    md-select-menu md-content {
+      background-color: rgb(255, 255, 255);
+    }
+
+    md-slider .md-track {
+      background-color: #8C8C8C;
+    }
+
+    .md-button[disabled] md-icon {
+      background-color: transparent;
+      color: map-get(map-get(map-get(map-get($Reader, DayMode), Note), action_button_color_disabled), background_HTML);
+      opacity: map-get(map-get(map-get(map-get($Reader, DayMode), Note), action_button_color_disabled), opacity);
+      cursor: default;
+    }
+  }
+}
+
+.ui-page {
+  outline: none;
+  height: 100%;
+}
+
+.ui-loader {
+  display: none;
+}
+
+.ui-mobile {
+  overflow: hidden !important;
+}
+
+
+#zoom {
+  position: relative;
+  overflow: inherit !important;
+
+  #zoomDiv {
+    height: 260px;
+    width: 50px;
+    top: auto;
+    background-color: map-get(map-get(map-get($Reader, DayMode), zoom), popup_background);
+    z-index: 10;
+    left: 45px;
+    box-shadow: 5px 5px 8.1px 0.9px rgba(38, 37, 37, 0.3);
+    overflow: hidden;
+    border-style: solid;
+    border-color: map-get(map-get(map-get($Reader, DayMode), zoom), slider-filled-color);
+    border-width: 1.5px;
+}
+
+    .rzslider {
+      height: 65%;
+      top: 10%;
+      bottom: 2%;
+      position: fixed;
+
+      .rz-pointer {
+        background-color: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), slider-filled-color);
+        width: 20px;
+        height: 20px;
+        left: -8px !important;
+
+        &::after {
+          display: none;
+        }
+      }
+
+      .rz-bubble {
+        display: none;
+      }
+
+      .rz-selection {
+        background: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), slider-filled-color);
+      }
+
+      .rz-tick.rz-selected {
+        background: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), slider-filled-color);
+      }
+    }
+  }
+
+.active {
+  background: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), side_bottom), selected_icon_bg);
+  color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), side_bottom), selected_icon-color) !important;
+}
+
+.gyl-loader {
+  position: absolute;
+  text-align: center;
+  top: 40%;
+  left: 40%;
+  width: auto;
+  height: 40px;
+  z-index: 999;
+  color: #ffffff;
+  border-radius: 5px;
+}
+
+.epub-viewer-ltpm {
+  height: calc(100% - #{($barHeight*2)}) !important;
+}
+
+.audiosequencingnotAvailable {
+  position: absolute;
+  background: black;
+  top: 42%;
+  width: 100%;
+  height: 50px;
+  z-index: 99;
+
+  .noaudioText {
+    left: 24%;
+    position: absolute;
+    padding: 10px 0px 0px 2px;
+    color: white;
+    font-weight: bold;
+  }
+
+
+}
+
+.socialsharing{
+    position: absolute;
+    background-color: map-get(map-get(map-get(map-get($Reader, DayMode), Highlight), popup), background) !important;
+    border: 1px solid map-get(map-get(map-get(map-get($Reader, DayMode), Highlight), popup), border) !important;
+    top: 42%;
+    height: 50px;
+    z-index: 99;
+    width: 120px !important;
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 2px 11.9px 2.1px;
+
+      .socialsharingdiv{
+        padding: 11px 0px 0px 0px;
+
+          #socialsharingicons{
+            border: none;
+            background-color: map-get(map-get(map-get(map-get($Reader, DayMode), Highlight), popup), background) !important;
+          }
+      }
+  }
+
+.epub-viewer {
+  flex: 1 1 auto;
+  height: calc(100% - #{$barHeight});
+  /* need this to position inner content */
+  overflow: hidden;
+  overflow-y: auto;
+  position: fixed;
+  top: $barHeight;
+  left: $barWidth;
+  width: calc(100% - #{$barWidth});
+  box-shadow: 0.7px 6.7px 6.4px 6.7px rgba(38, 37, 37, 0.3);
+
+  // .kitaboo-iframe-container.reflow-layout-epub {
+  //   margin: 0;
+  // }
+}
+
+.pageNavigationSlider {
+  position: absolute;
+  right: 0;
+  height: calc(100% - 60px);
+  top: 55px;
+
+  .rzslider.rz-vertical {
+    height: 95%;
+
+    .rz-pointer {
+      left: -7px !important;
+      z-index: 1;
+    }
+
+    .rz-bubble {
+      left: -135px !important;
+    }
+  }
+
+  .rzslider {
+
+    .rz-pointer {
+      background-color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), side_bottom), icons-color);
+      width: 19px;
+      height: 19px;
+      box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.25);
+
+      &::after {
+        display: none;
+      }
+    }
+
+    // .rz-pointer-min:hover~.rz-model-value {
+    //   opacity: 1;
+    // }
+
+    .rz-selection {
+      background: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), side_bottom), icons-color) !important;
+    }
+
+    .rz-bar {
+      width: 5px;
+      background: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), slider-color);
+    }
+
+    .rz-floor {
+      display: none;
+    }
+
+    .rz-ceil {
+      display: none;
+    }
+
+    .rz-model-value {
+      width: auto;
+      height: auto;
+      border-radius: 4px;
+      box-shadow: rgba(0, 0, 0, 0.5) 1.5px 1.4px 4px 0px;
+      background-color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), side_bottom), icons-color);
+      color: white;
+      transition: opacity .5s ease-in-out;
+      opacity: 0;
+      max-width: 120px;
+      white-space: pre-line;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      word-break: break-word;
+      font-size: 12px;
+    }
+  }
+
+  .sliderPercentage {
+    color: #909090;
+    display: block;
+    font-size: 14px;
+    text-align: center;
+    @include opensansRegular;
+  }
+}
+
+.bottom-bar {
+  left: $barWidth;
+  bottom: 0px;
+  width: calc(100% - #{$barWidth});
+  height: $barHeight;
+  position: absolute;
+  background-color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), side_bottom), background);
+  box-shadow: 0px 0px 0px 1px rgba(142, 142, 142, 0.5);
+}
+
+.mpo-player {
+  z-index: 10;
+  left: $barWidth;
+  bottom: 0px;
+  width: calc(100% - #{$barWidth});
+  position: absolute;
+}
+
+.page-icon {
+  color: map-get(map-get(map-get($Reader, DayMode), Note), action_button_color);
+  width: $pageIconWidth;
+  height: $pageIconHeight;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.sidenav {
+  left: $barWidth;
+  top: $barHeight;
+  bottom: 0;
+  border-radius: 0px;
+  // overflow-y: hidden;
+  // overflow-x: hidden;
+  position: absolute;
+  z-index: 10;
+  box-shadow: 5px 5px 8.1px 0.9px rgba(38, 37, 37, 0.3);
+}
+
+#contextmenu {
+  border-radius: 0px;
+  z-index: 10; // height: 40px;
+  background-color: map-get(map-get(map-get(map-get($Reader, DayMode), Highlight), popup), background) !important;
+  border: 1px solid map-get(map-get(map-get(map-get($Reader, DayMode), Highlight), popup), border) !important;
+}
+
+.notSelect {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+/* to remove cross icon from IE for input tag */
+::-ms-clear {
+  display: none;
+}
+
+/* to give custom color to mCustomScrollBar */
+.mCSB_dragger_bar {
+  background-color: #CdCdCd !important;
+}
+
+.mCSB_container {
+  margin-right: 10px !important;
+}
+
+.mCSB_draggerRail {
+  background-color: #fafafa !important;
+}
+
+.closePanel {
+  width: 8px;
+  height: 120px;
+  background-color: map-get(map-get(map-get(map-get($Reader, DayMode), tableofcontents), close_slider), background);
+  position: absolute;
+  right: 0;
+  top: 40%;
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
+  cursor: pointer;
+  z-index: 9;
+
+  .closePanelArrow {
+    position: absolute;
+    color: map-get(map-get(map-get(map-get($Reader, DayMode), tableofcontents), close_slider), icon_color);
+    top: 30%;
+    left: 0;
+    font-size: 11px;
+  }
+}
+
+#zoomValue {
+  position: absolute;
+  text-align: center;
+  top: 40%;
+  left: 50%;
+  width: 70px;
+  height: 40px;
+  z-index: 999;
+  background-color: #000000;
+  color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  opacity: 0.5;
+  border: 2px solid #000;
+
+  h4 {
+    margin: 0;
+    height: 100%;
+    vertical-align: middle;
+    line-height: 35px;
+  }
+}
+
+.highlight-class {
+  opacity: 0.4 !important;
+}
+
+.reflowable-galley {
+  margin-left: 10%;
+  margin-right: 10%;
+  background-color: #ffffff;
+  width: calc(80% - 50px);
+}
+
+.reflowable-double-galley {
+  margin-left: 20%;
+  margin-right: 20%;
+  background-color: #ffffff;
+  width: calc(60% - 50px);
+}
+
+.hidden {
+  display: none !important;
+  visibility: hidden !important;
+}
+
+.nightMode {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.dayMode {
+  background-color: #ffffff;
+  color: #333333;
+}
+
+.midMode {
+  background-color: #fff2d0;
+  color: #8b5220;
+}
+
+.searchIconDisable {
+  opacity: 0.5;
+}
+
+.tableViewDesktop {
+  background-color: rgba(0, 0, 0, 0.17);
+  overflow: auto;
+  height: calc(100% - 45px);
+
+  .tableDialog table,
+  th,
+  td {
+    border: 1px solid rgba(0, 0, 0, 0.80);
+  }
+}
+
+.tableViewMobile {
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.17);
+}
+
+.closeTable {
+  line-height: 22px;
+}
+
+.modePanel {
+  max-width: 100%;
+  max-height: 100%;
+  box-shadow: none;
+  width: 100%;
+  height: 100%;
+}
+
+.tableDialog .tableViewMode table {
+  width: 100%;
+}
+.no-box-shadow{
+  box-shadow: none !important;
+}
+md-switch.en-switch-color .md-thumb{
+  background-color: #5B699A ;
+}
+
+.pinGeneration {
+  font-family: 'Open Sans' !important;
+  padding: 1px 16px;
+  cursor: pointer;
+  margin: 10px 0 15px 0;
+}
+
+.willobox{
+    font-family: 'Open Sans' !important;
+    height: 87px;
+    width: 210px;
+    position: relative;
+    border: 1px solid #003c50;
+    font-size: 14px;
+    border-radius: 9px !important;
+    font-size: 15px !important;
+
+    .pinloader{
+      position: absolute;
+      height: 38px;
+      top: 33px;
+    }
+}
+
+.willpinbuttonscode{
+    font-family: 'Open Sans' !important;
+    background-color: #003c50 !important;
+    color:white !important;
+    border-radius: 8px !important;
+    text-transform: capitalize !important;
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,.26) !important;
+}
+
+.willpinbuttonscancel{
+  font-family: 'Open Sans' !important;
+  border-radius: 8px !important;
+  text-transform: capitalize !important;
+  box-shadow: 0 4px 10px 0 rgba(0,0,0,.26) !important;
+}
+
+.genratepinText{
+ font-family: 'Open Sans' !important;
+  padding-bottom: 20px !important;
+  font-size: 15px !important;
+}
+
+.genratepinText1{
+  font-family: 'Open Sans' !important;
+  font-weight: 700 !important;
+  font-size: 15px !important;
+}
+.answer-on-off-label {
+  text-align: center;
+  font-size: 14px;
+  color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), top), Title_text_color);
+  cursor: default;
+}
+
+md-switch.md-checked:not([disabled]) .md-thumb {
+    background-color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), side_bottom), icons-color);
+  }
+
+  md-switch.md-checked:not([disabled]) .md-ink-ripple {
+    color: map-get(map-get(map-get(map-get($Reader, DayMode), FontSettings), Font), icon_color);
+  }
+
+  md-switch.md-checked:not([disabled]) .md-bar {
+    background-color: rgba(30, 112, 159, 0.5);
+  }
+
+  md-switch.md-checked.resetSignoutButton:not([disabled]) .md-bar {
+    background-color: #ED145B;
+  }
+
+  md-switch.md-checked:not([disabled]).md-focused .md-thumb::before {
+    background-color: rgba(30, 112, 159, 0.26);
+  }
+  .virtual-page-count_single {
+    position: fixed !important;
+    left: 24% !important;
+    font-weight: 400;
+    font-size: 93%;
+    text-align: left;
+    top: 95%;
+    bottom: 0%;
+    width: fit-content;
+    background-color: white;
+    opacity: 0.8;
+    padding-top: 4px;
+  }
+
+  .virtual-page-count_double {
+    position: fixed !important;
+    left: 15% !important;
+    font-weight: 400;
+    font-size: 93%;
+    text-align: left;
+    bottom: 0%;
+    width: fit-content;
+    background-color: white;
+    opacity: 0.8;
+    padding-top: 4px;
+  }
+
+  .print-icon {
+    background-color: transparent;
+    border: 0;
+  }
+
+  .print-icon:hover {
+    background-color: rgba(158,158,158,0.28);
+  }
+
+
+  .colorPickerSelect > .md-select-value {
+      min-width: 35px !important;
+      height: 35px;
+      width: 42px;
+      border: 0px !important;
+      .md-select-icon{
+        width : 2px !important;
+      }
+      .md-select-icon:after {
+        content: "\25BC";
+        position: relative;
+        top: 15px;
+        right: 15px;
+        left: auto;
+        speak: none;
+        font-size: 12px;
+        transform: rotate(-40deg) scaleY(.5);
+      }
+  }
+
+  .customAudioColorClass {
+    min-width: 0 !important;
+
+    md-select-menu md-content{
+      min-width : 0 !important;
+      padding-left: 3px;
+    }
+
+    md-option{
+      padding : 0 0px !important;
+    }
+  }
+
+  .selectClass {
+    height: auto; 
+    width: auto !important; 
+    margin-left: 8px; 
+    margin-right: 8px;
+  }
+
+  .selectedColorClass {
+    border: 1px solid #095e8e;
+    border-radius: 20px;
+    line-height: 28px;
+    padding-left: 4px;
+    margin-left: 4px;
+  }
+
+    .tableContent {
+      .top-bar{
+        background-color: map-get($Image_Markup, top_bar_background);
+      }
+    }
+
+  

@@ -1,0 +1,489 @@
+$buttonHeight: 46px;
+$activeTocBackgroundColor: map-get(map-get(map-get(map-get($Reader, DayMode), tableofcontents), selected_toc), background);
+$activeBorder: map-get(map-get(map-get($Reader, DayMode), tableofcontents), selected_tab_border);
+$selectedTocBorderColor: map-get(map-get(map-get(map-get($Reader, DayMode), tableofcontents), selected_toc), side_tab_background);
+$activeTocTiltleColor: map-get(map-get(map-get(map-get($Reader, DayMode), tableofcontents), selected_toc), title-color);
+$activeTocArrowColor: map-get(map-get(map-get(map-get($Reader, DayMode), tableofcontents), selected_toc), arrow_color);
+$deviderColor: map-get(map-get(map-get($Reader, DayMode), tableofcontents), divider-color);
+$descriptionColor: map-get(map-get(map-get($Reader, DayMode), tableofcontents), description-color);
+$titleTocColor: map-get(map-get(map-get($Reader, DayMode), tableofcontents), title-color);
+$tocPageNumber: map-get(map-get(map-get($Reader, DayMode), tableofcontents), pageno-color);
+$tocIconColor: map-get(map-get(map-get($Reader, DayMode), tableofcontents), icons-color);
+$activeTocTextColor: map-get(map-get(map-get(map-get($Reader, DayMode), tableofcontents), selected_toc), title-color);
+
+@if map-get($Reader, clientName)=='Wolters' {
+    $activeTocTextColor: map-get(map-get(map-get(map-get($Reader, DayMode), tableofcontents), selected_toc), text-color);
+}
+
+
+ @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {  
+  /* IE10+ specific styles go here */  
+  .icon_top{
+      position: relative !important;
+  }
+  
+}
+
+#tocitems {
+    height: auto;
+    overflow: hidden;
+    border: 1px solid map-get(map-get(map-get($Reader, DayMode), tableofcontents), popup_border);
+
+    #prev_bttn {
+        margin-top: 5.5%;
+        margin-left: 3%;
+    }
+
+    .tocContents {
+        height: 100%;
+        background-color: map-get(map-get(map-get($Reader, DayMode), tableofcontents), popup_background);
+        overflow: hidden;
+
+        md-tabs {
+            height: 100%;
+
+            .md-tab {
+                text-transform: none;
+                color: map-get(map-get(map-get($Reader, DayMode), tableofcontents), tab_text-color);
+                padding: 12px;
+                overflow: unset;
+                max-width: 100% !important;
+                min-width: auto;
+                @include opensansRegular;
+            }
+
+            md-tabs-canvas.md-paginated {
+                margin: 0 0px !important;
+            }
+
+            md-tabs-wrapper md-next-button.md-disabled, md-tabs-wrapper md-prev-button.md-disabled {
+                opacity: 0;
+                cursor: default;
+            }
+
+            .md-tab.md-active {
+                border-bottom: 2px solid $activeTocTiltleColor;
+                color: $activeTocTiltleColor;
+                font-weight: 400;
+                z-index: 5;
+            }
+
+            .md-tab:focus{
+                background: map-get(map-get(map-get(map-get($Reader, DayMode), tableofcontents), selected_toc), background);
+                text-shadow: none;
+            }
+
+            md-ink-bar {
+                color: $activeBorder;
+                background-color: $deviderColor;
+            }
+
+            md-tabs-wrapper {
+                border-color: map-get(map-get(map-get($Reader, DayMode), tableofcontents), tab_border_wrapper);
+            }
+
+            md-next-button,
+            md-prev-button {
+
+                md-icon {
+                    fill: $tocIconColor;
+                    color: $tocIconColor;
+                }
+            }
+
+            .bookmarkList {
+                padding: 0;
+                margin: 0;
+
+                .bookmarkIcon {
+                    font-size: 23px;
+                    font-style: normal;
+                    color: map-get(map-get(map-get($Reader, DayMode), Bookmark), selected_icon-color);
+                    line-height: 3px;
+                    margin: 0;
+                    text-align: center;
+                }
+
+                .bookmarkText {
+                    max-width: 290px;
+                    width: 290px;
+                    padding-left: 24px;
+
+                    .bookmark_ugcData {
+                        font-size: 12px;
+                        padding-bottom: 5px;
+                        color: $descriptionColor;
+                        @include opensansRegular;
+                    }
+
+                    .dateAndTime {
+                        font-size: 12px;
+                        color: $tocPageNumber;
+                        @include opensansRegular;
+                    }
+                }
+
+                .bookmark_folioID {
+                    color: $tocPageNumber;
+                    font-size: 12px;
+                    padding-top: 0;
+                    bottom: 6px;
+                    position: relative;
+                    @include opensansRegular;
+                }
+
+                .bookmarkDivider {
+                    border-top-color: $deviderColor;
+                }
+            }
+
+            .resourceList {
+                padding: 0;
+
+                .resourceLabel {
+                    font-size: 12px;
+                    color: $titleTocColor;
+                    @include opensansRegular;
+                }
+
+                .resourceIcon {
+                    color: $tocIconColor;
+                    line-height: 24px;
+                    font-size: 16px;
+                }
+
+                .icon_up {
+                    color: $activeTocArrowColor;
+                }
+
+                .resourceSubdata {
+                    background-color: $activeTocBackgroundColor;
+                    border-left: 5px solid $selectedTocBorderColor;
+
+                    .childResourceIcon {
+                        color: $tocIconColor;
+                        margin: 0;
+                        line-height: 24px;
+                    }
+
+                    .childResourceName {
+                        color: $descriptionColor;
+                        font-size: 12px;
+                        padding-left: 10px;
+                        @include opensansRegular;
+                    }
+
+                    &:last-of-type {
+                        border-bottom: 1px solid $deviderColor;
+                    }
+                }
+
+                .resourcePageNumber {
+                    font-size: 11px;
+                    color: $tocPageNumber;
+                    padding-right: 10px;
+                    @include opensansRegular;
+                }
+
+                .resourceListDivider {
+                    border-top-color: $deviderColor;
+                }
+
+                .noMarkupFound {
+                    font-size: 12px;
+                    padding-left: 15px;
+                    color: $descriptionColor;
+                    @include opensansRegular;
+                }
+            }
+
+            .contentList {
+                padding: 0px;
+
+                .alignList {
+                    text-align: left;
+                }
+
+                .contentBtn {
+                    position: absolute;
+                    right: 0;
+                }
+
+                .chlabel {
+                    border-bottom: 1px solid $deviderColor;
+
+                    .chapterLabel {
+                        display: inline-block;
+                        font-size: 11px;
+                        word-wrap: break-word;
+                        align-items: flex-start;
+                        color: $titleTocColor;
+                        text-transform: none;
+                        font-weight: map-get(map-get(map-get($Reader, DayMode), tableofcontents), chlabel_fontweight);
+                        @include opensansRegular;
+                    }
+
+                    .resourceLabel {
+                        font-size: 11px;
+                        align-items: flex-start;
+                        color: $activeTocTextColor; 
+                        text-transform: none;
+                        font-weight: map-get(map-get(map-get($Reader, DayMode), tableofcontents), chlabel_fontweight);
+                        background-color: map-get(map-get(map-get(map-get($Reader, DayMode), tableofcontents),selected_toc), background);
+                        @include opensansRegular;
+                    }
+                }
+
+                .upicon {
+                    font-size: 16px;
+                    line-height: 26px;
+                    color: map-get(map-get(map-get($Reader, DayMode), tableofcontents), more_icon-color);
+                }
+
+                .icon_up {
+                    color: $activeTocArrowColor;
+                }
+
+                .borderContent {
+                    padding: 0px;
+                    padding-left: 20px;
+                    padding-right: 16px;
+                    background-color: map-get(map-get(map-get(map-get($Reader, DayMode), tableofcontents), selected_toc), level_background);
+
+                    .md-button.md-no-style {
+                        border-bottom: 1px solid $deviderColor;
+                    }
+                }
+
+                .borderLeft {
+                    border-left: 5px solid $selectedTocBorderColor;
+                }
+
+                .subChapter {
+                    font-size: 12px;
+                    align-items: flex-start;
+                    text-transform: none;
+                    @include opensansRegular;
+                }
+
+                .subchapterLabel {
+                    display: inline-block;
+                    word-wrap: break-word;
+                    color: $titleTocColor;                   
+                }
+
+                .activeSubchapter {
+                    color: $activeTocTiltleColor;
+                }
+
+                .subChapterContent {
+                    width: 100%;
+                    font-size: 12px;
+                    color: $descriptionColor;
+                    height: auto;
+                    word-wrap: break-word;
+                    display: inline-block;
+                    cursor: pointer;
+                    text-transform: none;
+                    @include opensansRegular;
+                }
+            }
+
+            .journalList {
+                padding: 0px;
+
+                .journalTitle {
+                    font-size: 12px;
+                    color: $titleTocColor;
+                    @include opensansRegular;
+                }
+
+                .journalText {
+                    font-size: 12px;
+                    color: $descriptionColor;
+                    @include opensansRegular;
+                }
+
+                .shortDetail {
+                    font-size: 11px;
+                    color: $descriptionColor;
+                    @include opensansRegular;
+                }
+
+                .links {
+                    font-size: 11px;
+                    @include opensansRegular;
+
+                    .weblinks {
+                        color: $tocIconColor;
+                        margin: 0;
+                        line-height: 24px;
+                        display: inline-block;
+                    }
+
+                    .linkName {
+                        color: $activeTocTiltleColor;
+                        display: inline-block;
+                    }
+                }
+            }
+
+            .changeColor {
+                background-color: $activeTocBackgroundColor;
+                border-left: 5px solid $selectedTocBorderColor;
+
+                .resourceLabelActiveColor {
+                    color: $activeTocTiltleColor;
+                }
+            }
+
+            .resourcesBorder {
+                border-bottom: 1px solid $deviderColor;
+            }
+
+            .tocTab-icon {
+                color: $tocIconColor;
+                font-size: 120px;
+                text-align: center;
+                margin: 0;
+                height: 120px;
+                line-height: 120px;
+                width: 100%;
+                margin-bottom: 40px;
+            }
+
+            .tocTab-name {
+                width: 100%;
+                color: $descriptionColor;
+                font-size: 14px;
+                text-align: center;
+            }
+        }
+    }
+
+
+    .firstLevelTitle {
+        font-size: 14px;
+        border-bottom: solid 1px $deviderColor;
+        @include opensansRegular;
+
+        .activeColor {
+            color: $activeTocTiltleColor !important;
+        }
+
+        .icon_down {
+            color: map-get(map-get(map-get($Reader, DayMode), tableofcontents), more_icon-color);
+        }
+
+        .firstLevelText {
+            color: $titleTocColor;
+            margin-left: 20px;
+            width: 80%;
+        }
+
+        .secondLevelText {
+            color: $titleTocColor;
+            margin-left: 30px;
+            width: 80%;
+            @include opensansLight;
+        }
+
+        .thirdLevelText {
+            color: $titleTocColor;
+            margin-left: 40px;
+            width: 80%;
+            @include opensansLight;
+        }
+
+        .thirdLevelTextTor {
+            cursor: pointer;
+            color: $titleTocColor;
+            margin-left: 40px;
+            height: 56.5px;
+            width: 80%;
+            padding: 12.5px;
+            @include opensansLight;
+        }
+
+        .fourthLevelTextTor {
+            color: $titleTocColor;
+            margin-left: 70px;
+            width: 80%;
+            padding: 12.5px;
+            cursor: pointer;
+            @include opensansLight;
+
+            .activityColor {
+                color: $titleTocColor;
+            }
+        }
+
+        .fourthLevelText {
+            color: $titleTocColor;
+            margin-left: 70px;
+            width: 80%;
+            padding-bottom: 8px;
+            padding-top: 8px;
+            cursor: pointer;
+            @include opensansLight;
+
+            .activityColor {
+                color: $titleTocColor;
+            }
+        }
+    }
+
+    .activeLevel {
+        background-color: map-get(map-get(map-get(map-get($Reader, DayMode), tableofcontents), selected_toc), background);
+        border-left: 2px solid $selectedTocBorderColor;
+    }
+
+    .showEllipsis {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+.tocView {
+    .desktopTOCPanel {
+        transform: none;
+    }
+
+    .mobileTOCPanel {
+        width: 100%;
+        max-width: 100%;
+        left: 0;
+        z-index: 15;
+
+        md-ink-bar {
+            top: 0;
+        }
+
+        md-tabs-wrapper {
+            border-width: 1px 0 0px 0px;
+            position: fixed;
+        }
+
+        md-tabs[md-border-bottom]:not(.md-dynamic-height) md-tabs-content-wrapper {
+            top: 25px;
+        }
+
+        .tocContents md-tabs {
+            height: calc(100% - 48px) !important;
+        }
+
+        .closeTOC {
+            md-icon {
+                line-height: 24px;
+            }
+
+            label {
+                color: $activeTocTiltleColor;
+                margin: 0;
+                font-size: 14px;
+                @include opensansRegular;
+            }
+        }
+    }
+}

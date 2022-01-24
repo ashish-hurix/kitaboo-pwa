@@ -1,0 +1,48 @@
+.instructionPanel {
+    max-width: 16%;
+    max-height: 70%;
+    word-break: break-word;
+    background-color: #fdffdb;
+    box-shadow: 0 0 12.8px 2.3px rgba(3, 3, 3, 0.75);
+    position: absolute;
+    top: calc(50% - 50px);
+    left: calc(50% - 50px);
+    z-index: 9999;
+    display: none;
+
+    .markupClose {
+        position: absolute;
+        right: -5px;
+        top: -10px;
+        border-radius: 50%;
+        background-color: #000000 !important;
+
+        md-icon {
+            line-height: 24px;
+            color: #ffffff !important;
+        }
+    }
+
+    .draginstruct {
+        font-size: 16px !important;
+        padding: 5px;
+        line-height: 25px !important;
+        color: #000 !important;
+        top: -4px;
+        position: absolute;
+    }
+
+    .infodetails {
+        font-size: 12pt;
+        margin: 25px;
+        max-height: 120px;
+        overflow-x: hidden;
+        overflow-y: auto;
+        word-wrap: break-word;
+        @include opensansRegular;
+    }
+}
+
+.instructionMobile {
+    max-width: 30%;
+}

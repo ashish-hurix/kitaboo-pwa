@@ -1,0 +1,71 @@
+.bookmark-view {
+    font-size: 30px !important;
+    z-index: 9 !important;
+}
+
+.bookmark-popup {
+    background-color: map-get(map-get(map-get($Reader, DayMode), Bookmark), popup_background);
+    box-shadow: 0px 2px 11.9px 2.1px rgba(0, 0, 0, 0.3);
+    border-radius: 3px;
+
+    .flex-container {
+        cursor: default;
+        border: none;
+
+        .bookmark-label-container {
+            display: block;
+            text-align: right;
+        }
+
+        .character-limit {
+            top: 5px;
+            position: relative;
+            font-size: 12px;
+            font-family: 'Open Sans';
+            font-weight: 300;
+            font-style: normal;
+            color: map-get(map-get(map-get($Reader, DayMode), Bookmark), hint_text-color);
+        }
+
+        .bookmark-input-data {
+            height: 30px;
+            border-radius: 3px;
+            background-color: map-get(map-get(map-get($Reader, DayMode), Bookmark), input_panel-bg);
+            color: map-get(map-get(map-get($Reader, DayMode), Bookmark), text-color);
+            font-size: 12px;
+        }
+    }
+
+    .bookmark-custom-button {
+        width: 68px;
+        // height: 23px;
+        border-radius: 3px;
+        background-color: map-get(map-get(map-get($Reader, DayMode), Bookmark), button_background);
+        color: map-get(map-get(map-get($Reader, DayMode), Bookmark), button_text-color);
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        height: 31px;
+    }
+
+    .bookmark-add-save-button {
+        position: absolute;
+        right: 11px;
+        bottom: 7px;
+    }
+
+    .bookmark-delete-button {
+        position: absolute;
+        bottom: 7px;
+        left: 60px;
+    }
+}
+
+.bookmark-leaf {
+    font-size: 40px !important;
+    position: fixed;
+    background: transparent;
+    padding: 0;
+    border: none;
+}

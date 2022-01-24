@@ -1,0 +1,393 @@
+.mainContainer {
+    width: 334px;
+    height: auto;
+    position: absolute;
+    z-index: 11;
+    box-shadow: 0 2px 6px 0 rgba(150, 145, 145, 0.7);
+    background-color: map-get(map-get(map-get($Reader, DayMode), Profile), popup_background);
+    right: 0;
+    margin: 15px;
+    border: 1px solid map-get(map-get(map-get($Reader, DayMode), Profile), profile_border);
+
+    md-content.md-default-theme,
+    md-content {
+        background-color: map-get(map-get(map-get($Reader, DayMode), Profile), popup_background);
+    }
+
+    .profileTop {
+        padding: 15px 15px 5px 15px;
+    }
+
+    md-input-container {
+        width: 60%;
+        margin-left: 6%;
+
+         label {
+            //color: map-get(map-get($Login, login_screen), button_color);
+        } 
+    }
+
+    .profilePics {
+        width: 105px;
+        height: 105px;
+        border-radius: 50%;
+        border: solid 3px map-get(map-get(map-get($Reader, DayMode), Profile), profile_border);
+        overflow: hidden;
+        position: relative;
+        padding: 0;
+
+        .profileImage {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: #d0d0d0;
+        }
+    }
+
+    .userInfo {
+        padding: 0px 0px 0px 15px;
+        height: 105px;
+
+
+        .userName {
+            font-size: 14px;
+            color: map-get(map-get(map-get($Reader, DayMode), Profile), text-color);
+            width: auto;
+            max-width: 150px;
+            display: inline-block;
+            text-transform: capitalize;
+            cursor: default;
+             @include opensansLight;
+        }
+
+        .userID {
+            font-size: 12px;
+            color: rgba(0,0,0,0.70);
+            width: auto;
+            max-width: 150px;
+            cursor: default;
+            @include opensansLight;
+        }
+    }
+
+    .editProfile {
+        margin: 0;
+        opacity: 0.8;
+
+        .editIcon {
+            font-size: 16px;
+            text-align: center;
+            line-height: 24px;
+            color: map-get(map-get(map-get($Reader, DayMode), Profile), text-color);
+        }
+    }
+
+     .changePasswordLabel {
+        font-size: 14px;
+        color: map-get(map-get(map-get($Reader, DayMode), Profile), action_text-color);
+        text-decoration-line: underline;
+        text-decoration: underline;
+        text-align: center;
+        cursor: pointer;
+        @include opensansSemiBold;
+    } 
+
+    .worldbookguestname {
+        font-size: 14px;
+        text-align: center;
+        color: #000000;
+        @include opensansSemiBold;
+    }
+
+    .profilePage {
+        font-size: 14px;
+        color: map-get(map-get(map-get($Reader, DayMode), Profile), action_text-color);
+        text-decoration-line: underline;
+        text-decoration: underline;
+        text-align: center;
+        @include opensansSemiBold;
+
+        #changePasswordView {
+            cursor: pointer;
+        }
+    }
+
+    .helpPage {
+        margin-top: 4px;
+        border-radius: 50%;
+        color: #095e8e;
+        border: 1px solid #095e8e;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        line-height: 1;
+
+        md-icon {
+            height: 0px;
+            width: 0px;
+            min-height: 0px;
+            min-width: 0px;
+            line-height: 0;
+        }
+    }
+
+    .icon-help:before {
+        font-size: 16px;
+        color: #095e8e;
+        padding-top: 4px;
+        position: absolute;
+        margin-left: -8px;
+    }
+
+    .commonlinks {
+        font-size: 12px;
+        text-align: center;
+        color: map-get(map-get(map-get($Reader, DayMode), Profile), action_text-color);
+        padding: 0;
+        text-decoration: underline;
+        @include opensansRegular;
+        cursor: pointer;
+    }
+
+    .pipe {
+        color: map-get(map-get(map-get($Reader, DayMode), Bookmark), icon_color);
+    }
+
+    .version {
+        padding: 5px;
+        font-size: 12px;
+        color: map-get(map-get(map-get($Reader, DayMode), Profile), text_color);
+        cursor: default;
+        @include opensansRegular;
+    }
+
+    .signOutButton {
+        padding: 0px 15px 15px 15px;
+
+        .signOutLabel {
+            width: 304px;
+            height: 40px;
+            background-color: map-get(map-get(map-get(map-get($Reader, DayMode), Profile), signout), background);
+            font-size: 14px;
+            color: map-get(map-get(map-get(map-get($Reader, DayMode), Profile),signout), text_color);
+            margin: 0;
+            .icon-Sign_out:before {
+                content: "\a7b6";
+              };
+            .signoutIcon {
+                font-size: 12px;
+                color: map-get(map-get(map-get(map-get($Reader, DayMode), Profile),signout), icons_color);
+                line-height: 22px;
+                margin-left: 30%;
+                margin-top: -10%;
+            }.signoutIconSpanish {
+                margin-left: 23%;
+                margin-top: -10%;
+            }
+        }
+
+        .md-button:not([disabled]):hover {
+            background-color: map-get(map-get(map-get(map-get($Reader, DayMode), Profile), signout), background);
+        }
+
+        .md-button.md-raised:not([disabled]):hover {
+            background-color: map-get(map-get(map-get(map-get($Reader, DayMode), Profile), signout), background);
+        }
+
+        .md-button.md-raised:not([disabled]).md-focused {
+            background-color: #de0000;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.75);
+        }
+    }
+
+    .signOutButtonWorldbook {
+                padding: 0px 15px 15px 15px;
+        
+                .signOutLabel {
+                    width: 304px;
+                    height: 40px;
+                    font-size: 14px;
+                    margin: 0;
+                    border: 2px solid #407db4; 
+                    background-color: #ffffff; 
+                    color: #407db4;
+                    text-transform: none;
+        
+                    .signoutIcon {
+                        font-size: 12px;
+                        color: #407db4;
+                        line-height: 22px;
+                    }
+                }
+        
+                .md-button:not([disabled]):hover {
+                    background-color: #407db4;
+                    color:#ffffff;
+                    .signoutIcon {
+                        font-size: 12px;
+                        color:#ffffff;
+                        line-height: 22px;
+                    }
+                }
+        
+                .md-button.md-raised:not([disabled]):hover {
+                    background-color: #407db4;
+                    color:#ffffff;
+                    .signoutIcon {
+                        font-size: 12px;
+                        color:#ffffff;
+                        line-height: 22px;
+                    }
+                }
+        
+                .md-button.md-raised:not([disabled]).md-focused {
+                    background-color: #407db4;
+                    color:#ffffff;
+                    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.75);
+                    .signoutIcon {
+                        font-size: 12px;
+                        color:#ffffff;
+                        line-height: 22px;
+                    }
+                }
+            }
+        
+
+    .signOutButtonCarnegie {
+        padding: 0px 15px 15px 15px;
+
+        .signOutLabel {
+            width: 304px;
+            height: 40px;
+            background-color: #35abe2;
+            text-transform: initial !important;
+            font-size: 14px;
+            color: map-get(map-get(map-get(map-get($Reader, DayMode), Profile), signout), text_color);
+            margin: 0;
+
+            .signoutIcon {
+                font-size: 12px;
+                color: map-get(map-get(map-get(map-get($Reader, DayMode), Profile), signout), icons_color);
+                line-height: 22px;
+            }
+        }
+
+        .md-button:not([disabled]):hover {
+            background-color: #35abe2;
+        }
+
+        .md-button.md-raised:not([disabled]):hover {
+            background-color: #35abe2;
+        }
+
+        .md-button.md-raised:not([disabled]).md-focused {
+            background-color: #35abe2;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.75);
+        }
+    }
+
+    .createAcoount {
+        padding: 0px 15px 15px 15px;
+
+        .signOutLabel {
+            width: 304px;
+            height: 40px;
+            background-color: #337ab7;
+            font-size: 14px;
+            color: map-get(map-get(map-get(map-get($Reader, DayMode), Profile), signout), text_color);
+            margin: 0;
+        }
+
+        .md-button:not([disabled]):hover {
+            background-color: #337ab7;
+        }
+
+        .md-button.md-raised:not([disabled]):hover {
+            background-color: #337ab7;
+        }
+
+        .md-button.md-raised:not([disabled]).md-focused {
+            background-color: #de0000;
+            box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.75);
+        }
+    }
+
+    .multilanguage {
+        height: auto;
+
+        .languageHeading {
+            margin-left: 8px;
+            margin-bottom: 8px;
+            font-size: 11px;
+            color: map-get(map-get(map-get($Reader, DayMode), Profile), profile_border);
+            @include opensansRegular
+        }
+
+        .multLangView {
+            height: 40px;
+            width: 100%;
+            margin: 0 12px;
+            border-radius: 4px;
+            border: 1px solid #9a9a9a;
+            background-color: map-get(map-get(map-get($Reader, DayMode), Profile), popup_background);
+
+            .md-select-value {
+                border: none;
+                margin-bottom: unset;
+
+                .md-text {
+                    padding-left: 12px;
+                    font-size: 14px;
+                    color: map-get(map-get(map-get($Reader, DayMode), main), navigation_arrows);
+                }
+            }
+
+            .md-select-icon {
+                padding-right: 20px;
+                padding-top: 4px;
+                color:map-get(map-get(map-get($Reader, DayMode), tableofcontents), pageno-color);
+            }
+
+            .md-select-value.md-select-placeholder {
+                font-size: 14px;
+                color: map-get(map-get(map-get($Reader, DayMode), main), navigation_arrows);
+                border: none;
+                font-family: none;
+            }
+        }
+
+        .multLangViewIslamic {
+          .md-select-value {
+              border: none;
+              margin-bottom: unset;
+              
+              .md-text {
+                  font-family: 'Open Sans';
+              }
+          }
+
+          .md-select-icon {
+            color: map-get(map-get(map-get($Reader, DayMode), tableofcontents), pageno-color);
+            margin: 0 4px;
+            transform: translateY(-2px);
+
+            &:after {
+              right: 0;
+              text-align: center;
+            }
+          }
+        }
+    }
+}
+.smallText{
+    text-transform: none !important;
+}
+.multiLangOption {
+    background-color: #f9f9f9;
+
+    .md-text {
+        font-size: 14px;
+        color: #000000;
+        font-family: none;
+    }
+}

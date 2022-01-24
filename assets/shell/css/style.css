@@ -1,0 +1,981 @@
+/* @font-face {
+    font-family: 'kitabooread';
+    src: url('../fonts/kitabooread.eot?60jjsx');
+    src: url('../fonts/kitabooread.eot?60jjsx#iefix') format('embedded-opentype'), url('../fonts/kitabooread.svg?60jjsx#icomoon') format('svg'), url('../fonts/kitabooread.woff2?60jjsx') format('woff2'), url('../fonts/kitabooread.ttf?60jjsx') format('truetype'), url('../fonts/kitabooread.woff?60jjsx') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+} */
+
+[class^='icon-'],
+[class$='-icon'],
+[class*='icon'] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    display: block;
+    /* flex */
+    text-rendering: auto;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font: normal normal normal 20px kitabooread;
+    cursor: pointer;
+    justify-content: center;
+    line-height: 50px;
+}
+
+.nonClickableIcon{
+    cursor: default;
+}
+
+.icon-delete_book_icon:before {
+    content: "\58";
+}
+
+.home-icon::before {
+    content: "a";
+}
+
+/*ui start for new note */
+.delete-icon::before {
+    content: "C";
+}
+
+.standalone_instruction::before {
+    content: "ā";
+}
+
+.image-icon::before {
+    content: "k";
+}
+
+.audio-icon::before {
+    content: "ꟽ";
+}
+
+.file-icon::before {
+    content: "ẟ";
+}
+
+.share-icon::before {
+    content: "ƽ";
+}
+
+/*ui end for new note */
+.toc-icon::before {
+    content: "b";
+}
+
+.mydata-icon::before {
+    content: "0";
+}
+
+.myData-icon::before {
+    content: "ﬨ";
+}
+
+.myhighlight-icon::before{
+    content: "ﬨ"
+}
+
+.mynotes-icon::before{
+    content: "¸"
+}
+
+.search-icon::before {
+    content: "d";
+}
+
+.search-not-icon::before {
+    content: "ṝ";
+}
+
+.thumb-nail-icon::before {
+    content: "g";
+}
+
+.fb-icon::before {
+    content: "₣";
+    bottom: 12px;
+    position: relative;
+}
+
+.twitter-icon::before {
+    content: "Ѻ";
+    bottom: 12px;
+    position: relative;
+}
+
+.share-linkicon::before{
+    content: "n";
+    bottom: 12px;
+    position: relative;
+}
+
+.single-column-view-icon::before {
+    content: "R";
+}
+
+.double-column-view-icon:before {
+
+    content: "S";
+}
+
+.zoom-icon::before {
+    content: "x";
+}
+
+.zoom-in::before {
+    content: "x";
+}
+
+.fitw-icon::before {
+    content: "\00C7";
+}
+
+.fith-icon::before {
+    content: "¢";
+}
+
+.sticky-note-icon::before {
+    content: "\00B8"
+}
+
+.contextual-note-icon::before {
+    content: "V"
+}
+
+.close-icon::before {
+    content: "2";
+}
+
+.pen-icon::before {
+    content: "t";
+}
+
+.eraser-icon::before {
+    content: '$';
+}
+
+.undo-tool-icon::before {
+    content: '<';
+}
+
+.clearall-tool-icon::before {
+    content: 'č';
+}
+
+.profile-pic-icon::before {
+    content: "Ƥ";
+}
+
+.full-screen-icon::before {
+    content: "\0027F";
+}
+
+.pick-colors::before {
+    content: '"';
+}
+
+.pick-note-colors::before {
+    content: '"';
+}
+
+.filter-icon::before {
+    content: "Ḟ";
+}
+
+.setting-icon::before {
+    content: "\42";
+}
+
+.kitaboowidget::before {
+    content: "\d8";
+}
+
+.icon-Pen_thickness::before {
+    content: "ỉ";
+}
+
+/* .icon-Pen_thickness_circle::before{
+content: "t";
+} */
+.icon-Color_palette::before {
+    content: "Ṕ";
+}
+
+.icon-Clear::before {
+    content: "č";
+}
+
+.icon-User_submission::before {
+    content: ":";
+}
+
+.icon-k_image:before {
+    content: "\6b";
+}
+
+.icon-i_audio:before {
+    content: "\69";
+}
+
+.icon-j_video:before {
+    content: "\6a";
+}
+
+.icon-n_weblink::before {
+    content: "\6e";
+}
+
+.icon-Audio::before {
+    content: "i";
+}
+
+.icon-Play-01::before {
+    content: "ɼ";
+}
+
+.actualScreen::before {
+    content: "ﬧ";
+}
+
+.icon-protractor::before {
+    content: "ọ";
+}
+
+.prev_bttn::before {
+    content: "\47";
+    font-family: 'kitabooread';
+}
+
+.next_bttn::before {
+    content: "H";
+    font-family: 'kitabooread';
+}
+
+.historyPrev::before {
+    content: "I";
+}
+
+.historyNext::before {
+    content: "J";
+}
+
+.reflow-icon::before {
+    content: "\00A3";
+}
+
+.justify-full::before {
+    content: "ꭔ";
+}
+
+.justify-left::before {
+    content: "Ц";
+}
+
+.justify-right::before {
+    content: 'Щ';
+}
+
+.justify-center::before {
+    content: "Ш";
+}
+
+.unCheck::before {
+    content: "ͻ";
+}
+
+.check::before {
+    content: "ͽ";
+}
+
+.colorTypes::before {
+    content: "e";
+}
+
+.fontSize::before {
+    content: "Հ";
+}
+
+.brightness::before {
+    content: "ꭓ";
+}
+
+.icon-overflow_more_vertical::before {
+    content: "ľ";
+}
+
+.icon-AR_close::before {
+    content: "∞";
+}
+
+.icon-zoom-out::before {
+    content: "y";
+}
+
+.zoom-out::before {
+    content: "y";
+}
+
+.bookmark-icon::before {
+    content: "q";
+}
+
+.bookmark-Icon-Panel:before {
+    content: "p";
+}
+
+.icon-prev_page_icon:before {
+    content: "\47";
+}
+
+.bookmark-icon-infobase::before {
+    content: "Î";
+}
+
+.icon-next_page_icon::before {
+    content: "H";
+}
+
+.icon-note_icon_text_icon:before {
+    content: "V";
+}
+
+.notification-icon:before {
+    content: "ş";
+}
+
+.icon-Windows_Share_note:before {
+    content: "ř";
+}
+
+.icon-stickynote:before {
+    content: "¸";
+}
+
+.play-icon:before {
+    content: "L";
+}
+
+.unmute-icon::before {
+    content: "i";
+}
+
+.drag-handler-icon::before {
+    content: "3";
+}
+
+.pause-icon::before {
+    content: "K";
+}
+
+.icon-panel_close_arrow::before {
+    content: "÷"
+}
+
+.icon_up:before {
+    content: "6";
+}
+
+.icon_down:before {
+    content: "7";
+}
+
+.weblinkchnageicon::before {
+    content: "é";
+}
+
+.weblinks::before {
+    content: "n";
+} 
+
+.image::before {
+    content: "k";
+}
+
+.slideshow::before {
+    content: "\c3";
+}
+
+.htmlwrap::before {
+    content: "]";
+}
+
+.activityInjection::before {
+    content: "ἑ";
+}
+
+.survey::before {
+    content: "ǿ";
+}
+
+.documents::before {
+    content: "h" !important
+}
+
+.audio::before {
+    content: "i"!important;
+}
+
+.delete-icon::before {
+    content: 'C';
+}
+
+.audioDrag_icon::before {
+    content: 'ď';
+}
+
+.muteAudio_icon::before {
+    content: 'ǝ';
+}
+
+.menuBar_icon::before {
+    content: 'ɺ';
+}
+
+.open_book_icon::before {
+    content: 'Ş';
+}
+
+.vimeo_video::before {
+    content: "j";
+}
+
+.video::before, .video::before {
+    content: 'j' !important;
+}
+
+.video::before {
+    content: "j";
+}
+
+.youtube_video::before {
+    content: "j";
+}
+
+.kaltura_video::before {
+    content: "j";
+}
+
+.icon-toc:before {
+    content: "\62";
+}
+
+.icon-toc_infobase:before {
+    content: "Î";
+}
+
+.mpo::before {
+    content: 'ףּ';
+    padding-left: 13px;
+}
+
+.icon-page_curl:before {
+    content: "\ca";
+}
+
+.icon-page_transition:before {
+    content: "\cb";
+}
+
+.icon-Keyboard_up::before {
+    content: "Ʀ";
+}
+
+.icon-Direction-arrow::before {
+    content: "Ć";
+}
+
+.icon-cloud_upload_icon::before {
+    content: "\3a";
+}
+
+.icon-Read_aloud::before {
+    content: "ʠ";
+}
+
+.icon-teacher_annotation_icon:before {
+    content: "\2f";
+}
+
+.icon-Data_not_generated:before {
+    content: "\3f";
+}
+
+.icon-Arrow_Redo:before {
+    content: "\3e";
+}
+
+.icon-Text_annotation:before {
+    content: "\2a7";
+}
+
+.icon-Students_clear_data-01:before {
+    content: "\34";
+}
+
+.icon-brush_icon:before {
+    content: "\22";
+}
+
+.icon-F_check:before {
+    content: "\46";
+}
+
+.print-icon::before {
+    content: "\41";
+}
+
+.icon-notification:before {
+    content: '\15f';
+}
+
+.icon-sendarrow::before {
+    content: '¤';
+}
+
+.icon-AR_back::before {
+    content: '≈';
+}
+
+.toc::before {
+    content: "o";
+}
+
+.icon-Line-Spacing_1::before {
+    content: "Т";
+}
+
+.icon-Line-Spacing_2::before {
+    content: "У";
+}
+
+.icon-Line-Spacing_3::before {
+    content: "Ф";
+}
+
+.jumptobook::before {
+    content: "Ἕ";
+}
+
+.imagezoom::before {
+    content: "Ĝ";
+}
+
+.icon-Margin-1::before {
+    content: "Խ";
+}
+
+.icon-Margin-2::before {
+    content: "Ծ";
+}
+
+.icon-Margin-3::before {
+    content: "Կ";
+}
+
+.toggle_Off_icon:before {
+    content: "˦";
+}
+
+.toggle_On_icon:before {
+    content: "˧";
+}
+
+.toggle_reflowable_Off_icon:before {
+    content: "ϕ";
+}
+
+.toggle_reflowable_icon:before {
+    content: "ϔ";
+}
+
+.icon-h_assessment:before {
+    content: "h";
+}
+
+.icon-TG:before {
+    content: "ç";
+}
+
+.icon-Geometry:before {
+    content: "\fb";
+}
+
+.icon-Geometry_Gold:before {
+    content: "ü";
+}
+
+.icon-share-link::before {
+    content: "ř";
+}
+
+.icon-info:before {
+  content: "\f1";
+}
+
+.icon-audio_sequencing:before {
+    content: "ѵ";
+}
+
+.highlisghtspeech:before {
+    content: "\476";
+}
+
+.icon-Speech-tool-lingit:before {
+    content: "B";
+}
+
+.icon-Audio_sync-01:before {
+    content: "\1f85";
+}
+
+.appendices::before,
+.documents {
+    content: "ē"
+}
+
+.documents,
+.studentWorksheet::before {
+    content: "ï"
+}
+
+.documents,
+.testPaper::before {
+    content: "ì" !important
+}
+
+.additionalResources::before {
+    content: "Ď" !important
+}
+
+.documents,
+.studentAnswerKeys::before {
+    content: "Ē"
+}
+
+.answerKeys::before,
+.documents {
+    content: "Ē" !important
+}
+
+.documents,
+.worksheet::before {
+    content: "è" !important
+}
+
+.documents,
+.lessonPlan::before {
+    content: "ù" !important
+}
+
+.pdf::before {
+    content: "ø" !important
+}
+
+.embeddedInteractivity::before {
+    content: "ć" !important
+}
+
+.interactivity::before {
+    content: "ĉ" !important
+}
+
+.comprehensiveLessonPlan::before {
+    content: "Đ" !important
+}
+
+.summaryLessonPlan::before {
+    content: "î" !important
+}
+
+.audio::before {
+    content: "Ĕ"
+}
+
+.audio,
+.proseAudio::before {
+    content: 'ô' !important
+}
+
+.poemAudio::before {
+    content: 'ö' !important
+}
+
+.pronunciation::before {
+    content: "õ" !important
+}
+
+.additionalRhymes::before,
+.audio {
+    content: "Ċ" !important
+}
+
+.delete-icon::before {
+    content: 'C'
+}
+
+.audioDrag_icon::before {
+    content: 'ď'
+}
+
+.muteAudio_icon::before {
+    content: 'ǝ'
+}
+
+.youtube_video::before {
+    content: "j"
+}
+
+.mpo::before {
+    content: 'ףּ';
+    padding-left: 13px
+}
+
+.text-clear-icon {
+    line-height: 32px
+}
+
+.list-icon::before {
+    content: "0"
+}
+
+.highlight-icon::before {
+    content: "e"
+}
+
+.settings-icon::before {
+    content: "\a3"
+}
+
+.zoom-in-icon::before {
+    content: 'x'
+}
+
+.zoom-out-icon::before {
+    content: 'y'
+}
+
+.data-icon::before {
+    content: 'D'
+}
+
+.data-settings-icon::before {
+    content: 'B'
+}
+
+.backArrow::before {
+    content: "G"
+}
+
+.comment-BackArrow::before {
+    content: "G"
+}
+
+.play-icon::before {
+    content: "L"
+}
+
+.stop-icon::before {
+    content: "M"
+}
+
+.next-review-icon:before {
+    content: "H"
+}
+
+.prev-review-icon:before {
+    content: "G"
+}
+
+.review-icon:before {
+    content: "/"
+}
+
+.sub-icon:before {
+    content: "7"
+}
+
+.mute-icon::before {
+    content: "i"
+}
+
+.selectPen-icon::before {
+    content: "f"
+}
+
+.red-stroke-icon::before {
+    content: "M"
+}
+
+.green-stroke-icon::before {
+    content: "M"
+}
+
+.eraser-stroke-icon::before {
+    content: "$"
+}
+
+.check-icon::before {
+    content: "8"
+}
+
+.submit-annotation-icon::before {
+    content: ":"
+}
+
+.contextual-notes-icon::before {
+    content: "V"
+}
+
+.comment-icon::before {
+    content: '\c9'
+}
+
+.accept-icon::before {
+    content: '8'
+}
+
+.reject-icon::before {
+    content: '2'
+}
+
+.standalone_instruction-icon::before {
+    content: "\101"
+}
+
+.animation::before,
+.video {
+    content: "Č"
+}
+
+.documents-icon::before,
+.external_documents::before {
+    content: "h"
+}
+
+.toc::before {
+    content: "o"
+}
+
+.jumptobook-icon:before {
+    content: "\259"
+}
+
+.external_image::before,
+.external_image-icon::before,
+.image-icon::before {
+    content: "k"
+}
+
+.external_video::before,
+.external_video-icon::before,
+.kaltura_video-icon::before,
+.video-icon::before,
+.youtube_video-icon::before {
+    content: "j"
+}
+
+.external_audio::before,
+.audio-icon::before,
+.external_audio-icon::before {
+    content: "i"
+}
+
+.secureurl-icon::before,
+.weblinks-icon::before {
+    content: "n"
+}
+
+.external_htmlwrap-icon::before,
+.external_web_link-icon::before,
+.htmlwrap-icon::before {
+    content: "\5d"
+}
+
+.kitaboowidget-icon::before {
+    content: "\d8"
+}
+
+.teacher_exclusive-icon::before {
+    content: "\11a"
+}
+
+.survey-icon::before {
+    content: "\1ff"
+}
+
+.slideshow-icon::before {
+    content: "\c3"
+}
+
+.multifile-icon::before {
+    content: "\40"
+}
+
+.teacher_exclusive-icon::before {
+    content: "\11a"
+}
+
+.survey-icon::before {
+    content: "\1ff"
+}
+
+.slideshow-icon::before {
+    content: "\c3"
+}
+
+.multifile-icon::before {
+    content: "\40"
+}
+.htmlwrap,
+.learningNuggets::before {
+    content: "ú" !important
+}
+
+.external_htmlwrap,
+.learningNuggets::before {
+    content: "ú" !important
+}
+
+.game::before {
+        content: "ý" !important;
+ }
+
+.geomeTool::before {
+    content: "ü";
+}
+
+.htmlwrap,
+.geomeTool::before {
+    content: "ü";
+}
+
+.abacus::before {
+    content: "Ė" !important;
+}
+
+.htmlwrap,
+.geometryBox::before {
+    content: "û";
+}
+
+.tool::before {
+    content: "ë" !important;
+}
+
+.exercise::before {
+    content: "þ" !important;
+}
+
+.download-icon::before {
+    content: "ℓ";
+}
+
+.print-icon::before{
+    content: "\41";
+}
+
+.refresh_icon:before {
+    content: "\00A5";
+}

@@ -1,0 +1,56 @@
+#highlightSpeechSetting {
+    height: 181px;
+    top: 212px;
+    bottom: auto;
+    width: auto;
+    background-color: #161616;
+    color: #ffffff;
+    border: 1px solid map-get(map-get(map-get($Reader, DayMode), FontSettings), popup_border);
+
+    .fontStyle {
+        @include opensansRegular
+    }
+
+    .speedSpeech{
+     	border: 1px solid;
+    }
+
+    #speechBtn{
+    	width: 295px !important;
+    }
+    .md-select-value {
+	    display: flex;
+	    align-items: center;
+	    padding: 2px 2px 1px;
+	    /* border-bottom-width: 1px; */
+	    /* border-bottom-style: solid; */
+	    background-color: transparent;
+	    position: relative;
+	    box-sizing: content-box;
+	    min-width: 102px;
+	    min-height: 26px;
+	    border: 1px solid;
+	    flex-grow: 1;
+	    width: 254px;
+	    height: 35px;
+	    padding: 0px 13px 1px 26px;
+}
+
+.active {
+  background: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), side_bottom), selected_icon_bg);
+  color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), side_bottom), selected_icon-color) !important;
+}
+
+.md-button {
+	border: 1px solid;
+}
+
+.md-select-menu-container md-active md-clickable {
+    left: 60px !important;
+    min-width: 295px !important;
+    font-size: 14px !important;
+}
+
+    
+}
+

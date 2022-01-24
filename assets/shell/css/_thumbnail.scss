@@ -1,0 +1,422 @@
+$thumbnailBackgroundColor: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), popup_background);
+$thumbnailIconColor: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), icon_color);
+$thumbnailSliderColor: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), slider-filled-color);
+
+.thumbnail-panel-container {
+    width: 100%;
+    max-width: calc(100% - #{$barWidth});
+    left: $barWidth;
+    position: fixed;
+    top: auto;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+    height: auto;
+    overflow: hidden;
+    flex-flow: column nowrap;
+    box-shadow: 5px 5px 8.1px 0.9px rgba(38, 37, 37, 0.3);
+    #thumbnailContainerDiv{
+        height:8%;
+        box-shadow: 0px 2px 11.9px 2.1px rgba(0, 0, 0, 0.3);
+        background-color: white;
+    }
+    #thumbnailContainerDiv.thumbnailFixedContainer{
+        height: 42px;
+        width: 100%;
+        box-shadow: none;
+        display: flex;
+        flex-flow: row;
+        .fixed-thumbnail-footer {
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            min-height: 2%;
+            align-items: center;
+            flex-flow: row;
+            height: 100%;
+        }
+    }
+    
+    .thumbnail-panel {
+        background-color: $thumbnailBackgroundColor;
+        z-index: 99;
+        overflow: hidden;
+        display: flex;
+        flex-flow: column nowrap;
+
+        .thumbnail_container {
+            overflow: hidden;
+
+            .thumbnail-text-row {
+                background-color: $thumbnailBackgroundColor !important;
+                border: none !important;
+                display: block !important;
+
+                .chapter-title-container {
+                    width: max-content;
+                    margin: 0 !important;
+                    height: 22px;
+                    padding-left: 40px;
+                }
+
+                .chapter-title-container label {
+                    color: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), title-color);
+                    margin: 0;
+                    font-size: 14px;
+                    text-overflow: ellipsis;
+                    overflow: hidden;
+                    display: inline-block;
+                    white-space: nowrap;
+                    position: relative;
+                    right: 18px;
+                }
+
+                .img-display-num-container label {
+                    z-index: 9;
+                    margin-right: 68%;
+                    min-width: 26px;
+                    width: auto;
+                    height: 26px;
+                    text-align: center;
+                    background: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), default_thumbnail_color);
+                    color: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), thumbnail_text-color);
+                    border: 1px solid map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), title-color);                        margin-bottom: -29px;
+                    margin-bottom: -29px;
+                }
+
+                .img-display-num-container.thumbnail-active label {
+                    z-index: 9;
+                    margin-right: 73%;
+                    min-width: 26px;
+                    width: auto;
+                    height: 26px;
+                    text-align: center;
+                    background: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), default_thumbnail_color);
+                    color: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), thumbnail_text-color);
+                    border: 1px solid map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), title-color);                        margin-bottom: -29px;
+                    margin-bottom: -29px;
+                }
+
+                .img-border {
+                    border: 2px solid map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), selected_thumbnail_color) !important;
+                    width: 116px;
+                    padding-bottom: 0;
+                }
+
+                .img-border-notSelected {
+                    width: 116px;
+                }
+
+                .img-div img {
+                    border: 2px solid map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), default_thumbnail_color);
+                    cursor: pointer;
+                    width: 116px;
+                }
+            }
+        }
+
+        .input_field {
+            position: absolute;
+            right: 4%;
+            color: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), text-color);
+            border: 1px solid map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), text-color);
+            text-align: center;
+            bottom: 10px;
+            font-size: 14px;
+            width: 8%;
+        }
+
+        .goto-btn {
+            display: none;
+        }
+
+        .history-next {
+            position: relative;
+            left: 47%;
+            text-align: center;
+            color: $thumbnailIconColor;
+            background: transparent;
+            border-style: none;
+            width: auto;
+        }
+        
+        .history-next:disabled {
+            color: #D7DCDE;
+            cursor: default;
+        }
+
+        .history-prev {
+            position: absolute;
+            right: 13%;
+            color: $thumbnailIconColor;
+            text-align: center;
+            background: transparent;
+            border-style: none;
+            width: auto;
+        }
+        
+        .history-prev:disabled {
+            color: #D7DCDE;
+            cursor: default;
+        }
+
+        .furthest-page{
+            position: absolute;
+            right: 19%;
+            color: $thumbnailIconColor;
+            text-align: center;
+            background: transparent;
+            border-style: none;
+            width: auto;
+        }
+    }
+
+    .thumbnailSlider {
+        width: 80%;
+        position: absolute;
+        left: 2%;
+        bottom: 8px;
+        cursor: pointer;
+
+        .rzslider {
+            width: 100%;
+            max-width: 100%;
+            margin: 0;
+            
+            .rz-pointer {
+              background-color: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), slider-filled-color);
+              width: 15px;
+              height: 15px;
+              top: -6px;
+              margin-left: 12px;
+              &::after {
+                display: none;
+              }
+            }
+            .rz-bubble.rz-model-value{
+                display:none;
+                margin-bottom: 1.4%;
+                color: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), text-color);
+                font-size: 12px;
+                border: 1px solid map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), text-color);;
+            }
+            .rz-bubble {
+              display: none;
+            }
+            .rz-selection {
+              background: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), slider-filled-color);
+            }
+            .rz-tick.rz-selected {
+              background: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), slider-filled-color);
+            }
+            .rz-bar-wrapper{
+                margin-left: 12px;
+            }
+          }
+
+        // md-slider .md-thumb:after {
+        //     border-color: $thumbnailSliderColor;
+        //     background-color: $thumbnailSliderColor;
+        // }
+
+        // md-slider .md-track.md-track-fill {
+        //     background-color: $thumbnailSliderColor;
+        // }
+
+        // md-slider .md-track {
+        //     background-color: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), slider-color);
+        // }
+
+        // md-slider .md-focus-ring {
+        //     background-color: rgba(30, 112, 159, 0.2);
+        // }
+    }
+    .thumbnailSlider.thumbnailFixedSlider {
+        width: 78%;
+        bottom: 6px;
+        margin-left: 1%; 
+        display: flex;
+        position: unset;
+        left: unset;
+        bottom: unset;
+    }
+    #input_value_reflow {
+        color: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), text-color);
+        border: none;
+        text-align: center;
+        font-size: 12px;
+        width: 35%;
+        height: 40%;
+    }
+    #input_value_reflow:focus {
+        outline: none;
+        border: 1px solid;
+        border-radius: 5px;
+    }
+    .history-prev_slider {
+        line-height: 18px;
+        color: $thumbnailIconColor;
+        text-align: center;
+        background: transparent;
+        border-style: none;
+        width: auto;
+    }
+
+    .history-prev_slider:disabled {
+        color: #D7DCDE;
+        cursor: default;
+    }
+
+    .futhest-page_slider{
+        line-height: 18px;
+        color: $thumbnailIconColor;
+        text-align: center;
+        background: transparent;
+        border-style: none;
+        width: auto;
+    }
+
+    .futhest-page_slider:disabled{
+        color: #D7DCDE;
+        cursor: default;
+    }
+
+    .divider-panel{
+        border-left: 2px solid #bdc1c2;
+        height: 20px;
+        margin-left: 15px;
+        margin-right: 15px;
+    }
+
+    .history-next_slider {
+        line-height: 18px;
+        text-align: center;
+        color: $thumbnailIconColor;
+        background: transparent;
+        border-style: none;
+        width: auto;
+    }
+    .history-next_slider:disabled {
+        color: #D7DCDE;
+        cursor: default;
+    }
+    #mySlider{
+        top:10px;
+    }
+}
+.reset-btn {
+    color: map-get(map-get(map-get($Reader, DayMode), zoom), slider-filled-color) !important;
+    bottom: 2px;
+    left: 5px;
+    position: fixed !important;
+}
+.reset-btn-disabled {
+    color:map-get(map-get(map-get($Reader, DayMode), zoom), slider-filled-color)!important;
+    bottom: 2px;
+    left: 5px;
+    position: fixed !important;
+    opacity: 0.5 !important;
+}
+.zoom-in {
+    height: 5px !important;
+    width: 5px !important;
+    line-height: 30px !important;
+}
+.zoom-out {
+    height: 5px !important;
+    width: 5px !important;
+    line-height: 30px !important;
+    margin-top: 172px !important;
+}
+#tooltip-thumbnailSlider {
+    display: none;
+    position: absolute;
+    bottom: 7%;
+    background: white;
+    border: 1px solid rgb(9, 94, 142);
+    color: rgb(9, 94, 142);
+    border-radius: 5px;
+    padding: 2px;
+    z-index: 999999;
+    text-align: center;
+}
+
+.thumbnail-fixed-panel {
+    background-color: $thumbnailBackgroundColor;
+    z-index: 1;
+    width : 100%;
+    overflow: hidden;
+    display: none;
+    flex-flow: row nowrap;
+    left: 50px;
+    bottom: 42px;
+    padding: 20px 0 20px 0;
+
+        .thumbnail-text-row {
+            background-color: $thumbnailBackgroundColor !important;
+            border: none !important;
+            display: block !important;
+
+            .chapter-title-container {
+                width: max-content;
+                margin: 0 !important;
+                height: 22px;
+                padding-left: 40px;
+                max-width: 115px;
+            }
+
+            .chapter-title-container label {
+                color: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), title-color);
+                margin: 0;
+                font-size: 14px;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                display: inline-block;
+                white-space: nowrap;
+                position: relative;
+                right: 18px;
+            }
+
+            .img-display-num-container label {
+                z-index: 9;
+                margin-right: 68%;
+                min-width: 26px;
+                width: auto;
+                height: 26px;
+                text-align: center;
+                background: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), default_thumbnail_color);
+                color: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), thumbnail_text-color);
+                border: 1px solid map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), title-color);
+                margin-bottom: -29px;
+            }
+
+            .img-display-num-container.thumbnail-active label {
+                z-index: 9;
+                margin-right: 73%;
+                min-width: 26px;
+                width: auto;
+                height: 26px;
+                text-align: center;
+                background: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), default_thumbnail_color);
+                color: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), thumbnail_text-color);
+                border: 1px solid map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), title-color);                        margin-bottom: -29px;
+                margin-bottom: -29px;
+            }
+
+            .img-border {
+                border: 2px solid map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), selected_thumbnail_color) !important;
+                width: 116px;
+                padding-bottom: 0;
+            }
+
+            .img-border-notSelected {
+                width: 116px;
+            }
+
+            .img-div img {
+                border: 2px solid map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), default_thumbnail_color);
+                cursor: pointer;
+                width: 116px;
+            }
+        }
+}

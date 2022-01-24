@@ -1,0 +1,99 @@
+.imageSlideShow {
+    width: 921px;
+    height: 100%;
+    box-shadow: 0 0 12.8px 2.3px rgba(3, 3, 3, 0.75);
+
+    .imageSlideShowContainer {
+        overflow: hidden;
+        height: 100%;
+        background-color: #333333;
+        padding: 0 !important;
+
+        md-tabs-content-wrapper {
+            height: 90%;
+
+            md-tab-content {
+                overflow: hidden;
+
+                .currentImage {
+                    height: 92%;
+
+                    img {
+                        height: 100%;
+                    }
+                }
+            }
+        }
+
+        md-tabs {
+            height: 100%;
+            padding: 0 !important;
+
+            .md-tab {
+                padding: 0;
+                width: 83px;
+                height: 100%;
+
+                img {
+                    height: 100%;
+                }
+            }
+
+            .md-tab.md-active {
+                border: 1px solid #ffffff;
+            }
+
+            .md-subheader-inner {
+                padding: 0;
+                height: 30px;
+                line-height: 30px;
+            }
+
+            .titleBar {
+                height: 30px;
+                background-color: #000000;
+            }
+
+            .closeSlideImage {
+                min-height: 0px;
+                min-width: 0px;
+
+                .CloseSlideIcon {
+                    color: #ffffff;
+                    line-height: 26px;
+                    font-size: 15px;
+                }
+            }
+
+            .imageTitle {
+                background-color: #000000;
+                font-size: 12px;
+                color: #ffffff;
+                padding-left: 20px;
+                height: auto;
+                @include opensansRegular;
+            }
+
+            md-ink-bar {
+                background: none;
+            }
+        }
+
+        md-tabs-wrapper {
+            height: 10%;
+        }
+    }
+}
+
+.errorMsgSlideShowImage {
+    .errorMessage {
+        @include opensansRegular;
+        font-size: 16px;
+    }
+
+    .closeslideError {
+        @include opensansRegular;
+        font-size: 16px;
+        text-transform: capitalize;
+    }
+}

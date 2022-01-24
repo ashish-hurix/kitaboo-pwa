@@ -1,0 +1,140 @@
+
+.aboutUsMainContainer {
+    //  background: url(images/about-us-vector-bg_coloured.svg), linear-gradient(#000000, #085277, #000000);
+    background: url(../images/about-us-vector-bg_coloured.svg) no-repeat center center fixed;
+    background-color: #085277;
+    
+    // background-size: cover;
+    width: 334px;
+    height: auto;
+    -moz-background-size: cover;
+    -webkit-background-size: 334px auto;
+    -o-background-size: cover;
+
+
+    .mobileBackRow {
+        width: 100%;
+        top: 0;
+
+        .backIcon {
+            color: #ffffff;
+        }
+    }
+
+    .aboutKitabooLogo {
+        color: #ffffff;
+        font-size: 54px;
+    }
+
+    .icon-kitabootextlogo:before {
+        content: "\d9";   
+    }
+
+
+    .middleLogo {
+        height: 160px;
+
+        .icon-kitaboo_logo_icon:before {
+            content: "\d8";
+        }
+
+    }
+
+    .version {
+        color: #ffffff;
+        font-size: 16px;
+    }
+
+    .powerByKitaboo {
+        .poweredBy {
+            @include opensansRegular;
+            font-size: 9px;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .kitaboopowerby {
+            margin: 0;
+            padding: 0;
+        }
+
+        .powerbyKitabooIcon {
+            font-size: 20px;
+            color: #ffffff;
+            width: auto;
+            height: auto;
+        }
+        .logo{
+            width:60px !important;
+            height:45px !important;
+            .custom-poweredBy{
+                width: 85%;
+                vertical-align: text-bottom;
+            } 
+        }
+    }
+
+}
+
+.aboutUsMainContainerIslamic {
+    width: 334px;
+    height: auto;
+    -moz-background-size: cover;
+    -webkit-background-size: 334px auto;
+    -o-background-size: cover;
+
+
+    .mobileBackRow {
+        width: 100%;
+        top: 0;
+
+        .backIcon {
+            color: #ffffff;
+        }
+    }
+
+    .LogoMain{
+        margin-bottom: 8%
+    }
+
+    .aboutKitabooLogo {
+        color: #ffffff;
+        font-size: 54px;
+    }
+
+    .icon-kitabootextlogo:before {
+        content: "\d9";
+    }
+
+    .version {
+        color: #ffffff;
+        font-size: 16px;
+    }
+
+    .powerByKitaboo {
+        .poweredBy {
+            @include opensansRegular;
+            font-size: 9px;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+        }
+
+        .kitaboopowerby {
+            margin: 0;
+            padding: 0;
+        }
+
+        .powerbyKitabooIcon {
+            font-size: 20px;
+            color: #ffffff;
+            width: auto;
+            height: auto;
+        }
+    }
+
+}
+.about-us_panel{
+    min-height: 358px;
+}

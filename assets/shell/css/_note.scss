@@ -1,0 +1,414 @@
+.note_ui {
+  width: 440px;
+  height: 420px;
+  background-color: map-get(map-get(map-get($Reader, DayMode), Note), popup_background);
+  border: 1px solid map-get(map-get(map-get($Reader, DayMode), Note), popup_border);
+
+  .noteui {
+
+    .topbar {
+      // width: 100%;
+      position: absolute;
+
+      .top {
+        height: 64px;
+        background-color: map-get(map-get(map-get($Reader, DayMode), Note), popup_background);
+        border-bottom: 2px solid #ffc000;
+        border-left: 16px solid #ffc000;
+        box-shadow: 3.2px 2.4px 5.9px 0.1px rgba(0, 0, 0, 0.3);
+
+        .notification-text {
+          font-size: 16px;
+          color: map-get(map-get(map-get($Reader, DayMode), Note), title-color);
+          @include opensansLight;
+        }
+
+        .classSelect {
+          height: inherit;
+          width: 50%;
+          padding-right: 20px;
+
+          .inputContainer {
+            margin: 0;
+            height: inherit;
+            width: 100%;
+
+            .md-select-value {
+              border: solid 1px map-get(map-get(map-get(map-get($Reader, DayMode), Share), share_settings), box_border-color);
+              height: 26px;
+              top: 15px;
+              font-size: 14px;
+              color: map-get(map-get(map-get(map-get($Reader, DayMode), Share), share_settings), text-color);
+              @include opensansLight;
+            }
+          }
+        }
+
+        .justnowMobile {
+          font-size: 12px;
+          text-align: right;
+          color: map-get(map-get(map-get($Reader, DayMode), Note), metadata-color);
+          position: absolute;
+          top: 65px;
+          right: 10px;
+        }
+
+        .pick-note-colors {
+          width: 24px;
+          height: 24px;
+          display: flex;
+          align-items: center;
+          font-size: 16px;
+          line-height: 24px;
+          margin: 4px;
+        }
+
+        .activeNoteColorRadius {
+          border: 1px solid map-get(map-get(map-get($Reader, DayMode), Note), selected_icon_border);
+          border-radius: 50%;
+        }
+
+        .justnow {
+          width: auto;
+          font-size: 12px;
+          color: map-get(map-get(map-get($Reader, DayMode), Note), metadata-color);
+          @include opensansRegular;
+        }
+
+        .delete_button {
+          @include material;
+
+          md-icon {
+            color: map-get(map-get(map-get($Reader, DayMode), Note), back_icon-color);
+          }
+        }
+
+        .icon-prev_page_icon {
+          font-size: 14px;
+          color: map-get(map-get(map-get($Reader, DayMode), Note), back_icon-color);
+        }
+      }
+    }
+
+    .footer {
+      width: 100%;
+      bottom: 0;
+      padding: 0;
+      position: absolute;
+      border-style: none;
+      max-height: 55px;
+      z-index: 5;
+
+      .saveIcon {
+        font-size: 16px;
+        @include material;
+      }
+
+      .shareIcon {
+        font-size: 16px;
+        text-transform: none;
+        margin: 0;
+        padding: 0;
+        min-width: 60px;
+        right: 5px;
+        bottom: 5px;
+      }
+
+      .md-button[disabled] md-icon {
+        cursor: default;
+      }
+
+      .fab-icon {
+        padding: 0;
+        font-size: 16px;
+        text-transform: none;
+
+        md-icon {
+          line-height: 24px;
+          height: 24px;
+          width: 24px;
+        }
+      }
+
+      .commentBox {
+        margin: 0;
+        padding: 0;
+        position: absolute;
+        bottom: -14px;
+        left: 50%;
+        width: 80%;
+        transform: translateX(-55%);
+
+        .md-input {
+          border: solid 1px map-get(map-get(map-get(map-get($Reader, DayMode), Share), share_settings), box_border-color);
+          color: map-get(map-get(map-get(map-get($Reader, DayMode), Share), share_settings), text-color);
+          font-size: 12px;
+          padding-left: 11px;
+          padding-right: 40px;
+          border-radius: 5px;
+          @include opensansLight;
+        }
+
+        .sendarrow {
+          position: absolute;
+          right: 5px;
+          margin: 0;
+          min-width: 30px;
+          min-height: 30px;
+
+          md-icon {
+            color: map-get(map-get(map-get($Reader, DayMode), Note), action_button_color);
+          }
+        }
+
+        .md-button[disabled] {
+          opacity: 0.38;
+        }
+      }
+
+      .footerShare {
+        width: 100%;
+        height: 51px;
+        z-index: 15;
+        background-color: map-get(map-get(map-get(map-get($Reader, DayMode), Share), share_settings), bottom_background);
+
+        .cancelButton {
+          font-size: 14px;
+          color: map-get(map-get(map-get(map-get($Reader, DayMode), Share), share_settings), text-color);
+          @include opensansRegular;
+        }
+
+        .doneButton {
+          font-size: 14px;
+          color: map-get(map-get(map-get(map-get($Reader, DayMode), Share), share_settings), main_action_color);
+          @include opensansRegular;
+        }
+
+        .md-button[disabled] {
+          opacity: 0.38;
+        }
+      }
+    }
+
+    .mobileShared {
+      max-height: 80%;
+      top: 85px;
+    }
+
+    .sharedNote {
+      max-height: 70%;
+    }
+  }
+}
+
+.middleNOte {
+  position: absolute;
+  top: 64px;
+  height: calc(100% - 64px - 55px); // removing header and footer height from total height
+  max-height: 70%;
+  width: calc(100% - 30px); // calculate width as per padding
+  padding: 15px 15px 0px 15px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  // z-index: 12;
+  padding-bottom: 0;
+
+  img {
+    padding-top: 19px;
+    width: 80%;
+    height: 75%;
+    padding-left: 29px;
+  }
+
+  .textareaContainer {
+    margin: 0;
+    padding: 0;
+
+    #addnote {
+      background-color: map-get(map-get(map-get($Reader, DayMode), Note), popup_background);
+      bottom: 67px;
+      top: 0px;
+      min-height: 265px;
+      display: flex;
+      color: map-get(map-get(map-get($Reader, DayMode), Note), description-color);
+      overflow: auto;
+    }
+  }
+
+  .firstComment {
+    width: auto;
+    height: auto;
+    min-width: 60%;
+    max-width: 80%;
+    display: table;
+    border-radius: 5px;
+    margin-right: 15px;
+
+    .userFullName {
+      font-size: 12px;
+      max-width: 50%;
+      @include opensansRegular;
+    }
+
+    .currentUser {
+      color: map-get(map-get(map-get(map-get($Reader, DayMode), Comments), my_message), name_color);
+    }
+
+    .otherUser {
+      color: map-get(map-get(map-get(map-get($Reader, DayMode), Comments), other_message), name_color);
+    }
+
+    .timestamp {
+      color: map-get(map-get(map-get($Reader, DayMode), Note), time_text_color);
+      white-space: pre;
+      font-size: 11px;
+      @include opensansLight;
+    }
+
+    .ugcDataText {
+      color: map-get(map-get(map-get($Reader, DayMode), Comments), description-color);
+      font-size: 12px;
+      padding-left: 8px;
+      @include opensansRegular;
+    }
+  }
+
+  .ugcText {
+    word-break: break-word;
+    color: map-get(map-get(map-get($Reader, DayMode), Note), description-color);
+    font-size: 12px;
+    // padding-left: 8px;
+    @include opensansRegular;
+  }
+
+  .currentUserComment {
+    border: solid 1px map-get(map-get(map-get(map-get($Reader, DayMode), Comments), my_message), border_color);
+    background-color: map-get(map-get(map-get(map-get($Reader, DayMode), Comments), my_message), background);
+    float: right;
+  }
+
+  .userComment {
+    border: solid 1px map-get(map-get(map-get(map-get($Reader, DayMode), Comments), other_message), border_color);
+    background-color: map-get(map-get(map-get(map-get($Reader, DayMode), Comments), other_message), border_color);
+    float: left;
+  }
+
+  .commonNote {
+    resize: none;
+    position: relative;
+    outline: 0;
+    font-size: 14px;
+    border: none;
+    width: 100%;
+    -moz-appearance: textfield;
+    -webkit-appearance: textfield;
+    @include opensansRegular;
+  }
+
+  #addcontextnote {
+    background-color: map-get(map-get(map-get($Reader, DayMode), Note), popup_background);
+    top: 6px;
+    padding-right: 10px;
+    color: map-get(map-get(map-get($Reader, DayMode), Note), description-color);
+    height: 187px;
+    margin-bottom: 10px;
+  }
+
+  .midContainer {
+    width: calc(100% - 20px);
+    height: 75%;
+    overflow: hidden;
+    padding: 0px 6px 0px 14px;
+  }
+
+  .teacher_Student_Checkbox {
+    margin: 0;
+
+    .md-icon {
+      border-color: map-get(map-get(map-get(map-get($Reader, DayMode), Share), share_settings), box_border-color);
+    }
+  }
+
+  .all_Teacher_Student_CheckBox {
+    margin: 0;
+    padding-bottom: 8px;
+
+    .md-icon {
+      border-color: map-get(map-get(map-get(map-get($Reader, DayMode), Share), share_settings), all_box_border-color);
+    }
+  }
+
+  md-checkbox.md-checked.md-focused .md-container:before {
+    opacity: 0.26;
+    background-color: map-get(map-get(map-get(map-get($Reader, DayMode), Share), share_settings), check_color);
+  }
+
+  md-checkbox.md-checked .md-icon {
+    background-color: map-get(map-get(map-get(map-get($Reader, DayMode), Share), share_settings), check_color);
+  }
+
+  md-checkbox.md-checked .md-ink-ripple {
+    color: map-get(map-get(map-get(map-get($Reader, DayMode), Share), share_settings), check_color);
+  }
+
+  md-checkbox[disabled] {
+    opacity: 0.38;
+  }
+
+  .all_Teacher_Student {
+    color: map-get(map-get(map-get(map-get($Reader, DayMode), Share), share_settings), section_title-color);
+    font-size: 14px;
+    @include opensansLight;
+  }
+
+  .instructorName {
+    max-width: 60%;
+    width: auto;
+    color: map-get(map-get(map-get(map-get($Reader, DayMode), Share), share_settings), text-color);
+    font-size: 13px;
+    @include opensansLight;
+  }
+
+  ::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: map-get(map-get(map-get($Reader, DayMode), Note), hint_text-color);
+  }
+
+  :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: map-get(map-get(map-get($Reader, DayMode), Note), hint_text-color);
+  }
+
+  ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: map-get(map-get(map-get($Reader, DayMode), Note), hint_text-color);
+  }
+
+  .topHead {
+    height: auto;
+    max-height: 25%;
+
+    .highlightText {
+      font-size: 12px;
+      height: 35px;
+      position: relative;
+      padding-left: 14px;
+      padding-right: 18px;
+      width: 100%;
+      color: map-get(map-get(map-get($Reader, DayMode), Note), contextualtext-color);
+      word-break: break-all;
+      margin-bottom: 8px;
+      @include opensansLightItalic;
+    }
+  }
+
+  .sharingNotAllowed {
+    position: absolute;
+    width: calc(100% - 30px);
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 14px;
+    color: map-get(map-get(map-get($Reader, DayMode), Note), description-color);
+  }
+}

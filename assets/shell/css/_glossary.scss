@@ -1,0 +1,66 @@
+.glossaryData {
+    width: auto;
+    height: auto;
+    max-width: 320px;
+    max-height: 248px;
+    max-height: 248px;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.8);
+    background-color: map-get($Markup_Glossary, popup_background);
+    padding-left: 15px;
+    padding-top: 15px;
+    padding-bottom: 10px;
+    padding-right: 15px;
+
+    .glossaryToolBar {
+        background-color: map-get($Markup_Glossary, popup_background);
+        min-height: unset;
+        padding-bottom: 8px;
+
+        .btnGlossary {
+            min-width: auto;
+            min-height: auto;
+            margin: 0;
+            margin-right: 18px;
+            padding: 0;
+
+            .iconGlossary {
+                text-transform: none;
+                color: map-get($Markup_Glossary, icon_color) !important;
+                border: 1px solid map-get($Markup_Glossary, icon_border_color);
+                border-radius: 50%;
+                width: 36px;
+                height: 36px;
+                line-height: 36px;
+            }
+        }
+    }
+
+    .glossaryTerm {
+        font-size: 14px;
+        color: map-get($Markup_Glossary, title-color);
+        padding-bottom: 8px;
+        @include opensansSemiBold;
+    }
+
+    .translation {
+        font-size: 12px;
+        color: map-get($Markup_Glossary, language_text_color);
+        padding-bottom: 8px;
+        @include opensansSemiBold;
+    }
+
+    .definition {
+        font-size: 12px;
+        color: map-get($Markup_Glossary, description_text_color);
+        padding-right: 15px;
+        @include opensansRegular;
+    }
+
+    .pronounce {
+        width: 288px;
+        font-size: 12px;
+        color: map-get($Markup_Glossary, description_text_color);
+        padding-bottom: 8px;
+        @include opensansRegular;
+    }
+}

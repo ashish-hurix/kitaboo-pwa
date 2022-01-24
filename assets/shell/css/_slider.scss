@@ -1,0 +1,172 @@
+$sliderColor: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), slider-filled-color);
+
+.bottom-navbar-ltpm {
+  bottom: $barHeight !important;
+}
+
+.bottom-navbar {
+  opacity: 0;
+  overflow: hidden;
+  background-color: #fff;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  height: $barHeight;
+  z-index: 1;
+  display: list-item;
+  box-shadow: 4px -2px 6px #4c4c4c;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  .bottom-range-slider {
+    position: relative;
+    width: 75%;
+    margin-left: 55px;
+    // bottom: 10px;
+
+    md-slider {
+
+      .md-sign {
+        display: none;
+      }
+
+      .md-disabled-thumb {
+        display: block;
+        border-color: $sliderColor;
+        background-color: $sliderColor;
+      }
+
+      .md-thumb:after {
+        border-color: $sliderColor;
+        background-color: $sliderColor;
+      }
+
+      .md-track.md-track-fill {
+        background-color: $sliderColor;
+      }
+    }
+  }
+}
+
+.bottom-range-slider,
+.bottom-range-reflowSlider {
+  .rzslider {
+
+    .rz-pointer {
+      background-color: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), slider-filled-color);
+      top: -9px;
+      width: 20px;
+      height: 20px;
+
+      &::after {
+        display: none;
+      }
+    }
+
+    .rz-bubble {
+      display: none;
+    }
+
+    .rz-selection {
+      background: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), slider-filled-color);
+    }
+
+    .rz-tick.rz-selected {
+      background: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), slider-filled-color);
+    }
+  }
+}
+
+.historyNext {
+  float: right;
+  position: relative;
+  // width: 5% !important;
+}
+
+.historyPrev {
+  float: right;
+  position: relative;
+  // width: 5% !important;
+}
+
+.currentPage {
+  float: right;
+  position: relative;
+  top: 16px;
+  color: #2dabf2;
+  width: 10%;
+  text-align: center;
+}
+
+.bottom-navbar-reflow {
+  opacity: 0;
+  overflow: hidden;
+  background-color: #fff;
+  position: absolute;
+  bottom: 0px;
+  width: calc(100% - #{$barWidth});
+  height: 50px;
+  margin-left: $barWidth;
+  z-index: 8;
+  display: list-item;
+  box-shadow: 4px -2px 6px #4c4c4c;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  .bottom-range-reflowSlider {
+    position: relative;
+    width: 94%;
+    left: 1%;
+    bottom: 10px;
+  }
+}
+
+.scrollView {
+  position: absolute;
+  right: 0;
+  top: 60px;
+  height: 100%;
+
+  .scroll-view-reflowSlider {
+    display: inline-block;
+    height: 90%;
+
+    .rzslider {
+
+      .rz-pointer {
+        background-color: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), slider-filled-color);
+        width: 20px;
+        left: -8px !important;
+        height: 20px;
+
+        &::after {
+          display: none;
+        }
+      }
+
+      .rz-bubble {
+        display: none;
+      }
+
+      .rz-selection {
+        background: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), slider-filled-color);
+      }
+
+      .rz-tick.rz-selected {
+        background: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), slider-filled-color);
+      }
+    }
+  }
+}
+
+.disableColor {
+  opacity: 0.5;
+}
+
+.unableColor {
+  opacity: 1;
+}

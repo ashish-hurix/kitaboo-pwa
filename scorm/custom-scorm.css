@@ -1,0 +1,63 @@
+.scorm-container {
+    height: 20px;
+  }
+  
+  .icon-a_share:before {
+    content: "ƽ";
+    font-family: 'kitabooread';
+    fill: none;
+    color: #095e8e;
+    height: 40px;
+    width: 60%;
+    line-height: unset;
+  }
+  
+  .icon-a_bookshelf:before {
+    line-height: unset;
+  }
+  
+  md-toolbar {
+    background-color: #ffffff !important;
+  }
+  
+  
+  .backToBookshelfButton {
+    font-size: inherit;
+  }
+  
+  .gc-scorm-share-button {
+    font-size: inherit;
+    background-color: white;
+    border: none;
+    margin-left: 20px;
+    outline: none;
+  }
+  
+  .gc-share-list {
+    border: 1px solid #095e8e;
+    border-radius: 5px;
+    background-color: #fff;
+    height: auto;
+    box-shadow: 0px 4px 10px 0 rgb(3 3 3 / 50%);
+  
+  }
+  
+  .gc-share-list md-list {
+    padding: 0px;
+  }
+  
+  .gc-share-button {
+    position: relative;
+    text-decoration: none !important;
+  }
+  
+  .gc-video-share-button {
+    color: #ffffff;
+    line-height: 33px;
+    text-decoration: none;
+  }
+  
+  .gc-video-share-button:hover {
+    color: #ffffff;
+    text-decoration: none;
+  }

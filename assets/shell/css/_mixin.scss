@@ -1,0 +1,44 @@
+$sliderColor: map-get(map-get(map-get(map-get($Reader, DayMode), Pentool), Thickness), slider-filled-color);
+
+@mixin material {
+    text-transform: none;
+    padding: 0;
+    margin: 0;
+    min-width: 0;
+}
+
+@mixin opensansRegular {
+    font-family: 'Open Sans';
+    font-weight: normal;
+    font-style: normal;
+}
+
+@mixin opensansLight {
+    font-family: 'Open Sans';
+    font-weight: 300;
+    font-style: normal;
+}
+
+@mixin opensansBold {
+    font-family: 'Open Sans';
+    font-weight: bold;
+    font-style: normal;
+}
+
+@mixin opensansSemiBold {
+    font-family: 'Open Sans';
+    font-weight: 600;
+    font-style: normal;
+}
+
+@mixin opensansLightItalic {
+    font-family: 'Open Sans';
+    font-weight: 300;
+    font-style: italic;
+}
+
+@mixin opensansBold {
+    font-family: 'Open Sans';
+    font-weight: bold;
+    font-style: normal;
+}

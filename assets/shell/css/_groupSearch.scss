@@ -1,0 +1,305 @@
+$searchBarHeight: 50px;
+$placeHolderColor: map-get(map-get(map-get($Reader, DayMode), Search), hint_text-color);
+
+#searchpanel {
+    height: auto;
+    overflow: hidden;
+    background-color: map-get(map-get(map-get($Reader, DayMode), Search), popup_background);
+    border: 1px solid map-get(map-get(map-get($Reader, DayMode), Search), popup_border);
+
+    .content {
+        background-color: map-get(map-get(map-get($Reader, DayMode), Search), popup_background);
+        overflow: hidden;
+        height: 50px;
+
+        .searchContainer {
+            padding: 0;
+            margin-bottom: 0;
+            cursor: default;
+
+            .backIconMobile {
+                position: absolute;
+                left: 8px;
+
+                .icon-prev_page_icon {
+                    top: 0;
+                    line-height: 24px;
+                    font-size: 14px;
+                    text-align: center;
+                    color: #595959;
+                }
+            }
+
+            .search-icon {
+                top: 0;
+                left: 8px;
+                font-size: 18px;
+                line-height: 24px;
+                text-align: center;
+                color: map-get(map-get(map-get($Reader, DayMode), Search), main_icon-color);
+            }
+
+            .searchInput {
+                padding-left: 66px;
+                padding-right: 35px;
+                color: map-get(map-get(map-get($Reader, DayMode), Search), title-color);
+                font-size: 14px;
+                border-color: map-get(map-get(map-get($Reader, DayMode), Search), tab_border);
+                @include opensansRegular;
+            }
+
+            .clearResult {
+                height: 17px;
+                width: 17px;
+                position: absolute;
+                right: 8px;
+                border-radius: 50%;
+                background-color: map-get(map-get(map-get($Reader, DayMode), Search), main_icon-color);
+                .icon-AR_close {
+                    top: 0;
+                    line-height: 18px;
+                    font-size: 9px;
+                    text-align: center;
+                    color: white;
+                    margin-left: -1px;
+                }
+            }
+
+            ::placeholder {
+                /* Chrome, Firefox, Opera, Safari 10.1+ */
+                color: $placeHolderColor;
+            }
+
+            :-ms-input-placeholder {
+                /* Internet Explorer 10-11 */
+                color: $placeHolderColor;
+            }
+
+            ::-ms-input-placeholder {
+                /* Microsoft Edge */
+                color: $placeHolderColor;
+            }
+        }
+    }
+
+    .searchGotopage{
+
+        background-color: rgb(42, 42, 42);
+        font-size: 14px;
+        line-height: 2;
+        padding-left: 38px;
+        width: 80%;
+        left: 34px;
+        height: 26px;
+        top: 8px;
+        color: rgb(176, 176, 176);
+        position: relative;
+        cursor: pointer;
+        z-index: 99;
+    }
+
+    .searchResult {
+        height: calc(100% - #{$searchBarHeight});
+        width: 100%;
+
+        #search-ic {
+            color: #cbcbcb;
+            margin: 0;
+            font-size: 98px;
+            opacity: 0.6;
+            width: 100%;
+            margin-bottom: 25px;
+        }
+
+        #search-name {
+            color: #666666;
+            font-size: 14px;
+            text-align: center;
+            width: 100%;
+        }
+
+        #search-ic1 {
+            color: #cbcbcb;
+            font-size: 98px;
+            margin: 0;
+            opacity: 0.6;
+            width: 100%;
+            margin-bottom: 25px;
+        }
+
+        #search-name1 {
+            color: #666666;
+            font-size: 14px;
+            width: 100%;
+            text-align: center;
+        }
+    }
+
+    .g-search-panel {
+        height: calc(100% - #{$searchBarHeight});
+        overflow-y: auto;
+        overflow-x: hidden;
+        background-color: white;
+        .g-searchlistContainer {
+            width: 100%;
+            padding-bottom: 10px;
+
+            .g-result_block {
+                padding-left: 20px;
+                padding-right: 10px;
+                line-height: 1.6;
+                word-break: break-word;
+                text-align: left;
+                vertical-align: top;
+                cursor: pointer;
+                padding-top: 20px;
+                font-size: 11.5px;
+                width: 100%;
+                color: map-get(map-get(map-get($Reader, DayMode), Search), description-color);
+                border-bottom: 1px solid map-get(map-get(map-get($Reader, DayMode), Search), popup_background);
+                position: relative;
+                background-color: white;
+                .hidePageNumber {
+                    display: none;
+                }
+
+                .search_inserted_text {
+                    color: map-get(map-get(map-get($Reader, DayMode), Search), selected_text-color);
+                    background-color: map-get(map-get(map-get($Reader, DayMode), Search), selected_bg-color);
+                }
+                .searchListDivider{
+                    margin-top: 20px;
+                    color: #cccccc;
+                }
+                .toggleSearchBlock{
+                    float: right;
+                    margin-top: -12px;
+                    margin-left: 4px;
+                    outline: none;
+                    color: gray;
+                    font-size: 15px;
+                }
+                .result_section{
+                    margin-top: 10px;
+                    font-weight: 400;
+                    .hideResult{
+                        display: none;
+                        outline: none;
+                        margin-top: 20px;
+                    }
+                    .showResult{
+                        display: block;
+                        outline: none;
+                        margin-top: 20px;
+                    }
+                    .pageNoShow{
+                        float: right;
+                        text-align: right;
+                        clear: both;
+                        opacity: 0.8;
+                        position: absolute;
+                        font-size: 12px;
+                        font-style: italic;
+                        color: map-get(map-get(map-get($Reader, DayMode), Search), description-color);
+                        right: 20px;
+                        display: block;
+                    }
+                    .pageNoHide{
+                        float: right;
+                        text-align: right;
+                        clear: both;
+                        opacity: 0.8;
+                        position: absolute;
+                        font-size: 12px;
+                        font-style: italic;
+                        color: map-get(map-get(map-get($Reader, DayMode), Search), description-color);
+                        right: 20px;
+                        display: none;
+                    }
+                }
+                .searchTitle{
+                    width: 90%;
+                    display: inline-block;
+                    @include opensansSemiBold;
+                    .titleDetail{
+
+                    }
+
+                    .titleDetail:hover .titileHover{
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                    }
+                    .titileHover{
+                        display: block;
+                    }
+                }
+            }
+
+            // .result_block:nth-child(odd) {
+            //     background-color: map-get(map-get(map-get($Reader, DayMode), Search), popup_background);
+            // }
+
+            // .result_block:nth-child(even) {
+            //     background-color: map-get(map-get(map-get($Reader, DayMode), Search), seperation_background);
+            // }
+
+            small {
+                float: right;
+                text-align: right;
+                clear: both;
+                // top: -10px;
+                opacity: 0.8;
+                position: absolute;
+                font-size: 11.5px;
+                font-style: italic;
+                color: map-get(map-get(map-get($Reader, DayMode), Search), description-color);
+                bottom: 0;
+                right: 20px;
+            }
+        }
+    }
+}
+
+.searchView {
+
+    .desktopSearchPanel {
+        width: 370px;
+    }
+
+    .mobileSearchPanel {
+        width: 100%;
+        max-width: 100%;
+        left: 0;
+        z-index: 15;
+
+        .searchInput {
+            padding-left: 70px !important;
+        }
+    }
+}
+.custom-search {
+    .searchContainer {
+        margin:10px 0px;
+        .search-icon {
+            top:5px !important;
+            font-size: 15px;
+
+        }
+        .searchInput {
+            padding-top:15px;
+            padding-bottom:23px;
+            margin-bottom:10px;
+        }
+        .clearResult {
+            top:5px !important;
+        }
+        .icon-AR_close {
+            min-width:10px !important;
+            min-height:10px !important;
+            height: 18px;
+            width: 18px;
+            font-size: 10px !important;
+        }
+    }
+}

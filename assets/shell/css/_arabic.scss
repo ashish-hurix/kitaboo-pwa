@@ -1,0 +1,2297 @@
+$iconLogoFont: map-get($AboutUs, aboutUslogoContent);
+$iconTestFont:map-get($AboutUs, aboutUstextlogoContent);
+
+.arabicReader {
+  body {
+    font-family: 'Open Sans' !important;
+    color: #333333;
+    width: 100%;
+    overflow: hidden;
+
+    .md-button.md-default-theme:not([disabled]).md-focused,
+    .md-button:not([disabled]).md-focused,
+    .md-button.md-default-theme:not([disabled]):hover,
+    .md-button:not([disabled]):hover {
+      background-color: rgba(158, 158, 158, 0.28); // default value
+    }
+    
+    .aboutUsMainContainer {
+      //  background: url(images/about-us-vector-bg_coloured.svg), linear-gradient(#000000, #085277, #000000);
+      // background: map-get($AboutUs, background-image) no-repeat center center fixed;
+      background-color: map-get($AboutUs, background);
+      // background-size: cover;
+      filter:brightness(0.9);
+      padding:2px;
+      width: 305px;
+      height: auto;
+      -moz-background-size: cover;
+      -webkit-background-size: 334px auto;
+      -o-background-size: cover;
+      
+      img[alt="about us Logo"]{
+        height: 26px !important;
+        position: relative;
+        top:0px;
+      }
+      .middleLogo >img{
+        height: 79px !important;
+      }
+      .mobileBackRow {
+          width: 100%;
+          top: 0;
+  
+          .backIcon {
+              color: map-get($AboutUs, close_icon_color);
+          }
+      }
+  
+      .aboutKitabooLogo {
+          color: map-get($AboutUs, close_icon_color);
+          font-size: 54px;
+      }
+  
+      .icon-kitabootextlogo:before {
+          content: $iconTestFont;
+      }
+      .middleLogo {
+          height: 106px;
+          .icon-kitaboo_logo_icon:before {
+              content: $iconLogoFont;
+          }
+      }
+      .version {
+          color: map-get($AboutUs, text_color);
+          font-size: 16px;
+      }
+      .powerByKitaboo {
+          padding: 0px!important;
+          box-sizing: border-box;
+          max-width: 100%;
+          .poweredBy {
+              @include opensansRegular;
+              font-size: 9px;
+              color: map-get($AboutUs, text_color);
+              margin: 0;
+              padding: 0;
+          }
+          .kitaboopowerby {
+              margin: 0;
+              padding: 0;
+          }
+          .powerbyKitabooIcon {
+              font-size: 20px;
+              color: map-get($AboutUs, icons_color);
+              width: auto;
+              height: auto;
+          }
+       }
+    }
+  
+    .md-tooltip {
+      color: rgba(255, 255, 255, 0.87);
+      background-color: rgb(97, 97, 97);
+      margin-right: 60px;
+    }
+    .md-toast-content {
+      text-align: center;
+    }
+
+    .bottomSheet {
+      padding: 0;
+      bottom: 80px;
+
+      .materialIcon {
+        margin: 0;
+        min-height: 0;
+        text-transform: none;
+
+        md-icon {
+          fill: none;
+          color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), side_bottom), icons-color);
+        }
+      }
+    }
+
+    .md-sidenav-left {
+      right: $barWidth;
+      z-index: 9;
+       left: auto;
+       transition: all 2s;
+
+      @if map-get($Reader, clientName)=='wolters' {
+        box-shadow: none;
+      }
+
+      else {
+        box-shadow: 5px 5px 8.1px 0.9px rgba(38, 37, 37, 0.3);
+      }
+    }
+
+    .md-sidenav-right {
+    left: 0;
+    transition: 0.5s !important;
+    direction: rtl;
+    }
+
+    .container-area {
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      outline: none;
+
+      .main-container {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex: 1;
+        background-color: map-get(map-get(map-get($Reader, DayMode), main), canvas_background);
+        position: absolute;
+        height: 100%;
+
+
+        .page-header {
+          // display: flex;
+          // flex-direction: row-reverse;
+          direction: rtl;
+          .kitaboo-logo {
+            padding-left: 7px;
+            margin: 0;
+            box-shadow: none;
+            background-color: inherit;
+            position: relative;
+            right: 25px;
+          }
+
+          .kitaboo-logo-hide {
+            padding-left: 7px;
+            margin: 0;
+            box-shadow: none;
+            background-color: inherit;
+            visibility: hidden
+          }
+
+          .chapterNavigation {
+            margin-right: 0%!important;
+            .chapterName {
+              width: 60%;
+              text-align: center;
+              font-size: 14px;
+              color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), top), Title_text_color);
+              cursor: default;
+              @include opensansRegular;
+            }
+
+            .chapterNameoup {
+              width: 100%;
+              text-align: center;
+              font-size: 14px;
+              color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), top), Title_text_color);
+              cursor: default;
+              @include opensansRegular;
+            }
+
+            md-icon {
+              color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), top), navigation_arrow_color);
+            }
+
+            button[disabled] md-icon {
+              color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), top), navigation_arrow_color);
+              opacity: 0.38;
+              cursor: default;
+            }
+          }
+
+          .chapterNavigationForBigLogo {
+            margin-right: 25%;
+
+            .chapterName {
+              width: 60%;
+              text-align: center;
+              font-size: 14px;
+              color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), top), Title_text_color);
+              cursor: default;
+              @include opensansRegular;
+            }
+
+            md-icon {
+              color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), top), navigation_arrow_color);
+            }
+
+            button[disabled] md-icon {
+              color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), top), navigation_arrow_color);
+              opacity: 0.38;
+              cursor: default;
+            }
+          }
+
+          .profileMenu {
+            margin-right: 8px;
+
+            #profileIcon {
+              bottom: 2px;
+              margin: 0;
+              padding: 0;
+              min-width: 36px;
+              border-radius: 50%;
+              position: relative;
+              left: 7px;
+              .profiePictureIcon {
+                width: 27px;
+                height: 27px;
+                border-radius: 50%;
+                border: solid 1px map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), top), profile_border);
+                background: #d0d0d0;
+              }
+            }
+          }
+        }
+
+        .animate-show,
+        .animate-hide {
+          -webkit-transition: all linear 1s;
+          -moz-transition: all linear 1s;
+          -ms-transition: all linear 1s;
+          -o-transition: all linear 1s;
+          transition: all linear 1s;
+        }
+
+        .animate-show.ng-hide-remove,
+        .animate-hide.ng-hide-add.ng-hide-add-active {
+          opacity: 0;
+          // display: block !important;
+        }
+
+        .animate-hide.ng-hide-add,
+        .animate-show.ng-hide-remove.ng-hide-remove-active {
+          opacity: 1;
+          // display: block !important;
+        }
+
+        .protractor-toolbar {
+          height: 50px;
+          min-height: 50px;
+          background-color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), top), background);
+          box-shadow: 7.2px 5.4px 5.4px 0.6px rgba(142, 142, 142, 0.5);
+          z-index: 9;
+          width: 100%;
+          position: absolute;
+          left: 0;
+        }
+
+        .page-left {
+          right: 0;
+          left: auto;
+
+          .page-icon {
+            height: 40px;
+            width: 40px;
+            line-height: 40px;
+          }
+        }
+
+        .page-bottom {
+          position: fixed;
+          bottom: 0;
+          width: 100%;
+          min-height: $barHeight;
+          height: $barHeight;
+          box-shadow: 0.6px 5.4px 5.4px 7.2px map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), side_bottom), shadow);
+          z-index: 10;
+          background-color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), side_bottom), background);
+        }
+
+        .materialIcon {
+          margin: 0;
+          padding: 0;
+          min-height: 0;
+          min-width: 0;
+          text-transform: none;
+          border-radius: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), side_bottom), border-radius);
+          font-size: 10px;
+          font-weight: 700;
+          md-icon {
+            fill: none;
+            color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), side_bottom), icons-color);
+          }
+        }
+
+        .md-button[disabled] md-icon {
+          opacity: 0.26;
+          cursor: default;
+        }
+
+        .skipContent {
+          position: absolute;
+          left: $barWidth;
+          top: 0;
+          color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), top), Title_text_color);
+          padding: 5px;
+          min-height: 0;
+          text-transform: none;
+          @include opensansRegular;
+          min-width: 110px;
+          box-shadow: 0px 4px 10px 0 rgba(3, 3, 3, 0.5);
+          background-color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), top), background);
+        }
+        .markup {
+          display: none;
+          position: absolute;
+          left: 60px;
+          // bottom: 60px;
+          top: 80%;
+          width: auto;
+          z-index: 999;
+          max-width: 500px;
+          
+          .maincontainer {
+            display: flex;
+
+            .colorPickerSelect {
+              height: 52px;
+              width: 52px;
+
+              md-select-value {
+                min-width: 50px;
+                width: 50px;
+                border: none;
+
+                .md-select-icon {
+                  display: flex;
+                  justify-content: flex-start;
+                  vertical-align: bottom;
+                  align-items: normal;
+                }
+              }
+            }
+
+
+
+            .audio-player {
+              display: flex;
+              align-items: center;
+              background-color: #f1f3f4;
+              width: auto;
+              justify-content: space-evenly;
+              border-radius: 5px 0px 0px 5px;
+              padding: 0 5px 0 5px;
+
+              .audio-button {
+                background: transparent;
+                border: 0px;
+                color: black;
+                user-select: none;
+                outline: none;
+                font-size: 1rem;
+              }
+
+              .audio-time {
+                width: auto;
+                font-size: 12px;
+                text-align: center;
+                // max-width: 120px;
+                padding-right: 8px;
+              }
+            }
+
+            .close-icon {
+              background-color: #3D3D3D;
+              color: #ffffff;
+              width: 40px;
+              border: none;
+              align-items: center;
+              text-align: center;
+              font-size: 1rem;
+              display: inherit;
+              padding: 0;
+            }
+
+            .drag-handler-icon {
+              background-color: #3D3D3D;
+              border-left: 2px solid #1C1C1C;
+              -webkit-border-radius: 0 5px 5px 0;
+              -moz-border-radius: 0 5px 5px 0;
+              border-radius: 0 5px 5px 0;
+              color: #ffffff;
+              width: 40px;
+              align-items: center;
+              text-align: center;
+              font-size: 1rem;
+              display: inherit;
+            }
+          }
+        }
+      }
+    }
+
+    .highlightFilterList {
+      border: 1px solid $mydataFilterBorderColor;
+      border-radius: 5px;
+      background-color: $mydataFilterBackground;
+      height: auto;
+      box-shadow: 0px 4px 10px 0 rgba(3, 3, 3, 0.5);
+      
+      .materialIcon {
+        margin: 0;
+        padding: 0;
+        min-height: 0;
+        min-width: 50px;
+        text-transform: none;
+
+        md-icon {
+          fill: none;
+          margin: auto 10px auto 10px;
+          font-size: 0.9rem;
+          line-height: 24px;
+          color: map-get(map-get(map-get(map-get($Reader, DayMode), MyData), filter_popup), arrow_color);
+          border-color: map-get(map-get(map-get(map-get($Reader, DayMode), MyData), filter_popup), all_box_border-color);
+        }
+      }
+
+      .checkbox {
+        margin-top: 0;
+        margin-bottom: 0;
+        margin-right: 10px;
+        color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), side_bottom), icons-color);
+        border-color: map-get(map-get(map-get(map-get($Reader, DayMode), MyData), filter_popup), all_box_border-color);
+      }
+
+      .shareNoteFilterColor {
+        color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), side_bottom), icons-color);
+        margin-right: 17px;
+      }
+
+      .noteList {
+        padding-bottom: 0;
+
+        .md-no-style {
+          padding-right: 0;
+        }
+      }
+
+      md-checkbox.md-checked .md-icon {
+        background-color: map-get(map-get(map-get(map-get($Reader, DayMode), MyData), selected_button), background);
+      }
+
+      md-checkbox.md-checked .md-ink-ripple {
+        color: rgba(30, 112, 159, 0.87);
+      }
+
+      md-checkbox.md-checked.md-focused .md-container:before {
+        background-color: rgba(30, 112, 159, 0.26);
+      }
+
+      .selectAll {
+        color: map-get(map-get(map-get(map-get($Reader, DayMode), MyData), filter_popup), text-color);
+        font-size: 14px;
+        @include opensansRegular;
+        margin-right: 17px;
+      }
+
+      .colorIcon {
+        line-height: 24px;
+        margin: 0;
+        margin-right: 20px;
+      }
+    }
+
+    .profileMenuContent {
+      border: 1px solid map-get(map-get(map-get($Reader, DayMode), Profile), profile_border);
+    }
+
+    .extraMenu {
+      margin: 0;
+    }
+
+    .extraMenuTeacher {
+      margin: 0;
+    }
+
+    .menuIconList {
+      border: 1px solid map-get(map-get(map-get($Reader, DayMode), Profile), profile_border);
+      bottom: 4px;
+      right: 6px;
+      position: fixed;
+      min-width: 60px;
+    }
+
+    .menuItems {
+      border: 1px solid map-get(map-get(map-get($Reader, DayMode), Profile), profile_border);
+      min-width: 60px;
+
+      .menuButton {
+        padding: 0;
+        min-width: 50px;
+
+        md-icon {
+          margin: auto;
+        }
+      }
+    }
+
+    .md-open-menu-container {
+      md-menu-content {
+        background-color: map-get(map-get(map-get($Reader, DayMode), Profile), popup_background);
+
+        .profileName {
+          color: map-get(map-get(map-get($Reader, DayMode), Profile), text-color) !important;
+          font-size: 16px;
+          @include opensansRegular;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          width: 256px;
+        }
+
+        .signOut {
+          background-color: map-get(map-get(map-get(map-get($Reader, DayMode), Profile), signout), background) !important;
+          color: map-get(map-get(map-get(map-get($Reader, DayMode), Profile), signout), text_color);
+          font-size: 14px;
+          margin-left: 16px;
+          margin-right: 16px;
+          padding: 0;
+          text-align: center;
+          text-transform: none;
+          @include opensansRegular;
+
+          &:focus {
+            outline: 1px dotted;
+            outline: 5px auto -webkit-focus-ring-color;
+          }
+        }
+
+        .signOutButtonMnB {
+          background-color: #ED145B !important;
+          border-radius: 20px;
+          color: #fff;
+          text-transform: uppercase;
+
+          &:focus {
+            outline: none !important;
+          }
+        }
+
+        .signOutButtonWb {
+          padding: 0px 15px 0px 15px;
+
+          .signOutLabel {
+            height: 40px;
+            font-size: 14px;
+            margin: 0;
+            border: 2px solid #407db4;
+            background-color: #ffffff;
+            color: #407db4;
+            text-transform: none;
+          }
+
+
+          .md-button.md-raised:not([disabled]):hover {
+            background-color: #407db4;
+            color: #ffffff;
+          }
+        }
+
+        .signoutLti {
+          background-color: #35abe2 !important;
+          color: map-get(map-get(map-get(map-get($Reader, DayMode), Profile), signout), text_color);
+          font-size: 14px;
+          margin-left: 16px;
+          margin-right: 16px;
+          padding: 0;
+          text-align: center;
+          text-transform: none;
+          @include opensansRegular;
+        }
+
+        .version {
+          font-size: 14px;
+          color: map-get(map-get(map-get($Reader, DayMode), Profile), text-color) !important;
+          @include opensansRegular;
+        }
+      }
+    }
+
+    #deepLinkPopup {
+      width: auto;
+
+      .icon-n_weblink {
+        margin: 0;
+        height: 36px;
+        width: 36px;
+        line-height: 36px;
+        border-radius: 50%;
+        padding: 0;
+        text-align: center;
+        border: 0px solid black;
+        background-color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), side_bottom), icons-color);
+        color: white;
+      }
+
+      .copyContent {
+        .copyLinkInput {
+          width: 400px;
+
+          input {
+            width: inherit;
+            background-color: #f1f3f4;
+            color: map-get(map-get(map-get(map-get($Reader, DayMode), Share), share_settings), text-color);
+            border: none;
+            height: 36px;
+            border-radius: 4px;
+            @include opensansRegular;
+          }
+        }
+
+        .copyLinkButton {
+          color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), side_bottom), icons-color);
+          text-transform: none;
+          @include opensansRegular;
+        }
+
+        .md-button.md-default-theme:not([disabled]).md-focused,
+        .md-button:not([disabled]).md-focused,
+        .md-button.md-default-theme:not([disabled]):hover,
+        .md-button:not([disabled]):hover {
+          background-color: rgba(66, 133, 244, 0.2);
+        }
+      }
+
+      .doneButton {
+        margin: 0;
+        padding: 0;
+        color: white;
+        background-color: map-get(map-get(map-get(map-get(map-get($Reader, DayMode), main), toolbar), side_bottom), icons-color);
+        border-radius: 4px;
+        text-transform: none;
+        @include opensansRegular;
+      }
+    }
+
+    md-dialog {
+      overflow: hidden !important;
+      border-radius: 4px;
+      background-color: rgb(255, 255, 255);
+      color: rgba(0, 0, 0, 0.87);
+    }
+
+    md-toast.md-center {
+      left: 50%;
+      transform: translate3d(-50%, 0, 0);
+
+      .md-toast-text {
+        text-align: center;
+        @include opensansRegular;
+      }
+    }
+
+    md-toast .md-toast-content {
+      background-color: #323232;
+      color: rgb(250, 250, 250);
+    }
+
+    md-checkbox.md-checked .md-icon:after {
+      border-color: rgba(255, 255, 255, 0.87);
+    }
+
+    md-backdrop.md-opaque {
+      background-color: rgba(33, 33, 33, 1.0);
+    }
+
+    md-switch .md-bar {
+      background-color: rgb(158, 158, 158);
+      background-color: rgba(30,112,159,0.5);
+    }
+
+    md-switch .md-thumb {
+      background-color: rgb(250, 250, 250);
+      background-color: #095e8e;
+    }
+
+    md-select-menu md-content {
+      background-color: rgb(255, 255, 255);
+    }
+
+    md-slider .md-track {
+      background-color: #8C8C8C;
+    }
+
+    .md-button[disabled] md-icon {
+      background-color: transparent;
+      color: map-get(map-get(map-get(map-get($Reader, DayMode), Note), action_button_color_disabled), background_HTML);
+      opacity: map-get(map-get(map-get(map-get($Reader, DayMode), Note), action_button_color_disabled), opacity);
+      cursor: default;
+    }
+  }
+
+ 
+
+  #default_next_bttn {
+    right: 50px;
+
+    .next_bttn {
+      color: map-get(map-get(map-get($Reader, DayMode), main), navigation_arrows);
+      line-height: 24px;
+      font-size: 35px;
+    }
+  }
+
+  #default_prev_bttn {
+    position: absolute;
+    top: 50%;
+    left: 9%;
+    background-color: transparent;
+    font-size: 1.5em;
+    display: table-cell;
+    vertical-align: middle;
+    z-index: 1;
+    margin: 0;
+    min-width: 50px;
+
+    .prev_bttn {
+      color: map-get(map-get(map-get($Reader, DayMode), main), navigation_arrows);
+      line-height: 24px;
+      font-size: 35px;
+    }
+  }
+
+
+  .mainContainer {
+    left: 0;
+    right: auto;
+
+    md-content.md-default-theme,
+    md-content {
+      background-color: map-get(map-get(map-get($Reader, DayMode), Profile), popup_background);
+    }
+
+    .profileTop {
+      padding: 15px 15px 5px 15px;
+    }
+
+    md-input-container {
+      width: 60%;
+      margin-left: 6%;
+
+    }
+
+    .profilePics {
+      width: 105px;
+      height: 105px;
+      border-radius: 50%;
+      border: solid 3px map-get(map-get(map-get($Reader, DayMode), Profile), profile_border);
+      overflow: hidden;
+      position: relative;
+      padding: 0;
+
+      .profileImage {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: #d0d0d0;
+      }
+    }
+
+    .userInfo {
+      padding: 0px 15px 0px 0px;
+      height: 105px;
+
+
+      .userName {
+        font-size: 14px;
+        color: map-get(map-get(map-get($Reader, DayMode), Profile), text-color);
+        width: auto;
+        max-width: 150px;
+        display: inline-block;
+        text-transform: capitalize;
+        cursor: default;
+        @include opensansLight;
+      }
+
+      .userID {
+        font-size: 12px;
+        color: rgba(0, 0, 0, 0.70);
+        width: auto;
+        max-width: 150px;
+        cursor: default;
+        @include opensansLight;
+      }
+    }
+
+    .editProfile {
+      margin: 0;
+      opacity: 0.8;
+
+      .editIcon {
+        font-size: 16px;
+        text-align: center;
+        line-height: 24px;
+        color: map-get(map-get(map-get($Reader, DayMode), Profile), text-color);
+      }
+    }
+
+    .changePasswordLabel {
+      font-size: 14px;
+      color: map-get(map-get(map-get($Reader, DayMode), Profile), action_text-color);
+      text-decoration-line: underline;
+      text-decoration: underline;
+      text-align: center;
+      cursor: pointer;
+      @include opensansSemiBold;
+    }
+
+    .worldbookguestname {
+      font-size: 14px;
+      text-align: center;
+      color: #000000;
+      @include opensansSemiBold;
+    }
+
+    .profilePage {
+      font-size: 14px;
+      color: map-get(map-get(map-get($Reader, DayMode), Profile), action_text-color);
+      text-decoration-line: underline;
+      text-decoration: underline;
+      text-align: center;
+      @include opensansSemiBold;
+
+      #changePasswordView {
+        cursor: pointer;
+      }
+    }
+
+    .helpPage {
+      margin-top: 4px;
+      border-radius: 50%;
+      color: #095e8e;
+      border: 1px solid #095e8e;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      line-height: 1;
+
+      md-icon {
+        height: 0px;
+        width: 0px;
+        min-height: 0px;
+        min-width: 0px;
+        line-height: 0;
+      }
+    }
+
+    .icon-help:before {
+      font-size: 16px;
+      color: #095e8e;
+      padding-top: 4px;
+      position: absolute;
+      margin-left: -8px;
+    }
+
+    .commonlinks {
+      font-size: 12px;
+      text-align: center;
+      color: map-get(map-get(map-get($Reader, DayMode), Profile), action_text-color);
+      padding: 0;
+      text-decoration: underline;
+      @include opensansRegular;
+      cursor: pointer;
+    }
+
+    .pipe {
+      color: map-get(map-get(map-get($Reader, DayMode), Bookmark), icon_color);
+    }
+
+    .version {
+      padding: 5px;
+      font-size: 12px;
+      color: map-get(map-get(map-get($Reader, DayMode), Profile), text_color);
+      cursor: default;
+      @include opensansRegular;
+    }
+
+    .signOutButton {
+      padding: 0px 15px 15px 15px;
+
+      .signOutLabel {
+        width: 304px;
+        height: 40px;
+        background-color: map-get(map-get(map-get(map-get($Reader, DayMode), Profile), signout), background);
+        font-size: 14px;
+        color: map-get(map-get(map-get(map-get($Reader, DayMode), Profile), signout), text_color);
+        margin: 0;
+
+        .icon-Sign_out:before {
+          content: "\a7b6";
+        }
+
+        ;
+
+        .signoutIcon {
+          font-size: 12px;
+          color: map-get(map-get(map-get(map-get($Reader, DayMode), Profile), signout), icons_color);
+          line-height: 22px;
+          margin-left: 30%;
+          margin-top: -10%;
+        }
+
+        .signoutIconSpanish {
+          margin-left: 23%;
+          margin-top: -10%;
+        }
+      }
+
+      .md-button:not([disabled]):hover {
+        background-color: map-get(map-get(map-get(map-get($Reader, DayMode), Profile), signout), background);
+      }
+
+      .md-button.md-raised:not([disabled]):hover {
+        background-color: map-get(map-get(map-get(map-get($Reader, DayMode), Profile), signout), background);
+      }
+
+      .md-button.md-raised:not([disabled]).md-focused {
+        background-color: #de0000;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.75);
+      }
+    }
+
+    .signOutButtonWorldbook {
+      padding: 0px 15px 15px 15px;
+
+      .signOutLabel {
+        width: 304px;
+        height: 40px;
+        font-size: 14px;
+        margin: 0;
+        border: 2px solid #407db4;
+        background-color: #ffffff;
+        color: #407db4;
+        text-transform: none;
+
+        .signoutIcon {
+          font-size: 12px;
+          color: #407db4;
+          line-height: 22px;
+        }
+      }
+
+      .md-button:not([disabled]):hover {
+        background-color: #407db4;
+        color: #ffffff;
+
+        .signoutIcon {
+          font-size: 12px;
+          color: #ffffff;
+          line-height: 22px;
+        }
+      }
+
+      .md-button.md-raised:not([disabled]):hover {
+        background-color: #407db4;
+        color: #ffffff;
+
+        .signoutIcon {
+          font-size: 12px;
+          color: #ffffff;
+          line-height: 22px;
+        }
+      }
+
+      .md-button.md-raised:not([disabled]).md-focused {
+        background-color: #407db4;
+        color: #ffffff;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.75);
+
+        .signoutIcon {
+          font-size: 12px;
+          color: #ffffff;
+          line-height: 22px;
+        }
+      }
+    }
+
+
+    .signOutButtonCarnegie {
+      padding: 0px 15px 15px 15px;
+
+      .signOutLabel {
+        width: 304px;
+        height: 40px;
+        background-color: #35abe2;
+        text-transform: initial !important;
+        font-size: 14px;
+        color: map-get(map-get(map-get(map-get($Reader, DayMode), Profile), signout), text_color);
+        margin: 0;
+
+        .signoutIcon {
+          font-size: 12px;
+          color: map-get(map-get(map-get(map-get($Reader, DayMode), Profile), signout), icons_color);
+          line-height: 22px;
+        }
+      }
+
+      .md-button:not([disabled]):hover {
+        background-color: #35abe2;
+      }
+
+      .md-button.md-raised:not([disabled]):hover {
+        background-color: #35abe2;
+      }
+
+      .md-button.md-raised:not([disabled]).md-focused {
+        background-color: #35abe2;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.75);
+      }
+    }
+
+    .createAcoount {
+      padding: 0px 15px 15px 15px;
+
+      .signOutLabel {
+        width: 304px;
+        height: 40px;
+        background-color: #337ab7;
+        font-size: 14px;
+        color: map-get(map-get(map-get(map-get($Reader, DayMode), Profile), signout), text_color);
+        margin: 0;
+      }
+
+      .md-button:not([disabled]):hover {
+        background-color: #337ab7;
+      }
+
+      .md-button.md-raised:not([disabled]):hover {
+        background-color: #337ab7;
+      }
+
+      .md-button.md-raised:not([disabled]).md-focused {
+        background-color: #de0000;
+        box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.75);
+      }
+    }
+
+    .multilanguage {
+      height: auto;
+
+      .languageHeading {
+        margin-left: 8px;
+        margin-bottom: 8px;
+        font-size: 11px;
+        color: map-get(map-get(map-get($Reader, DayMode), Profile), profile_border);
+        @include opensansRegular
+      }
+
+      .multLangView {
+        height: 40px;
+        width: 100%;
+        margin: 0 12px;
+        border-radius: 4px;
+        border: 1px solid #9a9a9a;
+        background-color: map-get(map-get(map-get($Reader, DayMode), Profile), popup_background);
+
+        .md-select-value {
+          border: none;
+          margin-bottom: unset;
+
+          .md-text {
+            padding-right: 12px;
+            font-size: 14px;
+            color: map-get(map-get(map-get($Reader, DayMode), main), navigation_arrows);
+          }
+        }
+
+        .md-select-icon {
+          padding-left: 20px;
+          padding-top: 4px;
+          color: map-get(map-get(map-get($Reader, DayMode), tableofcontents), pageno-color);
+        }
+
+        .md-select-value.md-select-placeholder {
+          font-size: 14px;
+          color: map-get(map-get(map-get($Reader, DayMode), main), navigation_arrows);
+          border: none;
+          font-family: none;
+        }
+      }
+
+      .multLangViewIslamic {
+        .md-select-value {
+          border: none;
+          margin-bottom: unset;
+
+          .md-text {
+            font-family: 'Open Sans';
+          }
+        }
+
+        .md-select-icon {
+          color: map-get(map-get(map-get($Reader, DayMode), tableofcontents), pageno-color);
+          margin: 0 4px;
+          transform: translateY(-2px);
+
+          &:after {
+            right: 0;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+
+  .note_ui {
+    width: 440px;
+    height: 420px;
+    background-color: map-get(map-get(map-get($Reader, DayMode), Note), popup_background);
+    border: 1px solid map-get(map-get(map-get($Reader, DayMode), Note), popup_border);
+
+    .noteui {
+
+      .topbar {
+        // width: 100%;
+        position: absolute;
+
+        .top {
+          direction: rtl;
+
+          .notification-text {
+            font-size: 16px;
+            color: map-get(map-get(map-get($Reader, DayMode), Note), title-color);
+            @include opensansLight;
+            color: #095e8e;
+          }
+
+          .classSelect {
+            height: inherit;
+            width: 50%;
+            padding-right: 20px;
+
+            .inputContainer {
+              margin: 0;
+              height: inherit;
+              width: 100%;
+              margin-left: 20px;
+
+              .md-select-value {
+                border: solid 1px map-get(map-get(map-get(map-get($Reader, DayMode), Share), share_settings), box_border-color);
+                height: 26px;
+                top: 15px;
+                font-size: 14px;
+                color: map-get(map-get(map-get(map-get($Reader, DayMode), Share), share_settings), text-color);
+                @include opensansLight;
+              }
+            }
+          }
+
+          .justnowMobile {
+            font-size: 12px;
+            text-align: right;
+            color: map-get(map-get(map-get($Reader, DayMode), Note), metadata-color);
+            position: absolute;
+            top: 65px;
+            right: 10px;
+          }
+
+          .pick-note-colors {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            line-height: 24px;
+            margin: 4px;
+          }
+
+          .activeNoteColorRadius {
+            border: 1px solid map-get(map-get(map-get($Reader, DayMode), Note), selected_icon_border);
+            border-radius: 50%;
+          }
+
+          .justnow {
+            width: auto;
+            font-size: 12px;
+            color: map-get(map-get(map-get($Reader, DayMode), Note), metadata-color);
+            @include opensansRegular;
+          }
+
+          .delete_button {
+            @include material;
+
+            md-icon {
+              color: map-get(map-get(map-get($Reader, DayMode), Note), back_icon-color);
+            }
+          }
+
+          .icon-prev_page_icon {
+            font-size: 14px;
+            color: map-get(map-get(map-get($Reader, DayMode), Note), back_icon-color);
+          }
+        }
+      }
+
+      .footer {
+        direction: rtl;
+
+        .saveIcon {
+          font-size: 16px;
+          @include material;
+        }
+
+        .shareIcon {
+          font-size: 16px;
+          text-transform: none;
+          margin: 0;
+          padding: 0;
+          min-width: 60px;
+          right: 5px;
+          bottom: 5px;
+        }
+
+        .md-button[disabled] md-icon {
+          cursor: default;
+        }
+
+        .fab-icon {
+          padding: 0;
+          font-size: 16px;
+          text-transform: none;
+
+          md-icon {
+            line-height: 24px;
+            height: 24px;
+            width: 24px;
+          }
+        }
+
+        .commentBox {
+          margin: 0;
+          padding: 0;
+          position: absolute;
+          bottom: -14px;
+          left: 50%;
+          width: 80%;
+          transform: translateX(-55%);
+
+          .md-input {
+            border: solid 1px map-get(map-get(map-get(map-get($Reader, DayMode), Share), share_settings), box_border-color);
+            color: map-get(map-get(map-get(map-get($Reader, DayMode), Share), share_settings), text-color);
+            font-size: 12px;
+            padding-left: 11px;
+            padding-right: 40px;
+            border-radius: 5px;
+            @include opensansLight;
+          }
+
+          .sendarrow {
+            position: absolute;
+            right: 5px;
+            margin: 0;
+            min-width: 30px;
+            min-height: 30px;
+
+            md-icon {
+              color: map-get(map-get(map-get($Reader, DayMode), Note), action_button_color);
+            }
+          }
+
+          .md-button[disabled] {
+            opacity: 0.38;
+          }
+        }
+
+        .footerShare {
+          width: 100%;
+          height: 51px;
+          z-index: 15;
+          background-color: map-get(map-get(map-get(map-get($Reader, DayMode), Share), share_settings), bottom_background);
+
+          .cancelButton {
+            font-size: 14px;
+            color: map-get(map-get(map-get(map-get($Reader, DayMode), Share), share_settings), text-color);
+            @include opensansRegular;
+          }
+
+          .doneButton {
+            font-size: 14px;
+            color: map-get(map-get(map-get(map-get($Reader, DayMode), Share), share_settings), main_action_color);
+            @include opensansRegular;
+          }
+
+          .md-button[disabled] {
+            opacity: 0.38;
+          }
+        }
+      }
+
+      .mobileShared {
+        max-height: 80%;
+        top: 85px;
+      }
+
+      .sharedNote {
+        max-height: 70%;
+      }
+    }
+  }
+
+  .middleNOte {
+    direction: rtl;
+    top: 42px;
+    img {
+      padding-top: 19px;
+      width: 80%;
+      height: 75%;
+      padding-left: 29px;
+    }
+
+    .textareaContainer {
+      margin: 0;
+      padding: 0;
+
+      #addnote {
+        background-color: map-get(map-get(map-get($Reader, DayMode), Note), popup_background);
+        bottom: 67px;
+        top: 0px;
+        min-height: 265px;
+        display: flex;
+        color: map-get(map-get(map-get($Reader, DayMode), Note), description-color);
+        overflow: auto;
+      }
+    }
+
+    .firstComment {
+      width: auto;
+      height: auto;
+      min-width: 60%;
+      max-width: 80%;
+      display: table;
+      border-radius: 5px;
+      margin-right: 15px;
+
+      .userFullName {
+        font-size: 12px;
+        max-width: 50%;
+        @include opensansRegular;
+      }
+
+      .currentUser {
+        color: map-get(map-get(map-get(map-get($Reader, DayMode), Comments), my_message), name_color);
+      }
+
+      .otherUser {
+        color: map-get(map-get(map-get(map-get($Reader, DayMode), Comments), other_message), name_color);
+      }
+
+      .timestamp {
+        color: map-get(map-get(map-get($Reader, DayMode), Note), time_text_color);
+        white-space: pre;
+        font-size: 11px;
+        @include opensansLight;
+      }
+
+      .ugcDataText {
+        color: map-get(map-get(map-get($Reader, DayMode), Comments), description-color);
+        font-size: 12px;
+        padding-left: 8px;
+        @include opensansRegular;
+      }
+    }
+
+    .ugcText {
+      word-break: break-word;
+      color: map-get(map-get(map-get($Reader, DayMode), Note), description-color);
+      font-size: 12px;
+      // padding-left: 8px;
+      @include opensansRegular;
+    }
+
+    .currentUserComment {
+      border: solid 1px map-get(map-get(map-get(map-get($Reader, DayMode), Comments), my_message), border_color);
+      background-color: map-get(map-get(map-get(map-get($Reader, DayMode), Comments), my_message), background);
+      float: right;
+    }
+
+    .userComment {
+      border: solid 1px map-get(map-get(map-get(map-get($Reader, DayMode), Comments), other_message), border_color);
+      background-color: map-get(map-get(map-get(map-get($Reader, DayMode), Comments), other_message), border_color);
+      float: left;
+    }
+
+    .commonNote {
+      resize: none;
+      position: relative;
+      outline: 0;
+      font-size: 14px;
+      border: none;
+      width: 100%;
+      -moz-appearance: textfield;
+      -webkit-appearance: textfield;
+      @include opensansRegular;
+    }
+
+    #addcontextnote {
+      background-color: map-get(map-get(map-get($Reader, DayMode), Note), popup_background);
+      top: 6px;
+      padding-right: 10px;
+      color: map-get(map-get(map-get($Reader, DayMode), Note), description-color);
+      height: 187px;
+      margin-bottom: 10px;
+    }
+
+    .midContainer {
+      width: calc(100% - 20px);
+      height: 75%;
+      overflow: hidden;
+      padding: 0px 6px 0px 14px;
+    }
+
+    .teacher_Student_Checkbox {
+      margin: 0;
+
+      .md-icon {
+        border-color: map-get(map-get(map-get(map-get($Reader, DayMode), Share), share_settings), box_border-color);
+      }
+    }
+
+    .all_Teacher_Student_CheckBox {
+      margin: 0;
+      padding-bottom: 8px;
+
+      .md-icon {
+        border-color: map-get(map-get(map-get(map-get($Reader, DayMode), Share), share_settings), all_box_border-color);
+      }
+    }
+
+    md-checkbox.md-checked.md-focused .md-container:before {
+      opacity: 0.26;
+      background-color: map-get(map-get(map-get(map-get($Reader, DayMode), Share), share_settings), check_color);
+    }
+
+    md-checkbox.md-checked .md-icon {
+      background-color: map-get(map-get(map-get(map-get($Reader, DayMode), Share), share_settings), check_color);
+    }
+
+    md-checkbox.md-checked .md-ink-ripple {
+      color: map-get(map-get(map-get(map-get($Reader, DayMode), Share), share_settings), check_color);
+    }
+
+    md-checkbox[disabled] {
+      opacity: 0.38;
+    }
+
+    .all_Teacher_Student {
+      color: map-get(map-get(map-get(map-get($Reader, DayMode), Share), share_settings), section_title-color);
+      font-size: 14px;
+      @include opensansLight;
+    }
+
+    .instructorName {
+      max-width: 60%;
+      width: auto;
+      color: map-get(map-get(map-get(map-get($Reader, DayMode), Share), share_settings), text-color);
+      font-size: 13px;
+      @include opensansLight;
+    }
+
+    ::placeholder {
+      /* Chrome, Firefox, Opera, Safari 10.1+ */
+      color: map-get(map-get(map-get($Reader, DayMode), Note), hint_text-color);
+    }
+
+    :-ms-input-placeholder {
+      /* Internet Explorer 10-11 */
+      color: map-get(map-get(map-get($Reader, DayMode), Note), hint_text-color);
+    }
+
+    ::-ms-input-placeholder {
+      /* Microsoft Edge */
+      color: map-get(map-get(map-get($Reader, DayMode), Note), hint_text-color);
+    }
+
+    .topHead {
+      height: auto;
+      max-height: 25%;
+
+      .highlightText {
+        font-size: 12px;
+        height: 35px;
+        position: relative;
+        padding-left: 14px;
+        padding-right: 18px;
+        width: 100%;
+        color: map-get(map-get(map-get($Reader, DayMode), Note), contextualtext-color);
+        word-break: break-all;
+        margin-bottom: 8px;
+        @include opensansLightItalic;
+      }
+    }
+
+    .sharingNotAllowed {
+      position: absolute;
+      width: calc(100% - 30px);
+      text-align: center;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 14px;
+      color: map-get(map-get(map-get($Reader, DayMode), Note), description-color);
+    }
+  }
+
+  .tocView {
+    .desktopTOCPanel {
+      right: 50px;
+      left: auto;
+    }
+
+    .mobileTOCPanel {
+      width: 100%;
+      max-width: 100%;
+      left: 0;
+      z-index: 15;
+
+      md-ink-bar {
+        top: 0;
+      }
+
+      md-tabs-wrapper {
+        border-width: 1px 0 0px 0px;
+        position: fixed;
+      }
+
+      md-tabs[md-border-bottom]:not(.md-dynamic-height) md-tabs-content-wrapper {
+        top: 25px;
+      }
+
+      .tocContents md-tabs {
+        height: calc(100% - 48px) !important;
+      }
+
+      .closeTOC {
+        md-icon {
+          line-height: 24px;
+        }
+
+        label {
+          color: $activeTocTiltleColor;
+          margin: 0;
+          font-size: 14px;
+          @include opensansRegular;
+        }
+      }
+    }
+  }
+
+  .thumbnail-panel-container {
+    left: 0;
+
+    #thumbnailContainerDiv {
+      height: 8%;
+      box-shadow: 0px 2px 11.9px 2.1px rgba(0, 0, 0, 0.3);
+      background-color: white;
+    }
+
+    #thumbnailContainerDiv.thumbnailFixedContainer {
+      height: 42px;
+      width: 100%;
+      box-shadow: none;
+      display: flex;
+      flex-flow: row;
+
+      .fixed-thumbnail-footer {
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        min-height: 2%;
+        align-items: center;
+        flex-flow: row;
+        height: 100%;
+      }
+    }
+
+    .thumbnail-panel {
+      direction: rtl;
+
+      .thumbnail_container {
+        overflow: hidden;
+
+        .thumbnail-text-row {
+          background-color: $thumbnailBackgroundColor !important;
+          border: none !important;
+          display: block !important;
+
+          .chapter-title-container {
+            width: max-content;
+            margin: 0 !important;
+            height: 22px;
+            padding-left: 40px;
+          }
+
+          .chapter-title-container label {
+            color: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), title-color);
+            margin: 0;
+            font-size: 14px;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            display: inline-block;
+            white-space: nowrap;
+            position: relative;
+            right: 18px;
+          }
+
+          .img-display-num-container label {
+            z-index: 9;
+            margin-right: 65%;
+            min-width: 26px;
+            width: auto;
+            height: 26px;
+            text-align: center;
+            background: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), default_thumbnail_color);
+            color: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), thumbnail_text-color);
+            border: 1px solid map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), title-color);
+            margin-bottom: -27px;
+            margin-right: -94px;
+            background: #095e8e;
+            border: 1px solid #095e8e;
+          }
+
+          .img-border {
+            border: 2px solid map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), selected_thumbnail_color) !important;
+            width: 116px;
+            padding-bottom: 0;
+          }
+
+          .img-border-notSelected {
+            width: 116px;
+          }
+
+          .img-div img {
+            border: 2px solid map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), default_thumbnail_color);
+            cursor: pointer;
+            width: 116px;
+          }
+        }
+      }
+
+      .input_field {
+        position: absolute;
+        left: 4%;
+        color: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), text-color);
+        border: 1px solid map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), text-color);
+        text-align: center;
+        bottom: 10px;
+        font-size: 14px;
+        width: 8%;
+      }
+
+      .goto-btn {
+        display: none;
+      }
+
+      .history-next {
+        position: relative;
+        right: 47%;
+        text-align: center;
+        color: $thumbnailIconColor;
+        background: transparent;
+        border-style: none;
+        width: auto;
+      }
+
+      .history-next:disabled {
+        color: #D7DCDE;
+        cursor: default;
+      }
+
+      .history-prev {
+        position: absolute;
+        left: 13%;
+        right: unset;
+        color: $thumbnailIconColor;
+        text-align: center;
+        background: transparent;
+        border-style: none;
+        width: auto;
+      }
+
+      .history-prev:disabled {
+        color: #D7DCDE;
+        cursor: default;
+      }
+    }
+
+    .thumbnailSlider {
+      right: 2%;
+      left: auto;
+
+      .rzslider {
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+
+        .rz-pointer {
+          background-color: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), slider-filled-color);
+          width: 15px;
+          height: 15px;
+          top: -6px;
+          margin-left: 12px;
+
+          &::after {
+            display: none;
+          }
+        }
+
+        .rz-bubble.rz-model-value {
+          display: none;
+          margin-bottom: 1.4%;
+          color: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), text-color);
+          font-size: 12px;
+          border: 1px solid map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), text-color);
+          ;
+        }
+
+        .rz-bubble {
+          display: none;
+        }
+
+        .rz-selection {
+          background: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), slider-filled-color);
+        }
+
+        .rz-tick.rz-selected {
+          background: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), slider-filled-color);
+        }
+
+        .rz-bar-wrapper {
+          margin-left: 12px;
+        }
+      }
+    }
+
+    .thumbnailSlider.thumbnailFixedSlider {
+      width: 78%;
+      bottom: 6px;
+      margin-left: 1%;
+      display: flex;
+      position: unset;
+      left: unset;
+      bottom: unset;
+    }
+
+    #input_value_reflow {
+      color: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), text-color);
+      border: none;
+      text-align: center;
+      font-size: 12px;
+      width: 35%;
+      height: 40%;
+    }
+
+    #input_value_reflow:focus {
+      outline: none;
+      border: 1px solid;
+      border-radius: 5px;
+    }
+
+    .history-prev_slider {
+      line-height: 18px;
+      color: $thumbnailIconColor;
+      text-align: center;
+      background: transparent;
+      border-style: none;
+      width: auto;
+    }
+
+    .history-prev_slider:disabled {
+      color: #D7DCDE;
+      cursor: default;
+    }
+
+    .history-next_slider {
+      line-height: 18px;
+      text-align: center;
+      color: $thumbnailIconColor;
+      background: transparent;
+      border-style: none;
+      width: auto;
+    }
+
+    .history-next_slider:disabled {
+      color: #D7DCDE;
+      cursor: default;
+    }
+
+    #mySlider {
+      top: 10px;
+    }
+  }
+
+  #zoom {
+    position: relative;
+    overflow: inherit !important;
+    
+    .rzslider.rz-vertical .rz-bar{
+      left: 15px!important;
+    }
+
+    #zoomDiv {
+       right: -5px;
+       left: auto;
+    }
+
+    .rzslider {
+      height: 65%;
+      top: 10%;
+      bottom: 2%;
+      position: fixed;
+
+      .rz-pointer {
+        background-color: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), slider-filled-color);
+        width: 20px;
+        height: 20px;
+        left: -9px !important;
+
+        &::after {
+          display: none;
+        }
+      }
+
+      .rz-bubble {
+        display: none;
+      }
+
+      .rz-selection {
+        background: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), slider-filled-color);
+      }
+
+      .rz-tick.rz-selected {
+        background: map-get(map-get(map-get($Reader, DayMode), Thumbnail_Slider), slider-filled-color);
+      }
+    }
+  }
+
+  .epub-viewer {
+    right: $barWidth;
+    left: auto;
+  }
+
+  #contextmenu {
+    direction: rtl;
+    border: none !important;
+  }
+
+  .closePanel {
+    left: 0;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+
+    .closePanelArrow {
+      left: 0;
+    }
+  }
+  .md-panel-inner-wrapper {
+    direction: rtl;
+  }
+  .md-select-value>span:not(.md-select-icon) .md-text {
+    margin-right: 7px;
+  }
+  .fontSize{
+     margin-right:12px !important;
+  }
+  .fontSize {
+    margin-left:4px !important;
+  }
+  .md-truncate {
+    margin-right:2px;
+  }
+  #penPanel .pen-thickness .rzslider {
+    margin-right:17px !important;
+  }
+  #penPanel .pen-thickness .rzslider .rz-pointer {
+    left:-8px !important
+  }
+  #reflowSet .fontSelectView .md-select-value .md-select-icon {
+    left:-8px;
+  }
+  
+  #sharenotesIcon{
+    position: relative;
+    left: -37px;
+    }
+    #tocitems .tocContents md-tabs .resourceList .resourceSubdata .childResourceIcon {
+      position: relative;
+      left: -4px;
+      width: 15%;
+      margin-left: 22px;
+    }
+    #tocitems .tocContents md-tabs .contentList .alignList {
+      text-align: right;
+    }
+    #tocitems .tocContents md-tabs .contentList .contentBtn {
+      position: absolute !important;
+      left: 0px !important;
+      right: auto !important;
+  }
+  #tocitems .tocContents md-tabs .contentList .subChapter {
+    margin-right: -47px;
+  }
+  #tocitems .tocContents md-tabs .contentList .subChapter {
+    margin-right: 31px !important;
+  }
+#tocitems .tocContents md-tabs .contentList .borderLeft {
+  border-right: 5px solid #0071BC;
+  border-left: none !important;
+
+  }
+  .layout-align-end-center .layout-row{
+  direction: rtl;
+  }
+ #zoom .rzslider .rz-pointer {
+  margin-right:-6px;
+  }
+  #resetZoom {
+    font-size: 9px;
+  }
+  .reset-btn-disabled {
+    left: inherit !important;
+    right: 3px !important;
+   font-size: 9px !important
+  }
+  #fullScreenIcon{
+     left:14px;
+  }
+  .next_bttn::before {
+    content: "G" !important;
+    font-family: 'kitabooread';
+}
+.prev_bttn::before {
+  content: "H" !important;
+  font-family: 'kitabooread';
+}
+  #default_next_bttn {
+    right: 93%;
+    left: -7px;
+  }
+  #default_prev_bttn {
+    left: 93%;
+  }
+  .closePanel {
+    right: 310px;
+    direction: ltr;
+  }
+  .icon-panel_close_arrow::before {
+    content: "\1eb7" !important;
+    position: relative;
+    left: -3px;
+    font-size: 12px;
+}
+button[aria-label="Add Note"]{
+  transform: scale(-1, 0.9);
+    position: relative;
+    left: 49px;
+}
+#searchpanel .content .searchContainer .search-icon {
+  left: 291px;
+}
+#searchpanel .content .searchContainer .clearResult {
+  position: absolute;
+  right: 288px;
+  display: none!important;
+}
+#searchpanel .content .searchContainer .clearResult .icon-AR_close {
+    font-size: 8px;
+    color: #fff;
+    background: #095e8e;
+    border-radius: 59%;
+}
+.note_ui .noteui .topbar .top {
+   border-bottom: 2px solid #ffc000;
+   border-right: 16px solid #ffc000;
+   border-left: none !important;
+   height: 55px;
+}
+#penPanel {
+  border: 1px solid #095e8e;
+}
+.note_ui .noteui .topbar .top .delete_button md-icon {
+  color: map-get(map-get(map-get($Reader, DayMode), Note), back_icon-color);
+  font-size: 14px;
+}
+.eraser-icon::before {
+  content: '$';
+  display: block;
+  transform: scale(-0.9, 0.89);
+}
+#penPanel .penButton .penButtonIcon {
+  direction: ltr;
+}
+#penPanel .penButton .penButtonIcons {
+      color:#095e8e !important;
+    }
+    #searchpanel .content .searchContainer .searchInput {
+      direction: rtl;
+      padding-left: 35px;
+      padding-right: 66px;
+    }
+    md-tabs-wrapper.md-stretch-tabs md-pagination-wrapper {
+      direction: rtl;
+      transform: unset!important;
+    }
+    #mydatapanel .mydataTabs .tabs {
+      direction: rtl;
+    }
+    md-toolbar._md-toolbar-transitions{
+      direction: rtl;
+      width: 102%;
+    }
+    md-dialog.md-transition-in {
+      direction: rtl;
+
+    }
+    .full-screen-icon::before {
+      content: "\0027F";
+      display: inline-block;
+      transform: rotate(90deg);
+  }
+   
+    .note_ui {
+      width: 440px !important;
+      height: 420px !important;
+      background-color: #fff;
+      border:none;
+  }
+  .readAloud .readAloudOption .readAloudButton md-icon {
+    font-size: 22px !important;
+}
+.open_book_icon::before {
+  position: relative;
+  left: 1px;
+}
+    .readAloud .readAloudOption .readAloudButton {
+      height: 50px;
+      width: 50px;
+    }
+    md-list-item._md-button-wrap>div.md-button:first-child {
+      padding: 0 0px !important;
+      text-align: right !important;
+    }
+    .md-list-item-inner .colorTypes{
+      margin-right: -14px !important;
+      display: inline-block;
+      transform: scaleX(-1);
+    }
+    .container-area .main-container .help-screen .actionButton{
+      right: auto !important;
+    }
+    .container-area .main-container .help-screen .materialIcon.left:after{
+      right: 118px;
+    }
+    .container-area .main-container .help-screen .materialIcon.left .caption{
+      right: 245px;
+      text-align: right;
+    }
+    .container-area .main-container .help-screen #myDataButton .caption.ng-scope {
+      margin-right: 49px;
+    }
+    .container-area .main-container .help-screen #penButton .caption.ng-scope {
+      margin-right: 20px;
+    }
+    .container-area .main-container .help-screen #stickyNoteButton .caption.ng-scope {
+      margin-right: 40px;
+    }
+    .container-area .main-container .help-screen #highlight .caption.ng-scope {
+      margin-right: 146px;
+    }
+    .container-area .main-container .help-screen #fitWidthHeight .caption.ng-scope {
+      margin-right: 45px;
+    }
+    .container-area .main-container .help-screen #modeToggleButton .caption.ng-scope {
+      margin-right: 90px;
+    }
+    .container-area .main-container .help-screen #thumbnailButton .caption.ng-scope {
+      margin-right: 34px;
+    }
+    .container-area .main-container .help-screen .materialIcon.left:before{
+      left: -189%;
+    }
+    .container-area .main-container .help-screen .materialIcon.cloud-upload:after {
+      left: 25px;
+    }
+    .container-area .main-container .help-screen .materialIcon.full-screen:after {
+      left: 25px;
+    }
+    .container-area .main-container .help-screen .materialIcon.cloud-upload .caption {
+      right: -86px;
+    }
+    .container-area .main-container .help-screen .materialIcon.profile-menu-btn .caption {
+      right: -153px;
+    }
+    .container-area .main-container .help-screen #default_next_bttn:before {
+      margin-right: -106px;
+    }
+    .container-area .main-container .help-screen .materialIcon.full-screen .caption {
+      right: -57px;
+    }
+    .container-area .main-container .help-screen #default_next_bttn .caption {
+      margin-left: 382px;
+    }
+    .container-area .main-container .help-screen #default_next_bttn:after {
+      left: 128px;
+    }
+    .container-area .main-container .help-screen #default_prev_bttn:before {
+      margin-left: -94px;
+    }
+    .container-area .main-container .help-screen #default_prev_bttn:after {
+      margin-right: 190px;
+    }
+    .container-area .main-container .help-screen #default_prev_bttn .caption {
+      margin-left: -322px;
+    }    
+    .container-area .main-container .help-screen #helpscreen-iframe #helpscreen-bookmark .caption {
+      left: 33px;
+    }
+    .container-area .main-container .help-screen .materialIcon.reflow-print-btn .caption {
+      right: unset;
+      left: 36px;
+    }
+    #tocitems .tocContents md-tabs .bookmarkList .bookmarkIcon {
+      position: relative;
+      right: -5px;
+    }
+    #tocitems .tocContents md-tabs .bookmarkList .bookmarkText {
+      padding-right: 24px;
+    }
+    .readAloud h2 {
+      font-size: 13px !important;
+      position: relative;
+      top:-4px
+    }
+    .md-toolbar-tools>.md-button:last-child {
+      position: relative;
+      left: -8px;
+      top: -10px;
+    }
+    .readAloud .close-icon {
+      font-size: 13px;
+    }
+    .file-icon::before {
+      color:#333333;
+    }
+    .share-icon::before {
+      color: #333333;
+    }
+    .notecolor {
+      position: relative;
+      left: 7px;
+    }
+    md-list-item._md-button-wrap>div.md-button:first-child .md-list-item-inner {
+      width: 95%;
+    }
+    .md-secondary-container .md-button:last-of-type, md-list-item .md-secondary-container .md-icon-button:last-of-type {
+      margin-right: 125px;
+      position: relative;
+      left: -18px;
+    }
+    .image::before {
+      content: "k";
+      position: relative;
+    }
+    .audio::before {
+      content: "i"!important;
+      position: relative;
+  }
+  .video::before, .video::before {
+    content: 'j' !important;
+    position: relative;
+}
+    #tocitems .tocContents md-tabs .bookmarkList {
+      direction: rtl;
+    }
+    #tocitems .tocContents md-tabs .resourceList {
+      direction: rtl;
+    }
+    #mydatapanel .mydataTabs .noteHighlightSection .noteHighlightList {
+      direction: rtl;
+    }
+    #tocitems .tocContents md-tabs .resourceList .resourceLabel {
+      width: 80%;
+    }
+    #mydatapanel .mydataTabs .noteHighlightSection .noteHighlightList md-icon {
+      margin-left: 32px;
+    }
+    .container-area .main-container .help-screen .materialIcon.clearAll:after{
+      left: 24px;
+     }
+    #reflowSet .resetReaderSetting:hover{
+      background:none;
+    }
+    #reflowSet .alignment{
+      margin: 0px 0px 0px 16px;
+  }
+      #reflowSet .fontSelectView {
+        .mat-select-underline {
+          color: 2px solid black;
+        }
+      }
+    #reflowSet #switchdataText {
+      padding: 0;
+    }
+    #reflowSet {
+      overflow: hidden;
+    }
+    #reflowSet .changeViewSwitch {
+      left: unset;
+      padding-right: unset;
+    }
+
+     /*font setting */
+     .container-area .main-container .help-screen .materialIcon.clearAll .caption{
+      right: -38px;
+     }
+     .audioPanel .dragAudio {
+      position: relative;
+      left: 92%;
+     }
+     .audioPanel .closeAudio {
+      position: relative;
+      right: 92%;
+     }
+     .imgPanel.reflowImgPanel {
+      max-width: 100%;
+      max-height: 100%;
+      height: 100%;
+      width: 100%;
+  }
+  .imageSlideShow .imageSlideShowContainer md-tabs-content-wrapper {
+    height: 90%;
+  }
+  md-tabs[md-align-tabs=bottom] md-tabs-content-wrapper {
+    top: 0;
+    bottom: 48px;
+}
+.thumbnail-panel-container {
+  width: 100%;
+  max-width: calc(100% - 50px);
+  height: auto;
+}
+ md-sidenav.md-closed {
+   transform: translate3d(100%,0,0) !important;
+   transition: 0.4s;
+}
+.thumbnail-panel-container .thumbnail-panel .input_field {
+  top: 200px
+}
+.thumbnail-panel-container .thumbnailSlider {
+  bottom: -4px;  
+} 
+.thumbnail-panel-container .thumbnail-panel .thumbnail_container .thumbnail-text-row .img-display-num-container label {
+  height: 25px;
+  font-size: 12px;
+  margin-right: -94px;
+}
+.bookmark-popup .flex-container .bookmark-label-container {
+  direction: rtl;
+  }
+  .bookmark-popup .bookmark-add-save-button {
+    right: 163px;
+  }
+  .bookmark-popup .flex-container .character-limit {
+    right: 183px;
+}  
+
+}
